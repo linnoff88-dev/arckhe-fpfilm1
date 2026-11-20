@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.2 — Gerador de Imagens | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37, 99, 235, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a>
+      <span>/</span>
+      <span class="text-blue-400">Módulo 2.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎨 Gerador de Imagens</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Domine todos os modelos disponíveis em Abril 2026, parâmetros de controle, referências de estilo e personagem, e o guia de decisão para escolher o modelo certo para cada cena.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Iniciante</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- IMAGEM DESTAQUE -->
+    <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+      <img src="../img/l1/photo_5089376971652795492_w.jpg" alt="Image Generator Node com painel de configuração completo" class="w-full object-cover">
+      <p class="text-xs text-neutral-500 p-3 bg-dark-800">Image Generator Node no Spaces — painel completo: modelo Google Nano Banana, References (Style/Character), Prompt, aspect ratio 16:9, resolução 2K</p>
+    </div>
+    <div class="grid grid-cols-2 gap-4 mb-10">
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l1/photo_5089376971652795490_y.jpg" alt="Text Node com prompt da cena" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Text Node com prompt elaborado — alimentando o Image Generator</p>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l1/photo_5089376971652795495_y.jpg" alt="Resultado gerado pelo Image Generator" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Resultado final gerado — qualidade cinematográfica 2K</p>
+      </div>
+    </div>
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🎨 Modelos Disponíveis em Abril 2026</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Em Abril de 2026, o Freepik oferece acesso a <strong class="text-blue-400">8+ modelos de geração de imagem</strong>, cada um com características distintas. Escolher o modelo correto é a decisão mais importante antes de qualquer geração.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-bold text-blue-400 mb-2">Mystic 2.5</h4>
+          <p class="text-sm text-neutral-300 mb-2">Especialista em retratos fotorrealistas e rostos humanos detalhados.</p>
+          <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Melhor para: personagens</span>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-bold text-blue-400 mb-2">Flux 2 Pro / Max</h4>
+          <p class="text-sm text-neutral-300 mb-2">Qualidade máxima geral. O modelo mais versátil para cenas cinematográficas.</p>
+          <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Melhor para: qualidade geral</span>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-bold text-blue-400 mb-2">Google Imagen 4</h4>
+          <p class="text-sm text-neutral-300 mb-2">Cenas cinematográficas com iluminação natural e composição realista.</p>
+          <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Melhor para: cenas externas</span>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-bold text-blue-400 mb-2">Nano Banana Pro</h4>
+          <p class="text-sm text-neutral-300 mb-2">Consistência excepcional de personagem. Ideal para pipelines com Character Reference.</p>
+          <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Melhor para: consistência</span>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-bold text-blue-400 mb-2">Seedream 4.5</h4>
+          <p class="text-sm text-neutral-300 mb-2">Estilo artístico e anime. Ótimo para produções com estética não-realista.</p>
+          <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Melhor para: estilo artístico</span>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-bold text-blue-400 mb-2">Ideogram</h4>
+          <p class="text-sm text-neutral-300 mb-2">O único modelo que renderiza texto legível em imagens com consistência.</p>
+          <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Melhor para: texto em imagem</span>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regra de Ouro</h3>
+        <p class="text-neutral-300">Para filmes: use <strong>Nano Banana Pro</strong> quando personagens precisam aparecer em múltiplas cenas (consistência máxima), <strong>Flux 2 Max</strong> para cenas sem personagem principal (paisagens, cenários), e <strong>Mystic 2.5</strong> para close-ups de rosto que serão frame de Lip Sync.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">⚙️ Parâmetros Essenciais</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Os <strong class="text-blue-400">parâmetros de saída</strong> definem o formato, a resolução e a quantidade de variações geradas. Configurá-los corretamente antes de gerar evita retrabalho de recorte e perda de qualidade.</p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📐 Aspect Ratio por Destino</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-4 bg-dark-800/50 rounded-lg p-3">
+            <span class="text-2xl">🎬</span>
+            <div><span class="font-medium">16:9</span><span class="text-neutral-400 text-sm ml-2">— Cinema widescreen, YouTube, TV. Use para a maioria das cenas de filme.</span></div>
+          </div>
+          <div class="flex items-center space-x-4 bg-dark-800/50 rounded-lg p-3">
+            <span class="text-2xl">📱</span>
+            <div><span class="font-medium">9:16</span><span class="text-neutral-400 text-sm ml-2">— Reels, TikTok, Shorts. Use para versões verticais do filme.</span></div>
+          </div>
+          <div class="flex items-center space-x-4 bg-dark-800/50 rounded-lg p-3">
+            <span class="text-2xl">⬛</span>
+            <div><span class="font-medium">1:1</span><span class="text-neutral-400 text-sm ml-2">— Instagram Feed, thumbnails. Use para material de divulgação.</span></div>
+          </div>
+          <div class="flex items-center space-x-4 bg-dark-800/50 rounded-lg p-3">
+            <span class="text-2xl">🖼️</span>
+            <div><span class="font-medium">4:3 / 2.35:1</span><span class="text-neutral-400 text-sm ml-2">— Formatos cinemascope e clássico para estética de filme.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔍 Resolução Recomendada</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>HD (1280x720)</strong> — Rascunhos e aprovações rápidas. Economiza créditos.</li>
+          <li><strong>2K (2048x1152)</strong> — Produção padrão para web. Melhor equilíbrio qualidade/crédito.</li>
+          <li><strong>4K (3840x2160)</strong> — Produção premium ou frames que serão upscalados depois. Custa mais créditos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🖊️ Editor de Prompts</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-blue-400">editor de prompts integrado</strong> expande e enriquece prompts simples automaticamente, adicionando descritores técnicos que os modelos entendem melhor — sem exigir que você seja um especialista em prompt engineering.</p>
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795490_y.jpg" alt="Text Node com prompt elaborado" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Text Node com prompt elaborado — o editor expandiu um prompt simples adicionando descritores de iluminação, composição e estilo</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-neutral-400 mb-3 text-sm">PROMPT SIMPLES (antes)</h4>
+          <p class="text-neutral-300 font-mono text-sm bg-dark-700 rounded-lg p-3">"homem correndo na chuva, cidade à noite"</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-blue-500/30 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3 text-sm">PROMPT EXPANDIDO (depois)</h4>
+          <p class="text-neutral-300 font-mono text-sm bg-dark-700 rounded-lg p-3">"cinematic shot of a man running through heavy rain on a neon-lit urban street at night, dramatic side lighting, wet pavement reflections, shallow depth of field, anamorphic lens flares, photorealistic, 8K"</p>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3"><span class="mr-2">💡</span> Como Usar</h3>
+        <p class="text-neutral-300">Escreva sua ideia de forma simples → clique em "Enhance Prompt" → revise o prompt expandido → ajuste se necessário → gere. <strong>Sempre leia o prompt expandido</strong> antes de gerar para garantir que a intenção original foi preservada.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📸 References: Style e Character</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O sistema de <strong class="text-blue-400">referências visuais</strong> é o recurso mais poderoso para garantir consistência visual em um filme. Existem dois tipos: Style Reference (estética) e Character Reference (identidade do personagem).</p>
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795493_y.jpg" alt="Nó de referência no Spaces" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Node de referência configurado no Spaces — Style e Character Reference conectados ao Image Generator</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+          <h3 class="text-lg font-semibold text-blue-400 mb-4">🎨 Style Reference</h3>
+          <p class="text-neutral-300 text-sm mb-3">Faz o modelo replicar a estética de uma imagem de referência: paleta de cores, tom de iluminação, textura e estilo visual.</p>
+          <p class="text-neutral-400 text-sm"><strong>Uso:</strong> cole qualquer imagem com a estética desejada. O modelo vai "entender" o estilo e aplicá-lo à cena gerada.</p>
+          <p class="text-neutral-400 text-sm mt-2"><strong>Slider:</strong> 0.3 = influência sutil, 0.7 = influência forte, 1.0 = cópia quase literal.</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+          <h3 class="text-lg font-semibold text-blue-400 mb-4">👤 Character Reference</h3>
+          <p class="text-neutral-300 text-sm mb-3">Preserva a identidade de um personagem específico — rosto, traços, estrutura — em qualquer cena descrita no prompt.</p>
+          <p class="text-neutral-400 text-sm"><strong>Uso:</strong> selecione a imagem do personagem (ou o LoRA treinado) como referência. O personagem aparecerá na cena gerada.</p>
+          <p class="text-neutral-400 text-sm mt-2"><strong>Combinar:</strong> use Style + Character juntos para máxima consistência visual.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🔄 Variations</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Gerar <strong class="text-blue-400">múltiplas variações</strong> do mesmo prompt com seeds diferentes é a estratégia mais eficiente para encontrar a melhor composição sem precisar reescrever o prompt.</p>
+      <div class="grid grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l1/photo_5089376971652795496_y.jpg" alt="Variação 1 gerada" class="w-full object-cover">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Variação A — composição frontal</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l1/photo_5089376971652795497_y.jpg" alt="Variação 2 gerada" class="w-full object-cover">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Variação B — composição lateral</p>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔄 Fluxo com Variations</h3>
+        <ol class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">1.</span><span>Configure o prompt e os parâmetros desejados</span></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">2.</span><span>Defina quantidade: 4 variações por geração</span></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">3.</span><span>Avalie as 4 variações side-by-side</span></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">4.</span><span>Selecione a melhor e salve o seed</span></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">5.</span><span>Use o seed fixo para gerar variações refinadas da cena escolhida</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🏆 Quando Usar Qual Modelo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A <strong class="text-blue-400">escolha do modelo</strong> é a variável de maior impacto no resultado final. Este guia de decisão rápida cobre os cenários mais comuns na produção de filmes com IA.</p>
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795498_w.jpg" alt="Pipeline completo com múltiplos nodes" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Pipeline completo no Spaces — diferentes modelos usados em paralelo para diferentes tipos de cena</p>
+      </div>
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl">🎭</span>
+            <h4 class="font-bold">Cena com personagem principal em close-up</h4>
+          </div>
+          <p class="text-sm text-neutral-400">Use: <strong class="text-blue-400">Mystic 2.5</strong> com Character Reference. Melhor preservação de detalhes faciais para Lip Sync posterior.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl">🌆</span>
+            <h4 class="font-bold">Cena de ambiente / cenário sem personagem</h4>
+          </div>
+          <p class="text-sm text-neutral-400">Use: <strong class="text-blue-400">Flux 2 Max</strong> ou <strong class="text-blue-400">Google Imagen 4</strong>. Máxima qualidade de detalhes de ambiente.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl">🔁</span>
+            <h4 class="font-bold">Personagem em 20+ cenas diferentes</h4>
+          </div>
+          <p class="text-sm text-neutral-400">Use: <strong class="text-blue-400">Nano Banana Pro</strong> com LoRA treinado. Consistência máxima entre cenas é o ponto forte deste modelo.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl">🎌</span>
+            <h4 class="font-bold">Estética animada ou artística</h4>
+          </div>
+          <p class="text-sm text-neutral-400">Use: <strong class="text-blue-400">Seedream 4.5</strong>. Estilo artístico e anime com qualidade consistente.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl">📝</span>
+            <h4 class="font-bold">Imagem que precisa incluir texto legível</h4>
+          </div>
+          <p class="text-sm text-neutral-400">Use: <strong class="text-blue-400">Ideogram</strong>. Único modelo que renderiza texto com consistência — placas, letreiros, títulos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 2.2</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">8+ Modelos</strong><span class="text-neutral-400"> — Mystic, Flux, Imagen, Nano Banana, Seedream, Ideogram: cada um tem um ponto forte</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Parâmetros</strong><span class="text-neutral-400"> — 16:9 para cinema, 2K para web, 4 variações para escolher a melhor</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Editor de Prompts</strong><span class="text-neutral-400"> — expande automaticamente sem perder a intenção original</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">References</strong><span class="text-neutral-400"> — Style para estética, Character para identidade do personagem</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Variations</strong><span class="text-neutral-400"> — gerar 4 por vez, salvar seed da melhor, refinar a partir dela</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Guia de Modelos</strong><span class="text-neutral-400"> — modelo certo = resultado 2x melhor com mesmos créditos</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.3 — Gerador de Vídeo: Kling, Veo, Runway, Sora e prompts cinematográficos</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-2-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.1</a>
+          <a href="modulo-2-3.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo: Gerador de Vídeo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — Abril 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

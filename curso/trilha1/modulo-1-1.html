@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.1 — O que é um Filme | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5, 150, 105, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1 — Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎬 O que é um Filme</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A diferença fundamental entre registrar e narrar — por que a intenção separa um vídeo de uma obra cinematográfica, e como isso muda tudo no seu processo com IA.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Base</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Teoria</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🎬 Vídeo vs Cinema</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Todo mundo já filmou algo com o celular. Mas <strong class="text-emerald-400">filmar</strong> e <strong class="text-emerald-400">fazer cinema</strong> são atos completamente diferentes — não pela câmera usada, mas pela intenção que está por trás de cada decisão visual.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center">
+          <span class="mr-2">🎯</span> A Distinção Fundamental
+        </h3>
+        <p class="text-neutral-300 mb-4">Vídeo registra o que acontece. Cinema conta o que deve ser sentido. Essa frase simples muda tudo. Quando você aponta uma câmera para um pôr do sol, você está registrando. Quando Terrence Malick enquadra um pôr do sol com câmera lenta e música de Debussy enquanto um personagem olha para o horizonte depois de uma perda — ele está contando uma história sobre finitude, saudade e beleza efêmera.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-emerald-400 mt-1">•</span>
+            <span><strong>Vídeo:</strong> O que acontece diante da câmera é o suficiente</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-emerald-400 mt-1">•</span>
+            <span><strong>Cinema:</strong> Cada elemento do frame é uma decisão de direção</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-emerald-400 mt-1">•</span>
+            <span><strong>IA Cinema:</strong> Cada palavra do prompt é uma instrução de direção</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- GALERIA DE IMAGENS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Câmera cinematográfica profissional" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Câmera cinematográfica: cada ajuste é uma decisão narrativa intencional</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795469_w.jpg" alt="Video Generator com storyboard" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">O Video Generator do Freepik organiza o storyboard como um diretor organizaria suas cenas</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Prática para IA
+        </h3>
+        <p class="text-neutral-300">Antes de escrever qualquer prompt, pergunte-se: "O que o espectador deve <em>sentir</em> nesta cena?" Escreva a emoção primeiro. Depois descreva a cena. Isso muda radicalmente a qualidade do resultado.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Prompt Cinematográfico</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"A lonely figure walks through an empty city at dawn, feeling the weight of a decision" — <em>emoção + contexto + conflito</em></span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Define quem, onde, e o que está em jogo antes de descrever a câmera</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cada palavra serve à intenção narrativa</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Prompt de Vídeo</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Uma pessoa andando em uma rua" — <em>descrição sem intenção</em></span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Nenhuma emoção definida, nenhum conflito, nenhum ponto de vista</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Resultado: bonito talvez, mas cinematograficamente vazio</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🧩 Os 3 Elementos de Toda Cena</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Toda cena cinematográfica — desde os primeiros filmes dos irmãos Lumière até os blockbusters de hoje — é construída sobre três pilares fundamentais. Sem os três, a cena não funciona como cinema. Com os três, qualquer cena tem potencial narrativo.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">👤</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Personagem — O QUEM</h4>
+            <p class="text-sm text-neutral-400 mb-3">O foco de toda atenção emocional</p>
+            <p class="text-neutral-300 text-sm">Não precisa ser humano — pode ser um carro, uma luz, um animal. O que importa é que o espectador tenha algo para acompanhar emocionalmente. Sem personagem, não há empatia. Sem empatia, não há cinema.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">🌍</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Ambiente — O ONDE</h4>
+            <p class="text-sm text-neutral-400 mb-3">O contexto que define as possibilidades e limitações</p>
+            <p class="text-neutral-300 text-sm">O ambiente não é apenas cenário — ele comunica o estado emocional da cena. Uma floresta densa e fechada cria claustrofobia. Uma praia aberta ao horizonte cria possibilidade e liberdade. O ambiente é personagem também.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">⚡</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Conflito — O O QUÊ</h4>
+            <p class="text-sm text-neutral-400 mb-3">A tensão que justifica a existência da cena</p>
+            <p class="text-neutral-300 text-sm">Conflito não precisa ser uma briga. É qualquer tensão — entre o personagem e o ambiente, entre desejo e realidade, entre passado e presente. Sem conflito, a cena é um cartão postal. Com conflito, é drama.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l3/photo_5089376971652795467_y.jpg" alt="Resultado visual cinematográfico" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Cena gerada com os 3 elementos claros: personagem (foco), ambiente (define contexto), conflito (tensão visual implícita)</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📋</span> Exercício: Triangulação de Cena
+        </h3>
+        <p class="text-neutral-300 mb-3">Antes de escrever o próximo prompt, preencha mentalmente esta fórmula:</p>
+        <p class="text-neutral-300 font-mono text-sm bg-dark-700 rounded-lg p-3">[PERSONAGEM] está em [AMBIENTE] e enfrenta [CONFLITO]</p>
+        <p class="text-neutral-400 text-sm mt-3">Exemplo: "Uma cientista está em um laboratório abandonado e enfrenta a descoberta de que seu experimento foi sabotado."</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">👁️ Como o Espectador Lê Imagens</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O cérebro humano não olha para uma imagem de forma aleatória. Existe uma <strong class="text-emerald-400">hierarquia de atenção visual</strong> previsível e universal. Entender esse mecanismo é entender como guiar o espectador exatamente para onde você quer.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">👁️ A Hierarquia do Olhar</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Rostos e olhos</strong> — O cérebro está programado para detectar rostos automaticamente, mesmo antes de qualquer decisão consciente.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Movimento</strong> — Qualquer elemento em movimento numa cena estática captura atenção imediata.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Contraste de brilho</strong> — O elemento mais brilhante do frame atrai o olhar naturalmente.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center justify-center flex-shrink-0">4º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Contraste de cor</strong> — Uma cor saturada num ambiente dessaturado domina a atenção.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center justify-center flex-shrink-0">5º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-emerald-400">Linhas guia</strong> — Linhas no ambiente (estradas, trilhos, perspectiva) conduzem o olho ao destino desejado.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica de Prompt para Hierarquia Visual
+        </h3>
+        <p class="text-neutral-300 mb-3">Para garantir foco no elemento principal, use:</p>
+        <ul class="space-y-1 text-neutral-300 text-sm">
+          <li>• <code class="text-emerald-400">"subject sharply in focus, background blurred"</code> — foco seletivo</li>
+          <li>• <code class="text-emerald-400">"single bright light illuminating the face in darkness"</code> — contraste de brilho</li>
+          <li>• <code class="text-emerald-400">"a red coat in a gray, desaturated city"</code> — contraste de cor</li>
+          <li>• <code class="text-emerald-400">"leading lines converging toward the figure in distance"</code> — linhas guia</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🎭 Tipos de Narrativa</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de gerar a primeira cena, você precisa saber <strong class="text-emerald-400">qual tipo de narrativa</strong> seu filme vai usar. Isso define a lógica de montagem, a ordem dos clips e como as cenas se relacionam entre si.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">📖</div>
+          <h4 class="font-bold text-white mb-2">Linear</h4>
+          <p class="text-sm text-neutral-400 mb-3">Começo → Meio → Fim em ordem cronológica</p>
+          <p class="text-sm text-neutral-300">O mais claro para o espectador. Ideal para histórias de jornada, transformação e causa-e-efeito. Recomendado para projetos iniciais com IA.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🔄</div>
+          <h4 class="font-bold text-white mb-2">Não-Linear</h4>
+          <p class="text-sm text-neutral-400 mb-3">Tempo embaralhado: flashbacks, flashforwards</p>
+          <p class="text-sm text-neutral-300">Cria mistério e suspense. Exige mais controle de continuidade entre cenas de épocas diferentes. Desafio elevado com IA generativa.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🎙️</div>
+          <h4 class="font-bold text-white mb-2">Documental</h4>
+          <p class="text-sm text-neutral-400 mb-3">Imita a realidade para criar autenticidade</p>
+          <p class="text-sm text-neutral-300">Câmera na mão, luz "natural", situações "espontâneas". Com IA, use prompts que referenciem handheld camera e realismo fotográfico.</p>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l2/photo_5089376971652795511_y.jpg" alt="Assistant Node com prompt cinematográfico" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Assistant Node do Freepik com prompt cinematográfico detalhado — cada elemento do prompt define um aspecto da narrativa visual</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">✏️ Do Conceito ao Frame</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O maior erro de quem começa a produzir com IA é ir direto para a ferramenta. O processo correto começa muito antes — na <strong class="text-emerald-400">decupagem mental</strong> da cena, antes de escrever uma única palavra de prompt.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-emerald-400 font-bold text-sm">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Defina a emoção-alvo</h4>
+            <p class="text-sm text-neutral-300">Que emoção o espectador deve sentir ao ver esta cena? Solidão? Esperança? Urgência? Escreva uma palavra.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-emerald-400 font-bold text-sm">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Escolha o ambiente que amplifique essa emoção</h4>
+            <p class="text-sm text-neutral-300">Para "solidão": cidade vazia ao amanhecer, quarto escuro, praça sem pessoas. O ambiente deve reforçar, não contradizer a emoção.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-emerald-400 font-bold text-sm">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Decida o ângulo e o plano</h4>
+            <p class="text-sm text-neutral-300">Close-up amplifica emoção interna. Wide shot contextualiza e isola. A câmera baixa cria grandiosidade; a câmera alta cria vulnerabilidade.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-emerald-400 font-bold text-sm">4</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Defina a luz e a paleta</h4>
+            <p class="text-sm text-neutral-300">Golden hour para melancolia quente. Luz azul fria para frieza e isolamento. Sombras duras para tensão e ameaça.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-emerald-400 font-bold text-sm">5</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Escreva o prompt</h4>
+            <p class="text-sm text-neutral-300">Agora sim. Com tudo definido, o prompt escreve-se quase sozinho — e o resultado é infinitamente mais preciso e cinematográfico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🤖 Cinema com IA</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A IA não substituiu o diretor — ela criou um novo tipo de diretor. Alguém que não precisa de câmera, set ou equipe, mas que precisa de <strong class="text-emerald-400">visão cinematográfica</strong> mais do que nunca.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🤖 O que muda e o que não muda</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h4 class="font-semibold text-white mb-3">O que MUDA com a IA</h4>
+            <ul class="space-y-2 text-neutral-300 text-sm">
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">→</span><span>Custo de produção: cai quase a zero</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">→</span><span>Velocidade de prototipagem: de semanas para horas</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">→</span><span>Equipe necessária: de dezenas para uma pessoa</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400">→</span><span>Localização: qualquer cena em qualquer lugar</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-white mb-3">O que NÃO muda</h4>
+            <ul class="space-y-2 text-neutral-300 text-sm">
+              <li class="flex items-start space-x-2"><span class="text-red-400">→</span><span>A necessidade de intenção narrativa</span></li>
+              <li class="flex items-start space-x-2"><span class="text-red-400">→</span><span>Os princípios de composição visual</span></li>
+              <li class="flex items-start space-x-2"><span class="text-red-400">→</span><span>A estrutura dramática que engaja espectadores</span></li>
+              <li class="flex items-start space-x-2"><span class="text-red-400">→</span><span>A relação entre luz, cor e emoção</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALERIA FINAL -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795512_w.jpg" alt="Resultado cinematográfico IA" class="w-full object-cover h-48">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Cena cinematográfica gerada com prompt intencional — os princípios de direção aplicados à IA</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795468_w.jpg" alt="Outro resultado cinematográfico" class="w-full object-cover h-48">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">O mesmo processo criativo de um diretor, agora acessível para qualquer criador com visão</p>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> A Armadilha da IA
+        </h3>
+        <p class="text-neutral-300">A IA amplifica sua visão — e seus erros. Um diretor sem base cinematográfica vai gerar imagens bonitas e aleatórias em escala industrial. Um diretor com domínio dos fundamentos vai criar obras que comunicam, emocionam e ficam na memória do espectador.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO DO MÓDULO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.1
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">Intenção narrativa</strong>
+              <span class="text-neutral-400"> — Cinema não é registro, é direção de emoção</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">3 Elementos</strong>
+              <span class="text-neutral-400"> — Toda cena precisa de personagem, ambiente e conflito</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">Visual literacy</strong>
+              <span class="text-neutral-400"> — O olhar tem uma hierarquia previsível que você pode controlar</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">Tipo de narrativa</strong>
+              <span class="text-neutral-400"> — Defina a estrutura antes de gerar qualquer cena</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">Fluxo conceito → frame</strong>
+              <span class="text-neutral-400"> — Emoção → ambiente → câmera → luz → prompt</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">IA amplifica visão</strong>
+              <span class="text-neutral-400"> — Os princípios cinematográficos são mais necessários, não menos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.2 — Linguagem Visual: planos, composição e como cada escolha de câmera comunica emoção específica</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 1</a>
+          <a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próximo: Linguagem Visual →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

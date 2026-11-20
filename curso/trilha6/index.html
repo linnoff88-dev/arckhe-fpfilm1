@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 6 — Seu Filme Completo | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225, 29, 72, 0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225, 29, 72, 0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225, 29, 72, 0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(225, 29, 72, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🎬</span><span class="font-bold text-lg hidden sm:inline">Freepik Film</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-16 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">TRILHA 6 — A SÍNTESE</span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🎬 Seu Filme Completo: Do Roteiro ao Vídeo Final</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A trilha mais importante do curso. Aqui você junta tudo — fundamentos, recursos, Spaces, câmera e workflow — para produzir um filme cinematográfico completo de 60 segundos do zero. Da primeira pergunta do roteiro até o MP4 final entregue.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">10</div><div class="text-xs text-neutral-400">Módulos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">60</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">~5h</div><div class="text-xs text-neutral-400">Duração</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Avan.</div><div class="text-xs text-neutral-400">Nível</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- GALERIA NO TOPO -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-2 text-neutral-300">O filme que você vai produzir</h2>
+      <p class="text-sm text-neutral-500 mb-6">Frames reais de cada etapa do pipeline cinematográfico ensinado nesta trilha</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l1/photo_5089376971652795490_y.jpg" alt="Roteiro no Text Node" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">1. Roteiro no Text Node</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l0/photo_5089376971652795519_y.jpg" alt="Personagem treinado" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">2. Personagem (provador)</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795469_w.jpg" alt="Storyboard 9 frames" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">3. Storyboard com IA</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l1/photo_5089376971652795492_w.jpg" alt="Image Generator" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">4. Geração de cenas</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795467_w.jpg" alt="Frame cinematográfico" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">5. Animação Kling 3.0</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Câmera handheld" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">6. Câmera intencional</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795471_w.jpg" alt="Audio + montagem" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">7. Áudio e montagem</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795472_w.jpg" alt="Filme final entregue" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">8. Filme final entregue</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-2 text-neutral-300">A jornada dos 10 módulos</h2>
+      <p class="text-sm text-neutral-500 mb-6">Sequência ideal — cada módulo herda o resultado do anterior</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">1</div><div class="text-xs text-neutral-500 mt-2 text-center">Roteiro</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">2</div><div class="text-xs text-neutral-500 mt-2 text-center">Personagem</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">3</div><div class="text-xs text-neutral-500 mt-2 text-center">Storyboard</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">4</div><div class="text-xs text-neutral-500 mt-2 text-center">Cenas</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">5</div><div class="text-xs text-neutral-500 mt-2 text-center">Vídeo</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">6</div><div class="text-xs text-neutral-500 mt-2 text-center">Câmera</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">7</div><div class="text-xs text-neutral-500 mt-2 text-center">Áudio</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">8</div><div class="text-xs text-neutral-500 mt-2 text-center">Lip Sync</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">9</div><div class="text-xs text-neutral-500 mt-2 text-center">Montagem</div></div>
+          <div class="hidden sm:block flex-1 h-px bg-rose-500/30 max-w-[20px]"></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">10</div><div class="text-xs text-neutral-500 mt-2 text-center">Entrega</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACESSO RÁPIDO -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-6 text-neutral-300">Acesso Rápido aos 10 Módulos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="modulo-6-1.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.1</span><span class="text-xs text-neutral-500">~30 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">📝 Pré-Produção: Conceito e Roteiro</h3>
+          <p class="text-xs text-neutral-500 mt-1">3 perguntas, Text Node, Assistant, ritmo</p>
+        </a>
+        <a href="modulo-6-2.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.2</span><span class="text-xs text-neutral-500">~40 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">👤 Criação do Personagem Principal</h3>
+          <p class="text-xs text-neutral-500 mt-1">Golden asset, LoRA, provador virtual</p>
+        </a>
+        <a href="modulo-6-3.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.3</span><span class="text-xs text-neutral-500">~35 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">🎨 Storyboard com IA</h3>
+          <p class="text-xs text-neutral-500 mt-1">Modo storyboard, grid 3x3, List Node</p>
+        </a>
+        <a href="modulo-6-4.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.4</span><span class="text-xs text-neutral-500">~35 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">🖼️ Geração de Cenas (Imagem)</h3>
+          <p class="text-xs text-neutral-500 mt-1">Image Gen por cena, Character Ref, Upscale</p>
+        </a>
+        <a href="modulo-6-5.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.5</span><span class="text-xs text-neutral-500">~40 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">🎥 Animando as Cenas (Vídeo)</h3>
+          <p class="text-xs text-neutral-500 mt-1">Kling 3.0, image lock, prompts de câmera</p>
+        </a>
+        <a href="modulo-6-6.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.6</span><span class="text-xs text-neutral-500">~25 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">🎯 Controle de Câmera Intencional</h3>
+          <p class="text-xs text-neutral-500 mt-1">Movimentos da T4 no contexto narrativo</p>
+        </a>
+        <a href="modulo-6-7.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.7</span><span class="text-xs text-neutral-500">~30 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">🔊 Produção de Áudio</h3>
+          <p class="text-xs text-neutral-500 mt-1">Voiceover, Music, SFX, Audio Mixer</p>
+        </a>
+        <a href="modulo-6-8.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.8</span><span class="text-xs text-neutral-500">~20 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">👄 Lip Sync (Opcional)</h3>
+          <p class="text-xs text-neutral-500 mt-1">Quando usar, como usar, limitações</p>
+        </a>
+        <a href="modulo-6-9.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.9</span><span class="text-xs text-neutral-500">~30 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">🎞️ Montagem Final</h3>
+          <p class="text-xs text-neutral-500 mt-1">Combined Video, Clip Editor, exportar</p>
+        </a>
+        <a href="modulo-6-10.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-rose-500/30 hover:bg-rose-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2"><span class="text-rose-400 font-bold text-sm">6.10</span><span class="text-xs text-neutral-500">~20 min</span></div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-rose-400 transition-colors">📦 Revisão e Entrega</h3>
+          <p class="text-xs text-neutral-500 mt-1">Checklist, formatos, Workflow App</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVISOR -->
+    <div class="flex items-center space-x-4 mb-10">
+      <div class="flex-1 h-px bg-dark-600"></div>
+      <span class="text-neutral-500 text-sm font-medium px-4">Conteúdo Detalhado</span>
+      <div class="flex-1 h-px bg-dark-600"></div>
+    </div>
+
+    <!-- MÓDULO 6.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.1</span><span class="text-xs text-neutral-500">~30 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">📝 Pré-Produção: Conceito e Roteiro</h3>
+        <p class="text-neutral-400 text-sm">Antes de qualquer prompt, o conceito. Sair de uma ideia vaga para um roteiro de 60 segundos pronto para storyboard.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">❓</span>
+            <div><span class="font-medium">As 3 Perguntas</span><span class="text-neutral-500 text-sm ml-2">— Quem? Onde? O que acontece?</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Definir o filme em 30 segundos respondendo três perguntas básicas que travam o conceito antes de qualquer geração.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem clareza de quem, onde e o que acontece, todo prompt fica vago. As 3 perguntas são o filtro inicial.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Logline • Tipo emocional • Universo • Virada • Teste do elevador</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">✍️</span>
+            <div><span class="font-medium">Escrevendo no Text Node</span><span class="text-neutral-500 text-sm ml-2">— Roteiro vivo no canvas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Criar um Text Node grande no Spaces e usar como caderno de roteiro vivo, sempre visível ao lado dos nodes.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O roteiro precisa estar no mesmo lugar onde acontece a produção. Aba separada é roteiro morto.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Text Node • Logline • Blocos • Referência viva • Atualização contínua</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🤖</span>
+            <div><span class="font-medium">Expandindo com Assistant Node</span><span class="text-neutral-500 text-sm ml-2">— Esboço vira roteiro pro</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Conectar Assistant Node ao Text Node e pedir para transformar o esboço em roteiro estruturado em cenas.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Poupa horas de retrabalho. O Assistant gera duração, mood, plano sugerido e prompt inicial por cena.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Assistant Node • Prompt base • Iteração criativa • Beats narrativos</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🗺️</span>
+            <div><span class="font-medium">Dividindo em Cenas</span><span class="text-neutral-500 text-sm ml-2">— Quantas cenas em 60s</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A regra de ouro de quantas cenas cabem em 60 segundos: 3, 6 ou 9+, cada uma com função narrativa diferente.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quantidade de cenas define ritmo. Errar aqui faz o filme ficar arrastado ou estressante.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">3 cenas (curto) • 6 cenas (padrão) • 9+ (rápido) • Sweet spot</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">⏱️</span>
+            <div><span class="font-medium">Ritmo e Duração</span><span class="text-neutral-500 text-sm ml-2">— Tempo ideal por cena</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Tabela de tempo por função narrativa: impacto (2-4s), ação (5-7s), respiro (8-12s), peso (12s+).</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Tempo de cena é ferramenta narrativa, não consequência. Use propositalmente.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Cena de impacto • Ação • Respiro • Peso • Beat</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📋</span>
+            <div><span class="font-medium">Exemplo Prático</span><span class="text-neutral-500 text-sm ml-2">— Roteiro real 60s, beat by beat</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Roteiro completo de 60 segundos com 6 cenas, descrição visual e duração — pronto para usar como template.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ver um roteiro real desbloqueia o seu. Estrutura concreta vence teoria abstrata.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Logline • 6 cenas • Beat by beat • Template prático</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-1.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.2</span><span class="text-xs text-neutral-500">~40 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">👤 Criação do Personagem Principal</h3>
+        <p class="text-neutral-400 text-sm">Pipeline real para travar consistência facial: golden asset, Custom Character (LoRA) e provador virtual de 3 inputs.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">👤</span>
+            <div><span class="font-medium">Golden Asset</span><span class="text-neutral-500 text-sm ml-2">— RG do personagem antes de tudo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A imagem definitiva do personagem em fundo neutro, pose neutra, luz frontal — usada como referência em todas as cenas.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem golden asset, o personagem muda entre cenas. Com ele, você tem ponto único de verdade.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Fundo neutro • Luz frontal • Plano americano • Expressão calma</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📸</span>
+            <div><span class="font-medium">Upload de Referências</span><span class="text-neutral-500 text-sm ml-2">— 12-24 imagens variadas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Subir 12-24 fotos do personagem com variedade controlada de ângulos, expressões e iluminações.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Variedade ensina o modelo a generalizar. Imagens repetidas ensinam menos.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">8 ângulos • 6 expressões • 6 iluminações • Rosto sempre visível</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⏳</span>
+            <div><span class="font-medium">Treinando Custom Character (LoRA)</span><span class="text-neutral-500 text-sm ml-2">— 10-30 min de espera</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O Freepik treina um LoRA com suas imagens, criando um token reutilizável que invoca o personagem.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">LoRA fica disponível para sempre. Treine uma vez, use em quantos projetos quiser.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">LoRA • Token único • Reuso • Limitações de roupa</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⚡</span>
+            <div><span class="font-medium">Alternativa Rápida — Nano Banana Pro</span><span class="text-neutral-500 text-sm ml-2">— Sem treinar LoRA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Usar Nano Banana Pro com image reference em vez de treinar LoRA — instantâneo, ligeiramente menos consistente.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para protótipos e testes rápidos, esperar 30 minutos não compensa. Nano Banana Pro entrega 70-80% da consistência em segundos.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Nano Banana Pro • Image reference • Trade-off velocidade x precisão</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">👕</span>
+            <div><span class="font-medium">Pipeline do Provador Virtual</span><span class="text-neutral-500 text-sm ml-2">— Model + Outfit + Context</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Pipeline de 3 inputs combinados: foto do personagem + foto da roupa + foto do ambiente, fundidos no Image Generator.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o truque mais poderoso da pré-produção. Permite vestir o personagem para cada cena sem perder a identidade.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Model input • Outfit input • Context input • Fusão de referências</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧪</span>
+            <div><span class="font-medium">Testando Consistência</span><span class="text-neutral-500 text-sm ml-2">— 3 contextos extremos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Teste de estresse: gerar o personagem em 3 contextos extremos (indoor, outdoor, close) antes de aprovar.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Validar antes de gerar 30 cenas economiza horas. Se falhar, refaça o treino.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Teste de estresse • Indoor noturno • Outdoor diurno • Close-up</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-2.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.3</span><span class="text-xs text-neutral-500">~35 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🎨 Storyboard com IA</h3>
+        <p class="text-neutral-400 text-sm">Modo Storyboard nativo do Freepik, grid 3x3 narrativo, List Node para paralelizar e critérios de seleção dos melhores frames.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🎨</span>
+            <div><span class="font-medium">Imagem Base Forte</span><span class="text-neutral-500 text-sm ml-2">— 80% do esforço aqui</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A primeira imagem define paleta, luz, estilo e personagem para todas as outras do storyboard.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Se a imagem base é fraca, todo o storyboard será fraco. Ela é a "DNA" visual.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Composição • Iluminação • Paleta restrita • Personagem visível</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🔲</span>
+            <div><span class="font-medium">Modo Storyboard do Freepik</span><span class="text-neutral-500 text-sm ml-2">— Variations → Storyboard</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Recurso nativo do Freepik que pega sua imagem âncora e gera variações narrativas mantendo coerência.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você não precisa reescrever prompt para cada frame — só descreve os beats e o modelo cuida da coerência.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Image Generator Tools • Variations • Storyboard mode • Beats</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">📐</span>
+            <div><span class="font-medium">Grid 3x3 Narrativo</span><span class="text-neutral-500 text-sm ml-2">— 9 frames, 3 atos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Estrutura clássica de storyboard em grid 3x3: 3 linhas (atos) × 3 colunas (momentos por ato).</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Garante que nenhum ato fica raso e cada frame tem função clara dentro do todo.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">3 atos • Inciting incident • Climax • Resolução</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🔄</span>
+            <div><span class="font-medium">List Node para Paralelização</span><span class="text-neutral-500 text-sm ml-2">— 9 frames numa execução</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">List Node alimenta vários prompts num único Image Generator, processando tudo em paralelo.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você gera 9 frames no tempo de gerar 1. Iteração de storyboard fica viável.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">List Node • Batch • Paralelização • Tempo de iteração</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🎯</span>
+            <div><span class="font-medium">Selecionando os Melhores Frames</span><span class="text-neutral-500 text-sm ml-2">— Composição, continuidade, emoção</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">3 critérios narrativos para escolher quais frames viram cenas — não pelo "mais bonito".</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Beleza isolada não vale nada. O frame precisa conversar com o anterior e o próximo.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Composição • Continuidade • Emoção • Teste do frame sozinho</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">📝</span>
+            <div><span class="font-medium">Anotando as Cenas</span><span class="text-neutral-500 text-sm ml-2">— Template técnico por frame</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Template de anotação técnica por cena com duração, movimento de câmera, emoção e transição.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Essas anotações alimentam o Video Generator no próximo módulo. Sem elas, você improvisa.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Anotação técnica • Movimento de câmera • Som previsto • Transição</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-3.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.4</span><span class="text-xs text-neutral-500">~35 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🖼️ Geração de Cenas (Imagem por Imagem)</h3>
+        <p class="text-neutral-400 text-sm">Um Image Generator por cena, Character Reference travado, upscale 4K e organização do canvas para 24+ nodes.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🖼️</span>
+            <div><span class="font-medium">Image Generator Node por Frame</span><span class="text-neutral-500 text-sm ml-2">— Um por cena</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Regra de ouro: um Image Generator Node dedicado para cada cena, com seu próprio histórico.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Reutilizar o mesmo node mudando o prompt impede iteração paralela. Cada cena precisa do seu espaço.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Node nomeado • Histórico independente • Modelo padronizado</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🔗</span>
+            <div><span class="font-medium">Character Reference Node</span><span class="text-neutral-500 text-sm ml-2">— Mesmo rosto em todas as cenas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um único Character Reference Node conectado a todos os 6 Image Generators, garantindo continuidade.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Mude a referência uma vez e todas as cenas se atualizam. Ponto único de verdade do personagem.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Character Reference • Single source • Propagação</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">📋</span>
+            <div><span class="font-medium">List Node + Batch</span><span class="text-neutral-500 text-sm ml-2">— Primeira passada rápida</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Alternativa ao "node por cena": um List Node com 6 prompts ligado a um Image Generator para batch.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para iterar a primeira passada, batch é mais rápido. Refinamento depois cena a cena.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">List Node • Batch • Primeira passada • Híbrido</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🔬</span>
+            <div><span class="font-medium">Upscale de Cada Imagem</span><span class="text-neutral-500 text-sm ml-2">— Magnific antes do vídeo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Passar cada frame aprovado pelo Magnific Upscale antes de enviar ao Kling, ganhando 4K.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Imagem 4K como input do vídeo gera clipe muito mais detalhado e nítido.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Magnific • Topaz • Creativity baixa • Fidelity alta</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🎨</span>
+            <div><span class="font-medium">Style Consistency</span><span class="text-neutral-500 text-sm ml-2">— Paleta e mood travados</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">3 técnicas combinadas para travar a paleta entre cenas: Style Reference, sufixo de prompt e Color Match.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Coesão visual é o que separa um filme de uma colagem de imagens animadas.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Style Reference • Prompt sufixo • Color Match • Look unificado</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🗂️</span>
+            <div><span class="font-medium">Organizando no Canvas</span><span class="text-neutral-500 text-sm ml-2">— Linhas e cores por cena</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Layout em 4 linhas: referências, Image Generators, Upscales, Video Generators — agrupados por cor.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Com 24+ nodes, sem organização vira sopa. Você vai voltar várias vezes ao canvas.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Layout em linhas • Agrupamento colorido • Navegabilidade</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-4.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.5 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.5</span><span class="text-xs text-neutral-500">~40 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🎥 Animando as Cenas (Vídeo)</h3>
+        <p class="text-neutral-400 text-sm">Kling 3.0 image-to-video, start image lock, prompts de câmera por cena e estratégia 1-3-2 para gerar o filme inteiro.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🎥</span>
+            <div><span class="font-medium">Image-to-Video Kling 3.0</span><span class="text-neutral-500 text-sm ml-2">— Abordagem principal</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Modelo image-to-video do Kling 3.0 — anima sua imagem fixa em vez de gerar do zero a partir de texto.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você já investiu no frame perfeito; text-to-video traz surpresas indesejadas. Kling respeita a base.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Image-to-video • Movimento natural • Físicas razoáveis • 5-10s</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">📸</span>
+            <div><span class="font-medium">Start Image Lock</span><span class="text-neutral-500 text-sm ml-2">— Frame 0 travado</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Parâmetro do Kling que força o frame 0 do clipe a ser EXATAMENTE a imagem fornecida, sem reinterpretação.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem isso, o personagem pode mudar de aparência e quebrar a continuidade entre clipes.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Start image lock • Continuidade • Frame 0 • Reinterpretação</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">✍️</span>
+            <div><span class="font-medium">Prompts de Câmera por Cena</span><span class="text-neutral-500 text-sm ml-2">— Drone / handheld / static</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Mapeamento de movimentos de câmera por função narrativa: abertura usa drone, tensão usa handheld, final usa static zoom.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Movimento de câmera serve à emoção. Errar aqui é dizer a coisa certa do jeito errado.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Drone shot • Handheld • Tracking • Push in • Static zoom</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🤖</span>
+            <div><span class="font-medium">Assistant para Otimizar Prompt</span><span class="text-neutral-500 text-sm ml-2">— Português → técnico</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Usar Assistant Node como tradutor da intenção em português coloquial para prompt técnico em inglês.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você não precisa decorar vocabulário de cinema. O Assistant traduz "câmera respirando" em prompt do Kling.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Tradução de intenção • Prompt base • Vocabulário técnico</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🔁</span>
+            <div><span class="font-medium">Iterando sem Regenerar Tudo</span><span class="text-neutral-500 text-sm ml-2">— Mude só o movimento</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Técnica de iteração rápida: ajustar só a frase de movimento, mantendo start image travado.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">30 segundos vs 5 minutos por iteração. Você testa 10 movimentos no tempo de 1 regeneração completa.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Iteração focada • Frame travado • Side by side</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🎞️</span>
+            <div><span class="font-medium">Gerando os 6 Clipes</span><span class="text-neutral-500 text-sm ml-2">— Estratégia 1-3-2</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Estratégia de produção: cena 1 sozinha (calibração), cenas 2-3-4 em batch, cenas 5-6 com cuidado extra.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Gerar tudo de uma vez queima créditos. Iterar uma a uma é lento. 1-3-2 é o equilíbrio.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Calibração • Batch • Cuidado nas finais • Economia de créditos</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-5.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.6 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.6</span><span class="text-xs text-neutral-500">~25 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🎯 Controle de Câmera Intencional</h3>
+        <p class="text-neutral-400 text-sm">Revisitar os movimentos aprendidos na Trilha 4 dentro do contexto narrativo do seu filme — mapeando cena × movimento.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">📚</span>
+            <div><span class="font-medium">Revisão dos Movimentos da T4</span><span class="text-neutral-500 text-sm ml-2">— Refresh dos básicos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Revisão rápida dos 8 movimentos de câmera fundamentais aprendidos na Trilha 4.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você precisa ter os movimentos vivos antes de mapear no filme. Refresh é essencial.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pan • Tilt • Dolly • Tracking • Crane • Drone • Handheld • Static</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🗺️</span>
+            <div><span class="font-medium">Mapeamento Cena × Movimento</span><span class="text-neutral-500 text-sm ml-2">— Tabela narrativa</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Tabela que cruza cada cena do seu filme com o movimento de câmera mais adequado àquela emoção.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem mapeamento, você acaba usando o mesmo movimento em tudo. O filme fica visualmente monótono.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Tabela cena-movimento • Variedade • Função narrativa</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">💔</span>
+            <div><span class="font-medium">Movimento Serve à Emoção</span><span class="text-neutral-500 text-sm ml-2">— A regra de ouro</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Princípio fundamental: nenhum movimento de câmera é "legal" por si só. Ele só vale se serve à emoção da cena.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Movimento gratuito é o pecado dos filmes amadores feitos com IA. Você precisa justificar cada um.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Intenção • Justificativa narrativa • Movimento gratuito</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">⚖️</span>
+            <div><span class="font-medium">Variedade vs Coerência</span><span class="text-neutral-500 text-sm ml-2">— Equilíbrio do filme</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Equilíbrio entre usar movimentos variados (interesse visual) e manter um vocabulário coerente (assinatura).</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Variedade demais vira videoclipe; pouca demais vira monótono. O filme é o ponto entre os dois.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Variedade controlada • Vocabulário visual • Assinatura</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🎬</span>
+            <div><span class="font-medium">Refs de Diretores</span><span class="text-neutral-500 text-sm ml-2">— Aprender com os melhores</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Estudo de como diretores específicos (Villeneuve, Malick, Wong Kar-wai) usam câmera para criar mood.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Roubar de quem sabe é o atalho. Cada diretor é uma escola de movimento.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Reference filmmakers • Mood by director • Vocabulário visual</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🔄</span>
+            <div><span class="font-medium">Refinando os Clipes</span><span class="text-neutral-500 text-sm ml-2">— Segunda passada do Kling</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Após mapear, voltar aos Video Generators e refinar cada prompt com vocabulário específico do diretor referência.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A primeira passada é estrutura. A segunda é assinatura. Os dois são necessários.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Refinamento • Segunda passada • Assinatura visual</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-6.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.7 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.7</span><span class="text-xs text-neutral-500">~30 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🔊 Produção de Áudio</h3>
+        <p class="text-neutral-400 text-sm">Voiceover, Music, SFX Nodes e Audio Mixer — montar a trilha sonora do filme dentro do mesmo Space.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🎙️</span>
+            <div><span class="font-medium">Voiceover Node</span><span class="text-neutral-500 text-sm ml-2">— Narração gerada por IA</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node que gera narração sintética de alta qualidade a partir de texto, com escolha de voz e idioma.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Voz é metade do mood do filme. Voiceover na medida certa eleva qualquer cena.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Voiceover • Voice cloning • Idioma • Tom emocional</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🎵</span>
+            <div><span class="font-medium">Music Node</span><span class="text-neutral-500 text-sm ml-2">— Trilha sonora gerada</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node que gera trilha musical original a partir de descrição textual de mood, gênero e duração.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Trilha original sem direito autoral, alinhada exatamente ao seu filme. Adeus às bibliotecas genéricas.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Music generation • Mood prompt • Duration matching</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">💥</span>
+            <div><span class="font-medium">SFX Node</span><span class="text-neutral-500 text-sm ml-2">— Efeitos sonoros pontuais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node especializado em efeitos sonoros pontuais: passos, vento, porta, chuva — gerados sob demanda.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">SFX são o que separa filme amador de filme profissional. O detalhe sonoro vende a cena.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">SFX • Foley • Ambientação • Detalhe sonoro</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🎚️</span>
+            <div><span class="font-medium">Audio Mixer</span><span class="text-neutral-500 text-sm ml-2">— Combinando as três camadas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node que combina Voiceover + Music + SFX em uma faixa única balanceada e pronta para o vídeo.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">As três camadas precisam conviver. Sem mixer, uma sempre come a outra e o resultado é confuso.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Audio Mixer • Balanceamento • Ducking • Master output</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">⚖️</span>
+            <div><span class="font-medium">Balanceamento com o Vídeo</span><span class="text-neutral-500 text-sm ml-2">— Ouvir junto, não isolado</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Praticar ouvir o áudio sempre acoplado ao vídeo, nunca isolado — porque o que importa é o conjunto.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Áudio que parece bom isolado pode quebrar com a imagem. Sempre teste no contexto.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sync test • Picture lock • Conjunto</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🤫</span>
+            <div><span class="font-medium">Silêncio Estratégico</span><span class="text-neutral-500 text-sm ml-2">— A ferramenta esquecida</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Usar trechos de silêncio total ou só ambiente como ferramenta narrativa, especialmente antes de momentos importantes.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Silêncio é o gesto sonoro mais subutilizado. Faz a próxima nota explodir.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Silêncio • Pausa • Anticipação • Contraste</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-7.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.8 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.8</span><span class="text-xs text-neutral-500">~20 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">👄 Lip Sync (Opcional)</h3>
+        <p class="text-neutral-400 text-sm">Quando usar lip sync, como configurar e o que NÃO esperar — esse é um recurso poderoso mas com armadilhas.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">❓</span>
+            <div><span class="font-medium">Quando Usar Lip Sync</span><span class="text-neutral-500 text-sm ml-2">— Critérios de decisão</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Critérios para decidir se sua cena precisa de lip sync ou se voiceover off-screen é melhor.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Lip sync mal feito quebra qualquer filme. Saber quando NÃO usar é mais importante que saber usar.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Diegético vs off-screen • Critério de decisão • Risco</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">⚙️</span>
+            <div><span class="font-medium">Como Configurar</span><span class="text-neutral-500 text-sm ml-2">— Lip Sync Node passo a passo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Setup do Lip Sync Node: input de vídeo + input de áudio (voiceover) + parâmetros de calibração.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Configuração errada gera resultado pior do que sem lip sync. Entender os parâmetros é crítico.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Lip Sync Node • Vídeo input • Áudio input • Calibração</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">⚠️</span>
+            <div><span class="font-medium">Limitações Atuais</span><span class="text-neutral-500 text-sm ml-2">— O que não funciona</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Lista honesta das limitações: cabeças muito laterais, distância da câmera, falas longas, sotaques.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber as limitações antes de tentar economiza horas de retrabalho.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ângulo • Distância • Duração • Sotaque</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🎯</span>
+            <div><span class="font-medium">Casos Ideais</span><span class="text-neutral-500 text-sm ml-2">— Quando funciona muito bem</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Cenários onde lip sync entrega ótimo resultado: close frontal, fala curta, voz clara.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber onde a ferramenta brilha é tão importante quanto saber onde ela falha.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Close frontal • Fala curta • Voz clara • Sweet spot</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🎨</span>
+            <div><span class="font-medium">Alternativas Criativas</span><span class="text-neutral-500 text-sm ml-2">— Sem lip sync, mas falando</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Soluções criativas: voz off, personagem de costas, close em mãos enquanto fala, legendas cinematográficas.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando lip sync não funciona, criatividade resolve. Muitas vezes o resultado fica mais elegante.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Voz off • Costas • Close em detalhe • Legendas</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🧪</span>
+            <div><span class="font-medium">Teste e Refinamento</span><span class="text-neutral-500 text-sm ml-2">— Iteração até parecer real</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Processo de iteração: gerar, ver, ajustar áudio ou ângulo, regenerar até ficar convincente.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Lip sync raramente sai certo de primeira. Plano de iteração faz parte do workflow.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Iteração • Reframe • Re-record voz • A/B testing</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-8.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.9 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.9</span><span class="text-xs text-neutral-500">~30 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🎞️ Montagem Final</h3>
+        <p class="text-neutral-400 text-sm">Combined Video Node, Clip Editor, ordem narrativa das cenas e exportação do MP4 final dentro do Spaces.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🎬</span>
+            <div><span class="font-medium">Combined Video Node</span><span class="text-neutral-500 text-sm ml-2">— Junta os 6 clipes</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node que recebe múltiplos clipes em sequência e produz um vídeo único concatenado.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a "linha do tempo" do filme dentro do Spaces. Sem ele, você teria que exportar e juntar fora.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Combined Video • Sequência • Timeline</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">✂️</span>
+            <div><span class="font-medium">Clip Editor</span><span class="text-neutral-500 text-sm ml-2">— Cortes finos por cena</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Editor de clipes individuais para cortar início e fim de cada cena, ajustando duração final.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Kling gera 5-10s, mas você quase nunca quer todos. Cortar 0.5s certos muda o ritmo.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Clip Editor • In point • Out point • Trim</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">📖</span>
+            <div><span class="font-medium">Ordem Narrativa</span><span class="text-neutral-500 text-sm ml-2">— Reordenando se necessário</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Decidir se a ordem original do storyboard ainda é a melhor — às vezes inverter cenas funciona melhor.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você descobriu coisas durante a produção. A montagem é a última chance de ajustar narrativa.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Reordenação • Narrativa não-linear • Última decisão</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🌗</span>
+            <div><span class="font-medium">Transições</span><span class="text-neutral-500 text-sm ml-2">— Cortes secos vs fades</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Decisão entre corte direto, dissolve ou fade entre cenas — cada um comunica algo diferente.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Corte direto = energia, dissolve = passagem de tempo, fade = mudança de capítulo.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Cut • Dissolve • Fade • Match cut</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🎵</span>
+            <div><span class="font-medium">Sincronizando o Áudio</span><span class="text-neutral-500 text-sm ml-2">— Picture lock + áudio</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Conectar a saída do Audio Mixer ao Combined Video Node para gerar o vídeo final com som.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Picture lock primeiro, áudio depois — é o workflow profissional.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Picture lock • Sync • Audio Mixer output</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">📤</span>
+            <div><span class="font-medium">Exportar MP4</span><span class="text-neutral-500 text-sm ml-2">— Resolução, codec, bitrate</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Configurações de exportação: 1080p ou 4K, H.264 ou H.265, bitrate adequado ao destino.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Exportar errado destrói a qualidade do filme. Saber os parâmetros é essencial.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">1080p / 4K • H.264 • Bitrate • Aspect ratio</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-9')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-9.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.10 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.10</span><span class="text-xs text-neutral-500">~20 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">📦 Revisão e Entrega</h3>
+        <p class="text-neutral-400 text-sm">Checklist final de qualidade, formatos de saída para diferentes plataformas e como usar Workflow App para reproduzir o pipeline.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">✅</span>
+            <div><span class="font-medium">Checklist de Qualidade</span><span class="text-neutral-500 text-sm ml-2">— 12 perguntas finais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Lista de 12 perguntas que você deve responder com "sim" antes de considerar o filme pronto.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Checklist evita o "achei que estava bom". É objetivo, é mecânico, é eficaz.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Checklist • Critérios objetivos • Última revisão</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">📱</span>
+            <div><span class="font-medium">Formatos de Saída</span><span class="text-neutral-500 text-sm ml-2">— Instagram / YouTube / TV</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Tabela de formatos: 9:16 para Reels/Stories, 1:1 para feed, 16:9 para YouTube/TV, com bitrates específicos.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cada plataforma tem requisitos diferentes. Subir errado destrói qualidade ou trava upload.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">9:16 • 1:1 • 16:9 • Bitrate por plataforma</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">⚙️</span>
+            <div><span class="font-medium">Workflow App</span><span class="text-neutral-500 text-sm ml-2">— Reproduzir o pipeline</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Recurso do Freepik que transforma seu Space inteiro em um app reutilizável que outros podem rodar com inputs novos.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você fez um filme. Empacote o pipeline e crie 10 filmes mudando só o personagem ou o cenário.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Workflow App • Reuso • Templating • Escala</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">📦</span>
+            <div><span class="font-medium">Pacote de Entrega</span><span class="text-neutral-500 text-sm ml-2">— O que entregar ao cliente</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Pacote completo: master 4K, versões 1080p, thumbnails, frames-chave, audio stems, project file.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entrega profissional inclui mais que o vídeo. Diferencia amador de profissional.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Master • Versões • Thumbnails • Stems • Project</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🚀</span>
+            <div><span class="font-medium">Reaproveitando o Space</span><span class="text-neutral-500 text-sm ml-2">— Próximos filmes em horas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Duplicar o Space, manter a estrutura de nodes e trocar inputs (personagem, prompts, mood) para criar o próximo filme.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O primeiro filme leva dias. O segundo, horas. O décimo, minutos. Reuso é exponencial.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Duplicate Space • Templating • Velocidade exponencial</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🎓</span>
+            <div><span class="font-medium">Encerramento do Curso</span><span class="text-neutral-500 text-sm ml-2">— O que vem depois</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Encerramento do curso Freepik Film: o que você dominou, próximos passos, comunidade INEMA.CLUB.</p></div>
+            <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Aprender é só o começo. A prática constante e a comunidade fazem a diferença a longo prazo.</p></div>
+            <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Próximos passos • Prática • Comunidade • Portfolio</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-10')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-10.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+      <a href="../trilha5/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha 5: Produção</a>
+      <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">Voltar ao Início do Curso →</a>
+    </div>
+
+  </main>
+
+  <!-- MODAIS -->
+  <div id="modal-6-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.1</span><span class="font-semibold">Pré-Produção: Conceito e Roteiro</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.2</span><span class="font-semibold">Criação do Personagem Principal</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.3</span><span class="font-semibold">Storyboard com IA</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.4</span><span class="font-semibold">Geração de Cenas (Imagem)</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.5</span><span class="font-semibold">Animando as Cenas (Vídeo)</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.6</span><span class="font-semibold">Controle de Câmera Intencional</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.7</span><span class="font-semibold">Produção de Áudio</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-8" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.8</span><span class="font-semibold">Lip Sync (Opcional)</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-8.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-9" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.9</span><span class="font-semibold">Montagem Final</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-9.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-6-10" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.10</span><span class="font-semibold">Revisão e Entrega</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-10.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

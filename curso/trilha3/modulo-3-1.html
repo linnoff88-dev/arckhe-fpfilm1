@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.1 — Spaces: Do Caos ao Controle | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3 — Freepik Spaces</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 3.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.1</span>
+      <h1 class="text-2xl font-bold mb-4">🌌 Spaces: Do Caos ao Controle</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A brincadeira acabou. Vamos parar de apostar em gerações aleatórias e começar a construir sistemas — entrando no Freepik Spaces, o ambiente profissional baseado em nodes onde cada decisão é visível, controlada e reutilizável.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">35</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Inter</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Filosofia</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🌪️ O Problema: Geração Caótica</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Todo criador de conteúdo com IA já viveu o mesmo caos: <strong class="text-purple-400">dez abas abertas</strong>, dezenas de arquivos baixados, prompts perdidos no meio do navegador e estilos visuais que mudam sem explicação a cada nova geração. Você aperta "gerar" e torce — como em uma loteria.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center">
+          <span class="mr-2">🎯</span> O que muda quando você sai do "sandbox"
+        </h3>
+        <p class="text-neutral-300 mb-4">As primeiras aulas com IA generativa funcionam como um sandbox: aperta-se um botão, recebem-se seis ou nove variações e fica-se satisfeito. Isso é base. Mas em produção profissional, essa abordagem desmorona — você não consegue editar uma única variação sem refazer tudo, e não há nenhuma forma de manter consistência entre cenas.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-purple-400 mt-1">•</span>
+            <span><strong>Sandbox:</strong> 1 prompt → 6 imagens aleatórias → escolhe a melhor → começa de novo</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-purple-400 mt-1">•</span>
+            <span><strong>Pipeline:</strong> 1 ideia → fluxo controlado → resultados consistentes e iteráveis</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-purple-400 mt-1">•</span>
+            <span><strong>Diferença prática:</strong> sandbox produz ilustrações; pipeline produz filmes</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l1/photo_5089376971652795487_w.jpg" alt="Spaces homepage com templates" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Homepage do Spaces — templates prontos para fugir do caos: storyboard, batch ad, fashion, character animation</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l1/photo_5089376971652795488_w.jpg" alt="Canvas vazio do Spaces" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Canvas em branco — ponto de partida onde o caos se transforma em sistema</p>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> Sintomas do Caos
+        </h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Você não lembra mais qual prompt gerou aquela imagem perfeita de ontem</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>O personagem muda sutilmente entre cenas e não há como travar a identidade</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Quando o cliente pede uma alteração, é mais fácil refazer tudo do que editar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Imagens, vídeos e áudios estão espalhados em 5 plataformas diferentes</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🕸️ Filosofia de Nodes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A diferença entre um amador e um profissional de IA generativa hoje não está no prompt — está na <strong class="text-purple-400">estrutura visual do processo</strong>. Profissionais não usam chat linear. Usam esquemas de nodes onde cada etapa é um bloco visível, conectado e modificável.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🧠 Por que pensar em nodes?</h3>
+        <p class="text-neutral-300 mb-3">Um node é uma caixa que faz uma coisa específica e tem entradas e saídas. Quando você liga vários nodes, você cria um <em>fluxo de dados</em> — um pipeline. Toda a indústria criativa profissional (Houdini, Nuke, Blender, ComfyUI, TouchDesigner) usa esse paradigma há décadas porque ele resolve dois problemas fundamentais: visibilidade e reutilização.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Visibilidade:</strong> você vê de relance todas as etapas do seu processo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Modularidade:</strong> trocar uma etapa não quebra as outras</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Reutilização:</strong> o pipeline vira um template para projetos futuros</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Universalidade:</strong> a mesma lógica funciona no Spaces, no ComfyUI, no Nuke</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795521_y.jpg" alt="Nodes conectados em um pipeline" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Vários nodes conectados formando um fluxo lógico — cada caixa executa uma função, cada conexão carrega dados de uma etapa para a próxima</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> A Mentalidade do Engenheiro Criativo
+        </h3>
+        <p class="text-neutral-300">Quando você abre o Spaces, pare de pensar "que prompt eu escrevo?" e comece a pensar "que pipeline eu construo?". Essa única mudança de mentalidade muda 100% da qualidade do seu output.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">📐 Pensar como Engenheiro</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Ao abrir um template pronto pela primeira vez, ele parece uma teia de aranha caótica. Mas todo pipeline profissional segue a mesma regra de leitura: <strong class="text-purple-400">esquerda para a direita, das entradas para as saídas</strong>. Aprenda essa convenção e qualquer canvas — por mais complexo que pareça — fica legível em segundos.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📐 As 3 Zonas de Todo Canvas</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-purple-500/30 text-purple-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-purple-400">Esquerda — Entradas:</strong> assets crus (fotos, textos, referências). Tudo que vem de fora e alimenta o sistema.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-purple-500/30 text-purple-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-purple-400">Centro — Processamento:</strong> instruções, assistentes, geradores. Onde o "trabalho" acontece.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-purple-500/30 text-purple-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-purple-400">Direita — Saídas:</strong> resultados finais, exportações, vídeos prontos para compartilhar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-purple-500/30 mb-6">
+        <img src="../img/l0/photo_5089376971652795519_y.jpg" alt="Pipeline profissional com Model, Outfit e Context nodes" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800"><strong class="text-purple-400">Pipeline real:</strong> à esquerda as entradas (foto do modelo, blocos de roupas), no centro o node de instrução ("vista a pessoa de referência apenas com as roupas fornecidas"), na direita o resultado convergido em fundo neutro — pronto para ser inserido nos contextos finais</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">🔍</span> Como Ler um Canvas Desconhecido em 30 Segundos
+        </h3>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Localize as entradas no canto esquerdo — o que está sendo alimentado?</li>
+          <li>Siga as conexões para a direita — qual é a sequência de transformações?</li>
+          <li>Identifique o node final na direita — qual é o output desejado?</li>
+          <li>Volte ao centro e procure os nodes de "controle" — quais são as regras críticas?</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">👕 O Provador Virtual (Fitting Room)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Este é o conceito mais importante de toda a aula. Antes de jogar seu personagem em uma cena complexa (uma cidade chuvosa, uma floresta, um set futurista), você precisa primeiro criar o que profissionais chamam de <strong class="text-purple-400">golden asset</strong>: uma versão limpa do personagem em fundo neutro, validada e aprovada.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">👕 Por que isolar antes de contextualizar?</h3>
+        <p class="text-neutral-300 mb-4">A IA precisa ajustar muitas variáveis ao mesmo tempo: rosto, roupas, iluminação, cenário, pose. Se você pedir tudo de uma vez, ela vai fazer trade-offs imprevisíveis — talvez sacrifique a identidade do rosto para acertar a roupa, ou mude o estilo da jaqueta para combinar com o cenário. O provador virtual <em>congela</em> as decisões críticas (rosto + figurino) antes de adicionar complexidade.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">1.</span><span>Gere a pessoa em fundo cinza neutro — sem distrações</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">2.</span><span>Valide: o rosto está consistente? As roupas estão corretas?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">3.</span><span>Esse asset vira sua "fonte de verdade" — o golden asset</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">4.</span><span>Só agora ele entra nas cenas: ao lado do carro, na escada, na cidade</span></li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l0/photo_5089376971652795520_x.jpg" alt="Spaces pipeline com fitting room" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Pipeline com fitting room: o personagem é primeiro montado em ambiente neutro</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l0/photo_5089376971652795522_y.jpg" alt="Resultado gerado a partir do golden asset" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Resultado final: o mesmo personagem agora aparece em cenários distintos mantendo identidade</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Regra de Ouro
+        </h3>
+        <p class="text-neutral-300">"Personagem antes de cenário, identidade antes de contexto." Se o golden asset não estiver perfeito, nenhuma cena posterior será — porque você estará amplificando inconsistências em escala industrial.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎯 Referências vs Descrições</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Iniciantes tentam descrever tudo com palavras: "uma jaqueta de couro preta com costura dupla, dois bolsos no peito, gola alta...". Profissionais fazem diferente: <strong class="text-purple-400">enviam a foto da jaqueta</strong>. Texto descreve. Imagem define. E essa diferença vale para tudo: rostos, roupas, cenários, paletas de cor e estilos visuais.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">✓ Alimentar com Referências</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Foto real da jaqueta → textura e forma exatas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Foto do rosto → identidade travada em todas as cenas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Frame de filme → estilo de iluminação e paleta replicados</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Resultado: <em>previsível, controlável, replicável</em></span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Apenas Descrição em Texto</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Jaqueta de couro preta com..." — modelo escolhe a forma</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Mulher de cabelo escuro" — rosto muda a cada geração</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Estilo cinematográfico" — interpretação aleatória do modelo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Resultado: <em>imprevisível, frágil, irrepetível</em></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795523_y.jpg" alt="Workflow alimentado por referências reais" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Workflow construído sobre referências visuais — cada bloco de input é uma foto real, não uma descrição em texto</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">📐</span> Princípio Fundamental
+        </h3>
+        <p class="text-neutral-300 font-mono text-sm bg-dark-700 rounded-lg p-3">"Mostre, não descreva. Cada referência visual vale 1.000 palavras de prompt."</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧩 Organização Visual</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Em pipelines complexos, organização visual <strong class="text-purple-400">não é estética — é funcional</strong>. Quando o cliente pede "muda só o cabelo da personagem", você precisa saber em 5 segundos onde mexer. Isso só é possível se o seu canvas estiver organizado por cores, grupos e anotações desde o primeiro dia.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🛠️ As Ferramentas de Organização</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="text-2xl">🎨</span>
+            <div>
+              <h4 class="font-semibold text-white text-sm">Cores em Grupos</h4>
+              <p class="text-neutral-300 text-sm">Selecione um conjunto de nodes relacionados (todos os de personagem, todos os de cenário) e aplique uma cor de grupo. Isso cria zonas funcionais visíveis no canvas.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-2xl">📝</span>
+            <div>
+              <h4 class="font-semibold text-white text-sm">Sticky Notes / Comentários</h4>
+              <p class="text-neutral-300 text-sm">Adicione notas explicando decisões importantes ou variáveis críticas. Você-do-futuro vai agradecer.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-2xl">✋</span>
+            <div>
+              <h4 class="font-semibold text-white text-sm">Cursor / Mão</h4>
+              <p class="text-neutral-300 text-sm">Use o cursor (seta) para selecionar/conectar nodes e a mão para navegar pelo canvas sem mover acidentalmente os nodes.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-2xl">🔤</span>
+            <div>
+              <h4 class="font-semibold text-white text-sm">Negrito e Tamanho em Text Nodes</h4>
+              <p class="text-neutral-300 text-sm">Destaque variáveis importantes nos text nodes para encontrar rápido o que precisa ser editado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795519_y.jpg" alt="Pipeline organizado com grupos coloridos" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Pipeline organizado: blocos de cor demarcam zonas funcionais (Model, Outfit, Context) — manutenção e edição ficam triviais</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica de Workflow
+        </h3>
+        <p class="text-neutral-300">Quando terminar um pipeline, antes de fechar o Space, organize-o como se outra pessoa fosse abrir amanhã. Em uma semana, essa "outra pessoa" será você.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO DO MÓDULO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 3.1
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Sair do sandbox</strong><span class="text-neutral-400"> — Geração caótica não escala em produção profissional</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Filosofia de nodes</strong><span class="text-neutral-400"> — Visibilidade, modularidade e reutilização do pipeline</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Engenheiro do canvas</strong><span class="text-neutral-400"> — Ler da esquerda (entradas) para a direita (saídas)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Provador virtual</strong><span class="text-neutral-400"> — Crie o golden asset em fundo neutro antes do contexto</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Referências visuais</strong><span class="text-neutral-400"> — Mostre, não descreva. Foto vale mais que prompt</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Organização funcional</strong><span class="text-neutral-400"> — Cores, grupos e notas tornam o pipeline manutenível</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.2 — Construindo Conteúdo com IA: a fórmula completa do pipeline Text → Assistant → Image → Video → Music → SFX, na prática</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 3</a>
+          <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo: Construindo Conteúdo com IA →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

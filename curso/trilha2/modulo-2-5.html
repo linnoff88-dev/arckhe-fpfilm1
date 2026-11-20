@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.5 — Upscalers e Qualidade | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37, 99, 235, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🎬</span><span class="font-bold text-lg hidden sm:inline">Freepik Film</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span>
+      <span class="text-blue-400">Módulo 2.5</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.5</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔬 Upscalers e Qualidade</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Image Upscaler (Magnific) até 10K resolução e Video Upscaler (Topaz) até 4K Ultra HD a 60fps. Saiba quando usar cada um, quanto custa e como maximizar a qualidade sem desperdiçar créditos.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Iniciante</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Técnico</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- IMAGENS -->
+    <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+      <img src="../img/l1/photo_5089376971652795498_w.jpg" alt="Pipeline completo com upscaler node" class="w-full object-cover">
+      <p class="text-xs text-neutral-500 p-3 bg-dark-800">Pipeline no Spaces com Upscaler Node integrado — o upscale acontece automaticamente após a geração de imagem aprovada</p>
+    </div>
+    <div class="grid grid-cols-2 gap-4 mb-10">
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l1/photo_5089376971652795501_y.jpg" alt="Configuração avançada de upscale" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Painel de configuração do Magnific — modos e parâmetros</p>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l1/photo_5089376971652795504_y.jpg" alt="Resultado após upscale" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Resultado após upscale — detalhes reconstruídos por IA</p>
+      </div>
+    </div>
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔬 Image Upscaler (Magnific)</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-blue-400">Magnific AI</strong> é integrado ao Freepik para upscaling generativo de imagens — não apenas aumenta a resolução, mas <strong>reconstrói detalhes</strong> que não existiam na imagem original usando IA.</p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔍 Capacidades do Magnific</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Até 10K resolução</strong> — de uma imagem 512px para uma imagem de nível editorial</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Reconstrução de detalhes</strong> — adiciona texturas de pele, fios de cabelo, textura de tecido, grãos de areia</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Preservação de identidade</strong> — personagem permanece reconhecível após upscale</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>3 modos</strong> — Sharpen, Smooth e Precision para diferentes tipos de conteúdo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Slider de criatividade</strong> — controla o quanto de detalhe novo é adicionado</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3"><span class="mr-2">💡</span> Diferencial do Upscaling com IA</h3>
+        <p class="text-neutral-300">Upscaling tradicional (bicúbico) apenas "estica" os pixels — o resultado fica borrado. O Magnific usa IA para <strong>inventar detalhes plausíveis</strong> que deveriam estar lá, criando um resultado que parece ter sido fotografado em alta resolução desde o início.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📹 Video Upscaler (Topaz)</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed"><strong class="text-blue-400">Topaz Video AI</strong> integrado ao Freepik para upscale e interpolação de frames de vídeo — transforma vídeos gerados por IA em conteúdo de qualidade televisiva ou cinema.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 text-center">
+          <div class="text-3xl font-bold text-blue-400 mb-1">2K→4K</div>
+          <div class="text-sm text-neutral-400">Upscale de resolução</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 text-center">
+          <div class="text-3xl font-bold text-blue-400 mb-1">24→60fps</div>
+          <div class="text-sm text-neutral-400">Interpolação de frames</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 text-center">
+          <div class="text-3xl font-bold text-blue-400 mb-1">Iris</div>
+          <div class="text-sm text-neutral-400">Melhor modo para pessoas</div>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🎬 Modos do Topaz Video AI</h3>
+        <div class="space-y-3">
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <span class="font-semibold text-white">Iris</span><span class="text-neutral-400 text-sm ml-2">— Otimizado para rostos e pessoas. Preserva detalhes faciais durante o upscale. Recomendado para close-ups e cenas com personagens.</span>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <span class="font-semibold text-white">Proteus</span><span class="text-neutral-400 text-sm ml-2">— Modo geral. Funciona bem com qualquer tipo de conteúdo. Boa escolha para cenas de ambiente e paisagem.</span>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <span class="font-semibold text-white">Theia</span><span class="text-neutral-400 text-sm ml-2">— Máximo de detalhes. Melhor para texturas complexas (arquitetura, natureza, maquinário). Mais lento que os outros.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">⚡ Quando Upscalar</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A decisão estratégica sobre <strong class="text-blue-400">quando upscalar</strong> — antes de converter em vídeo ou depois da geração do vídeo — impacta diretamente a qualidade e o custo em créditos.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+          <h3 class="text-lg font-semibold text-blue-400 mb-4">🖼️ Upscalar Imagem ANTES do Vídeo</h3>
+          <p class="text-neutral-300 text-sm mb-3">Faça upscale da imagem de referência antes de usar como input para Image-to-Video.</p>
+          <p class="text-neutral-400 text-sm"><strong>Vantagens:</strong> Frame de referência em alta resolução = vídeo com mais detalhes e menos artefatos desde o primeiro frame.</p>
+          <p class="text-neutral-400 text-sm mt-2"><strong>Quando usar:</strong> Cenas de close-up onde detalhes faciais são críticos.</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+          <h3 class="text-lg font-semibold text-blue-400 mb-4">📹 Upscalar Vídeo DEPOIS da Geração</h3>
+          <p class="text-neutral-300 text-sm mb-3">Faça upscale do vídeo gerado para aumentar resolução e framerate antes do export final.</p>
+          <p class="text-neutral-400 text-sm"><strong>Vantagens:</strong> Eleva qualidade geral do clip, remove grain de IA, dobra o framerate para movimento mais fluido.</p>
+          <p class="text-neutral-400 text-sm mt-2"><strong>Quando usar:</strong> Versão final aprovada, antes de enviar para montagem.</p>
+        </div>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Atenção</h3>
+        <p class="text-neutral-300">Nunca upscale rascunhos ou cenas ainda em aprovação. O upscale tem custo em créditos e tempo. Somente cenas aprovadas merecem o investimento em qualidade de upscale.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">💰 Custo em Créditos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O upscaling é uma das operações <strong class="text-blue-400">mais caras em créditos</strong> por operação. Planejar o orçamento de créditos para a fase de pós-produção é essencial para não travar o projeto no final.</p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Tabela de Custos Aproximados</h3>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between bg-dark-800/50 rounded-lg p-3">
+            <span class="text-neutral-300">Image Upscale 2x (Magnific)</span>
+            <span class="text-blue-400 font-bold">~5 créditos</span>
+          </div>
+          <div class="flex items-center justify-between bg-dark-800/50 rounded-lg p-3">
+            <span class="text-neutral-300">Image Upscale 4x (Magnific)</span>
+            <span class="text-blue-400 font-bold">~10 créditos</span>
+          </div>
+          <div class="flex items-center justify-between bg-dark-800/50 rounded-lg p-3">
+            <span class="text-neutral-300">Image Upscale 8x (Magnific)</span>
+            <span class="text-blue-400 font-bold">~20 créditos</span>
+          </div>
+          <div class="flex items-center justify-between bg-dark-800/50 rounded-lg p-3">
+            <span class="text-neutral-300">Video Upscale 4s (Topaz, 2K→4K)</span>
+            <span class="text-blue-400 font-bold">~15 créditos</span>
+          </div>
+          <div class="flex items-center justify-between bg-dark-800/50 rounded-lg p-3">
+            <span class="text-neutral-300">Video Upscale 8s (Topaz, 2K→4K + 60fps)</span>
+            <span class="text-blue-400 font-bold">~35-50 créditos</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3"><span class="mr-2">💡</span> Orçamento Recomendado</h3>
+        <p class="text-neutral-300">Reserve <strong>30% do orçamento total de créditos para pós-produção</strong> (upscale + ajustes finais). Um filme de 3 minutos com 30 clips × 8s pode consumir 1.500-2.000 créditos só em upscale de vídeo.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎯 Configurações do Magnific</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O Magnific oferece <strong class="text-blue-400">três modos de upscaling</strong> otimizados para diferentes tipos de conteúdo. Escolher o modo errado pode superprocessar a imagem e criar resultados indesejados.</p>
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="font-bold text-blue-400 text-lg">Modo Sharpen</h4>
+            <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Arquitetura / Paisagem</span>
+          </div>
+          <p class="text-neutral-300 text-sm mb-3">Maximiza a nitidez e o contraste de bordas. Ideal para texturas geométricas, arquitetura, maquinário e paisagens onde detalhes nítidos são desejados.</p>
+          <p class="text-neutral-400 text-sm"><strong>Cuidado:</strong> Em rostos humanos, cria aparência artificial de "plástico". Use apenas em cenários sem pessoas.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="font-bold text-blue-400 text-lg">Modo Smooth</h4>
+            <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Retratos / Pele</span>
+          </div>
+          <p class="text-neutral-300 text-sm mb-3">Suaviza texturas enquanto preserva detalhes de contorno. Especialmente bom para pele humana, tecidos suaves e elementos orgânicos.</p>
+          <p class="text-neutral-400 text-sm"><strong>Recomendado:</strong> Close-ups de rosto, personagens em plano médio, cenas intimistas.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="font-bold text-blue-400 text-lg">Modo Precision</h4>
+            <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Controle total</span>
+          </div>
+          <p class="text-neutral-300 text-sm mb-3">Modo avançado com sliders individuais para cada parâmetro: nível de criatividade, HDR, fractality, resemblance e detail refinement.</p>
+          <p class="text-neutral-400 text-sm"><strong>Use quando:</strong> Os modos automáticos não produzirem o resultado desejado ou quando precisar de ajuste fino específico.</p>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🎛️ Slider de Criatividade</h3>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="bg-dark-800/50 rounded-lg p-4 text-center">
+            <div class="text-xl font-bold text-neutral-300 mb-1">0.1-0.3</div>
+            <div class="text-xs text-neutral-400">Fiel ao original<br>Mínimo de adição</div>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4 text-center">
+            <div class="text-xl font-bold text-blue-400 mb-1">0.4-0.6</div>
+            <div class="text-xs text-neutral-400">Equilíbrio ideal<br>Recomendado</div>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4 text-center">
+            <div class="text-xl font-bold text-neutral-300 mb-1">0.7-1.0</div>
+            <div class="text-xs text-neutral-400">Alta criatividade<br>Pode "alucinar"</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">📊 Comparativo Antes/Depois</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Entender o <strong class="text-blue-400">impacto visual real do upscale</strong> ajuda a decidir quando ele vale o investimento em créditos e quando a resolução nativa já é suficiente.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Upscale Vale a Pena</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Close-ups de rosto que serão exibidos em TV ou projeção</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cenas de destaque que serão usadas em thumbnail</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Frames que serão usados como imagem de referência para Lip Sync</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Vídeos finais aprovados para exibição premium</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Upscale Desnecessário</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Wide shots e planos gerais onde a pixelização não aparece</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Rascunhos e versões em aprovação</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Conteúdo que será exibido apenas em mobile (resolução 2K suficiente)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cenas de transição rápida (menos de 2 segundos na tela)</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 2.5</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Magnific</strong><span class="text-neutral-400"> — upscale generativo de imagem até 10K com reconstrução de detalhes por IA</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Topaz</strong><span class="text-neutral-400"> — upscale de vídeo até 4K + 60fps; modos Iris (pessoas), Proteus (geral), Theia (detalhes)</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Estratégia</strong><span class="text-neutral-400"> — upscale imagem antes do I2V para close-ups; upscale vídeo depois para exibição final</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Custo</strong><span class="text-neutral-400"> — reserve 30% dos créditos para pós-produção; nunca upscale rascunhos</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Modos Magnific</strong><span class="text-neutral-400"> — Smooth para rostos, Sharpen para arquitetura, Precision para controle total</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.6 — Ferramentas de Áudio: Voice Generator, Music Generator, SFX, Lip Sync e o mix final</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.4</a>
+          <a href="modulo-2-6.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo: Áudio →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — Abril 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freepik Film | INEMA.CLUB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    /* Emerald */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
+    /* Blue */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-blue-400 { color: #2563eb; }
+    /* Purple */
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-purple-400 { color: #7c3aed; }
+    /* Amber */
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-amber-400 { color: #92400e; }
+    /* Teal */
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .bg-teal-500\/20 { background-color: rgba(13, 148, 136, 0.12); }
+    html:not(.dark) .border-teal-500\/30 { border-color: rgba(13, 148, 136, 0.25); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13, 148, 136, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-teal-400 { color: #0d9488; }
+    /* Rose */
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225, 29, 72, 0.12); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225, 29, 72, 0.25); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225, 29, 72, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-rose-400 { color: #9f1239; }
+  </style>
+</head>
+<body class="text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur border-b border-dark-700">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold text-yellow-400">🎬 Freepik Film</span>
+        <span class="text-dark-600 select-none">|</span>
+        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors">INEMA.CLUB</a>
+      </div>
+      <button id="theme-toggle" type="button" class="p-2 rounded-lg bg-dark-800 border border-dark-600 hover:bg-dark-700 transition-colors" aria-label="Alternar tema">
+        <!-- Moon icon (shown in dark mode) -->
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+        </svg>
+        <!-- Sun icon (shown in light mode) -->
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-400" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="max-w-6xl mx-auto px-4 pt-16 pb-12">
+    <!-- Badge -->
+    <div class="flex justify-center mb-6">
+      <span class="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/30 text-yellow-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest">
+        ✨ NOVO CURSO 2026
+      </span>
+    </div>
+
+    <!-- Title -->
+    <div class="text-center mb-6">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+        🎬 Crie Filmes com IA
+      </h1>
+      <p class="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        Do roteiro ao vídeo final usando <span class="text-yellow-400 font-semibold">Freepik Spaces</span> — a ferramenta profissional de criação cinematográfica com IA
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-2xl mx-auto">
+      <div class="bg-dark-800 border border-dark-600 rounded-xl p-4 text-center">
+        <div class="text-2xl font-extrabold text-yellow-400">6</div>
+        <div class="text-xs text-neutral-400 mt-1">Trilhas</div>
+      </div>
+      <div class="bg-dark-800 border border-dark-600 rounded-xl p-4 text-center">
+        <div class="text-2xl font-extrabold text-yellow-400">34</div>
+        <div class="text-xs text-neutral-400 mt-1">Módulos</div>
+      </div>
+      <div class="bg-dark-800 border border-dark-600 rounded-xl p-4 text-center">
+        <div class="text-2xl font-extrabold text-yellow-400">+200</div>
+        <div class="text-xs text-neutral-400 mt-1">Tópicos</div>
+      </div>
+      <div class="bg-dark-800 border border-dark-600 rounded-xl p-4 text-center">
+        <div class="text-2xl font-extrabold text-yellow-400">Abr</div>
+        <div class="text-xs text-neutral-400 mt-1">2026</div>
+      </div>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="rounded-2xl overflow-hidden border border-dark-600 shadow-2xl">
+      <img
+        src="curso/img/l1/photo_5089376971652795487_w.jpg"
+        alt="Freepik Spaces — homepage com templates de projetos cinematográficos"
+        class="w-full object-cover"
+      >
+    </div>
+    <p class="text-center text-xs text-neutral-500 mt-3">Interface do Freepik Spaces — ambiente profissional de criação com IA</p>
+  </section>
+
+  <!-- GALERIA VISUAL — O que você vai criar -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">O que você vai criar</h2>
+      <p class="text-neutral-400">Screenshots reais da interface e dos resultados gerados no curso</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <!-- Image 1 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l3/photo_5089376971652795469_w.jpg"
+            alt="Video Generator com galeria de carros 4x4 — vídeos gerados com IA"
+            class="w-full object-cover h-48 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-3">
+          <p class="text-xs text-neutral-400">Video Generator — galeria de carros 4x4 cinematográficos</p>
+        </div>
+      </div>
+
+      <!-- Image 2 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l1/photo_5089376971652795488_w.jpg"
+            alt="Canvas vazio do Freepik Spaces com seletor de nodes"
+            class="w-full object-cover h-48 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-3">
+          <p class="text-xs text-neutral-400">Canvas com seletor de nodes — montando seu pipeline visual</p>
+        </div>
+      </div>
+
+      <!-- Image 3 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l0/photo_5089376971652795519_y.jpg"
+            alt="Pipeline de personagem e outfit no Freepik Spaces"
+            class="w-full object-cover h-48 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-3">
+          <p class="text-xs text-neutral-400">Pipeline de personagem e outfit — consistência visual garantida</p>
+        </div>
+      </div>
+
+      <!-- Image 4 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l1/photo_5089376971652795492_w.jpg"
+            alt="Image Generator Node configurado no Freepik Spaces"
+            class="w-full object-cover h-48 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-3">
+          <p class="text-xs text-neutral-400">Image Generator Node — configuração profissional de geração</p>
+        </div>
+      </div>
+
+      <!-- Image 5 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l2/photo_5089376971652795507_w.jpg"
+            alt="Câmera cinematográfica handheld — controle de câmera com IA"
+            class="w-full object-cover h-48 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-3">
+          <p class="text-xs text-neutral-400">Câmera cinematográfica handheld — técnicas de controle de câmera</p>
+        </div>
+      </div>
+
+      <!-- Image 6 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l2/photo_5089376971652795511_y.jpg"
+            alt="Assistant Node com prompt detalhado no Freepik Spaces"
+            class="w-full object-cover h-48 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-3">
+          <p class="text-xs text-neutral-400">Assistant Node — prompts detalhados para cenas cinematográficas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRILHAS DO CURSO -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">As 6 Trilhas do Curso</h2>
+      <p class="text-neutral-400">Uma jornada completa do conceito ao filme acabado</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- T1 Emerald -->
+      <a href="curso/trilha1/index.html" class="group block bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/50 p-6 transition-all hover:bg-dark-700/50">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-3xl">🎬</span>
+          <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-full font-medium">T1 · 5 módulos</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">Fundamentos de Cinema</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Os pilares do cinema que transformam vídeos em filmes</p>
+      </a>
+
+      <!-- T2 Blue -->
+      <a href="curso/trilha2/index.html" class="group block bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/50 p-6 transition-all hover:bg-dark-700/50">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-3xl">🛠️</span>
+          <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full font-medium">T2 · 7 módulos</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Recursos do Freepik</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Todas as ferramentas AI disponíveis em Abril 2026</p>
+      </a>
+
+      <!-- T3 Purple -->
+      <a href="curso/trilha3/index.html" class="group block bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/50 p-6 transition-all hover:bg-dark-700/50">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-3xl">🕸️</span>
+          <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full font-medium">T3 · 3 módulos</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">Freepik Spaces</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">O ambiente profissional de nodes para criar sem caos</p>
+      </a>
+
+      <!-- T4 Amber -->
+      <a href="curso/trilha4/index.html" class="group block bg-dark-800 rounded-xl border border-dark-600 hover:border-amber-500/50 p-6 transition-all hover:bg-dark-700/50">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-3xl">🎥</span>
+          <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded-full font-medium">T4 · 4 módulos</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-amber-400 transition-colors">Controle de Câmera</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Pan, dolly, tracking — cada movimento tem propósito</p>
+      </a>
+
+      <!-- T5 Teal -->
+      <a href="curso/trilha5/index.html" class="group block bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/50 p-6 transition-all hover:bg-dark-700/50">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-3xl">⚙️</span>
+          <span class="text-xs bg-teal-500/20 text-teal-400 px-2 py-1 rounded-full font-medium">T5 · 4 módulos</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-teal-400 transition-colors">Workflow de Produção</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Pipeline profissional: imagem base → storyboard → animação</p>
+      </a>
+
+      <!-- T6 Rose -->
+      <a href="curso/trilha6/index.html" class="group block bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/50 p-6 transition-all hover:bg-dark-700/50">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-3xl">🏆</span>
+          <span class="text-xs bg-rose-500/20 text-rose-400 px-2 py-1 rounded-full font-medium">T6 · 10 módulos</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-rose-400 transition-colors">Seu Filme Completo</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Passo a passo do roteiro ao vídeo final exportado</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- POR QUE ESTE CURSO -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">Por que este curso?</h2>
+      <p class="text-neutral-400">Aprendizado prático, interface real, resultados cinematográficos</p>
+    </div>
+
+    <!-- Imagem destaque antes dos cards -->
+    <div class="mb-8 rounded-xl overflow-hidden border border-dark-600">
+      <img
+        src="curso/img/l1/photo_5089376971652795493_y.jpg"
+        alt="Freepik Spaces em uso — criação de cenas cinematográficas com IA"
+        class="w-full object-cover rounded-xl border border-dark-600"
+      >
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="bg-dark-800 border border-dark-600 rounded-xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mb-4">
+          <span class="text-xl">📸</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Ferramentas Reais</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Screenshots da interface Freepik em cada aula — você aprende na ferramenta que vai usar, não em demos desatualizadas.</p>
+        <div class="mt-4 rounded-lg overflow-hidden border border-dark-700">
+          <img
+            src="curso/img/l1/photo_5089376971652795495_y.jpg"
+            alt="Screenshot real do Freepik Spaces"
+            class="w-full object-cover h-32"
+          >
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-dark-800 border border-dark-600 rounded-xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mb-4">
+          <span class="text-xl">🕸️</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Pipeline Profissional</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Node-based workflow como os profissionais usam — conecte texto, imagens e vídeos em pipelines reutilizáveis e organizados.</p>
+        <div class="mt-4 rounded-lg overflow-hidden border border-dark-700">
+          <img
+            src="curso/img/l1/photo_5089376971652795498_w.jpg"
+            alt="Pipeline de nodes no Freepik Spaces"
+            class="w-full object-cover h-32"
+          >
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-dark-800 border border-dark-600 rounded-xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center mb-4">
+          <span class="text-xl">🎬</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Resultado Final</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Vídeos cinematográficos completos — com câmera, personagens, cenário e narrativa. Do roteiro ao arquivo exportado.</p>
+        <div class="mt-4 rounded-lg overflow-hidden border border-dark-700">
+          <img
+            src="curso/img/l3/photo_5089376971652795466_w.jpg"
+            alt="Vídeo cinematográfico gerado com Freepik Spaces"
+            class="w-full object-cover h-32"
+          >
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEGUNDA GALERIA — Processo em detalhes -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">O processo na prática</h2>
+      <p class="text-neutral-400">Cada aula mostra a interface real — você acompanha cada clique</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <!-- Image 1 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l1/photo_5089376971652795490_y.jpg"
+            alt="Text Node com prompt cinematográfico no Freepik Spaces"
+            class="w-full object-cover h-56 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold text-sm mb-1">Text Node com Prompt</h4>
+          <p class="text-xs text-neutral-400">Escreva prompts precisos que geram cenas cinematográficas consistentes e reutilizáveis</p>
+        </div>
+      </div>
+
+      <!-- Image 2 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l1/photo_5089376971652795498_w.jpg"
+            alt="Pipeline de nodes conectados no Freepik Spaces"
+            class="w-full object-cover h-56 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold text-sm mb-1">Nodes Conectados</h4>
+          <p class="text-xs text-neutral-400">Veja como os nodes se conectam formando o pipeline completo de produção</p>
+        </div>
+      </div>
+
+      <!-- Image 3 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l3/photo_5089376971652795466_w.jpg"
+            alt="Resultado de vídeo gerado com Freepik Spaces"
+            class="w-full object-cover h-56 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold text-sm mb-1">Vídeos Gerados</h4>
+          <p class="text-xs text-neutral-400">Resultado final: vídeos cinematográficos com qualidade profissional gerados em minutos</p>
+        </div>
+      </div>
+
+      <!-- Image 4 -->
+      <div class="group overflow-hidden rounded-xl border border-dark-600 bg-dark-800 hover:border-yellow-400/40 transition-all">
+        <div class="overflow-hidden">
+          <img
+            src="curso/img/l2/photo_5089376971652795512_w.jpg"
+            alt="Câmera cinematográfica outro ângulo — controle de movimento"
+            class="w-full object-cover h-56 group-hover:scale-105 transition-transform duration-300"
+          >
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold text-sm mb-1">Controle de Câmera</h4>
+          <p class="text-xs text-neutral-400">Aprenda a direcionar movimentos de câmera para criar narrativas visuais impactantes</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="bg-dark-800 border border-yellow-400/20 rounded-2xl p-8 md:p-12 text-center">
+      <span class="text-4xl mb-4 block">🎬</span>
+      <h2 class="text-2xl md:text-3xl font-bold mb-3">Pronto para criar seu filme?</h2>
+      <p class="text-neutral-400 mb-8 max-w-xl mx-auto">Escolha uma trilha e comece agora. O Freepik Spaces está esperando pelo seu primeiro projeto cinematográfico.</p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="curso/trilha1/index.html" class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-semibold px-5 py-2.5 rounded-xl hover:bg-emerald-500/30 transition-all text-sm">
+          🎬 Começar pela T1
+        </a>
+        <a href="curso/trilha3/index.html" class="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/40 text-purple-400 font-semibold px-5 py-2.5 rounded-xl hover:bg-purple-500/30 transition-all text-sm">
+          🕸️ Freepik Spaces (T3)
+        </a>
+        <a href="curso/trilha6/index.html" class="inline-flex items-center gap-2 bg-rose-500/20 border border-rose-500/40 text-rose-400 font-semibold px-5 py-2.5 rounded-xl hover:bg-rose-500/30 transition-all text-sm">
+          🏆 Filme Completo (T6)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-700 mt-8">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
+      <div class="flex items-center gap-2">
+        <span class="text-yellow-400 font-semibold">🎬 Freepik Film</span>
+        <span>—</span>
+        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 transition-colors font-medium">INEMA.CLUB</a>
+        <span>—</span>
+        <span>2026</span>
+      </div>
+      <div class="text-xs text-neutral-600">
+        Criado com Freepik Spaces + IA generativa
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

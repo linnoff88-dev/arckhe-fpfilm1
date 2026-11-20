@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 3 — Freepik Spaces | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">TRILHA 3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🌌 Freepik <span class="text-purple-400">Spaces</span></h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        O ambiente profissional baseado em nodes que separa quem brinca de quem produz. Aprenda a sair do caos do "sandbox", construir pipelines completos de produção com IA e criar workflows reutilizáveis — do conceito até música, vídeo e efeitos sonoros, tudo em um único canvas visual.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">3</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">19</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">~2h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Inter</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- GALERIA VISUAL -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <h2 class="text-xl font-bold mb-6 text-purple-400">Interface Real do Freepik Spaces</h2>
+    <div class="grid grid-cols-2 gap-4 mb-10">
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l1/photo_5089376971652795487_w.jpg" alt="Spaces homepage com templates" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Homepage do Spaces — templates prontos: storyboard, fashion, character animation, batch ad</p>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l0/photo_5089376971652795519_y.jpg" alt="Pipeline profissional com Model, Outfit e Context" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Pipeline pro: Model + Outfit + Context nodes convergindo no golden asset</p>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l1/photo_5089376971652795492_w.jpg" alt="Image Generator Node configurado" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Image Generator Node — Nano Banana Pro, references e parâmetros completos</p>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l1/photo_5089376971652795496_y.jpg" alt="Pipeline completo Text to SFX" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Pipeline completo: Text → Assistant → Image → Video → Music → SFX</p>
+      </div>
+    </div>
+
+    <!-- CARDS RÁPIDOS -->
+    <h2 class="text-xl font-bold mb-6 text-purple-400">Os 3 Módulos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+      <a href="modulo-3-1.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-6 hover:border-purple-500/30 hover:bg-purple-500/5 transition-colors">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.1</span><span class="text-xs text-neutral-500">~35 min</span></div>
+        <h3 class="text-xl font-bold mb-2">🌌 Spaces: Do Caos ao Controle</h3>
+        <p class="text-neutral-400 text-sm">Filosofia de nodes, golden asset, referências vs descrições e organização visual.</p>
+      </a>
+      <a href="modulo-3-2.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-6 hover:border-purple-500/30 hover:bg-purple-500/5 transition-colors">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.2</span><span class="text-xs text-neutral-500">~40 min</span></div>
+        <h3 class="text-xl font-bold mb-2">🛠️ Construindo Conteúdo com IA</h3>
+        <p class="text-neutral-400 text-sm">A fórmula completa: Text → Assistant → Image → Video → Music → SFX, com exemplo prático real.</p>
+      </a>
+      <a href="modulo-3-3.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-6 hover:border-purple-500/30 hover:bg-purple-500/5 transition-colors md:col-span-2">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.3</span><span class="text-xs text-neutral-500">~35 min</span></div>
+        <h3 class="text-xl font-bold mb-2">⚙️ Controle Total com Nodes Avançados</h3>
+        <p class="text-neutral-400 text-sm">List, Variations, Character Reference, Workflow Apps e colaboração nativa.</p>
+      </a>
+    </div>
+
+    <!-- DIVISOR -->
+    <div class="flex items-center space-x-4 mb-10">
+      <div class="flex-1 h-px bg-dark-600"></div>
+      <span class="text-sm text-neutral-500 font-medium px-4">CONTEÚDO DETALHADO</span>
+      <div class="flex-1 h-px bg-dark-600"></div>
+    </div>
+
+    <!-- MÓDULO 3.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.1</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🌌 Spaces: Do Caos ao Controle</h3>
+        <p class="text-neutral-400 text-sm">A brincadeira acabou. Saia do "sandbox" e entre no ambiente profissional baseado em nodes — onde cada decisão é visível, controlada e reutilizável.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🌪️</span>
+            <div><span class="font-medium">O Problema: Geração Caótica</span><span class="text-neutral-500 text-sm ml-2">- 10 abas, arquivos perdidos, estilos inconsistentes</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A realidade do criador amador: dezenas de abas, prompts perdidos, estilos visuais que mudam a cada nova geração e arquivos espalhados em 5 plataformas.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Reconhecer os sintomas do caos é o primeiro passo para abandoná-lo. A geração caótica não escala em produção profissional.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sandbox vs pipeline • Inconsistência entre cenas • Retrabalho infinito • Falta de versionamento • A loteria do "gerar e torcer"</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🕸️</span>
+            <div><span class="font-medium">Filosofia de Nodes</span><span class="text-neutral-500 text-sm ml-2">- Por que profissionais usam esquemas visuais</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Paradigma visual onde cada etapa do processo é uma "caixa" (node) com entradas e saídas, conectadas por fios que carregam dados. É a base de Houdini, Nuke, ComfyUI e agora Spaces.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Visibilidade total do processo, modularidade e reutilização. A mentalidade de nodes muda a qualidade do output radicalmente.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Node-based vs chat linear • Fluxo de dados • Modularidade • Reutilização • Paradigma universal (Houdini, Nuke, ComfyUI)</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📐</span>
+            <div><span class="font-medium">Pensar como Engenheiro</span><span class="text-neutral-500 text-sm ml-2">- Ler o canvas da esquerda para a direita</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Convenção universal de canvas: entradas à esquerda, processamento no centro, saídas à direita. Aprenda essa regra e qualquer pipeline complexo fica legível em segundos.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando você abre um template pronto pela primeira vez, parece uma teia de aranha. Saber ler o fluxo é a diferença entre compreender e desistir.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Entradas (esquerda) • Processamento (centro) • Saídas (direita) • Nodes de controle • Leitura em 30 segundos</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">👕</span>
+            <div><span class="font-medium">O Provador Virtual (Fitting Room)</span><span class="text-neutral-500 text-sm ml-2">- Crie o golden asset antes do contexto</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Técnica profissional de criar primeiro uma versão "limpa" do personagem em fundo neutro — o golden asset — antes de inseri-lo em cenas complexas.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem isolar a identidade primeiro, a IA faz trade-offs imprevisíveis entre rosto, roupa e cenário, gerando inconsistência entre cenas.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Golden asset • Fundo neutro • Validação de identidade • Personagem antes de cenário • Fonte de verdade visual</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Referências vs Descrições</span><span class="text-neutral-500 text-sm ml-2">- Mostre, não descreva</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Princípio de alimentar o sistema com fotos reais (rosto, roupa, frame de filme) em vez de descrever tudo com palavras. Imagem define, texto descreve.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Texto é interpretado pelo modelo (e cada interpretação é diferente). Imagens travam decisões visuais de forma previsível e replicável.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Reference image • Style transfer • Identidade travada • Previsibilidade • "1 imagem = 1.000 palavras de prompt"</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧩</span>
+            <div><span class="font-medium">Organização Visual</span><span class="text-neutral-500 text-sm ml-2">- Cores, grupos e sticky notes</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Conjunto de ferramentas (cores em grupos, sticky notes, comentários, formatação) que transformam o canvas em algo manutenível e legível por toda a equipe.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando o cliente pede "muda só o cabelo", você precisa saber em 5 segundos onde mexer. Organização visual não é estética — é funcional.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Grupos coloridos • Sticky notes • Anotações inline • Negrito em text nodes • Zonas funcionais</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-1.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.2</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🛠️ Construindo Conteúdo com IA</h3>
+        <p class="text-neutral-400 text-sm">A fórmula completa do pipeline profissional, na prática. Cada node explicado com exemplo real: um pintinho amarelo de jaqueta de couro andando de snowboard.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">A Fórmula do Pipeline</span><span class="text-neutral-500 text-sm ml-2">- Text → Assistant → Image → Video → Music → SFX</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Estrutura universal que toda produção profissional de conteúdo com IA segue. Sete etapas encadeadas que transformam uma frase em filme.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem essa fórmula você fica gerando aleatoriamente. Com ela, qualquer ideia vira um pipeline reproduzível e iterável.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pipeline universal • Encadeamento de nodes • Refinamento iterativo • Output multimídia completo</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📝</span>
+            <div><span class="font-medium">Text Node</span><span class="text-neutral-500 text-sm ml-2">- Onde começa tudo: a ideia crua</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node simples que armazena texto livre — usado como prompt, anotação ou variável que será propagada pelo resto do pipeline.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Aqui você não precisa ser técnico nem cinematográfico. A pior coisa é tentar escrever um prompt perfeito antes de o Assistant fazer o trabalho pesado.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ideia crua • Não ser técnico • Negrito para variáveis • Ponto de partida cognitivo</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🤖</span>
+            <div><span class="font-medium">Assistant Node</span><span class="text-neutral-500 text-sm ml-2">- Engenheiro de prompt residente</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">LLM rodando dentro do Spaces que transforma uma ideia simples em prompt cinematográfico profissional, otimizado para o modelo de geração que você vai usar.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Prompts profissionais são técnicos e específicos. Em vez de aprender prompt engineering, deixe o Assistant fazer isso por você.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Meta-prompt • Transformação de ideia • Otimização por modelo • Prompt cinematográfico</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🖼️</span>
+            <div><span class="font-medium">Image Generator Node</span><span class="text-neutral-500 text-sm ml-2">- Nano Banana Pro, references, aspect ratio</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node de geração de imagem dentro do canvas. Recebe prompt do Assistant, references do canvas e parâmetros técnicos (modelo, aspect ratio, style, camera).</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É aqui que você combina inteligência narrativa (prompt) com decisões técnicas (modelo, ratio). Saber configurar dobra a qualidade do output.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Modelo Nano Banana Pro • Reference images • Aspect ratio 16:9 • Style/camera • Painel lateral</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🎥</span>
+            <div><span class="font-medium">Image-to-Video</span><span class="text-neutral-500 text-sm ml-2">- Por que imagem primeiro cria vídeos melhores</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Técnica de usar uma imagem já gerada e validada como frame inicial do Video Generator, em vez de gerar vídeo direto a partir de texto.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Modelos de vídeo herdam a aparência do start frame, congelando identidade, ambiente e estilo. O prompt do vídeo só descreve movimento.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Start frame crucial • Consistência herdada • Foco no movimento • Modelo Kling 2.1</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎵</span>
+            <div><span class="font-medium">Music + SFX Nodes</span><span class="text-neutral-500 text-sm ml-2">- Trilha e efeitos no mesmo canvas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Dois nodes dedicados a áudio: Music Generator para trilhas cinematográficas e Sound Effects para efeitos pontuais como vento, passos, impactos.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Vídeo sem som é meio filme. Ter áudio gerado dentro do mesmo canvas elimina a necessidade de editores externos para protótipos.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Music Generator • Sound Effects • Prompt textual de áudio • Camadas sonoras • Tudo num canvas</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Iteração Criativa</span><span class="text-neutral-500 text-sm ml-2">- Modificar uma etapa sem refazer tudo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Capacidade de editar um único node do pipeline (ambiente, iluminação, movimento) e ter todos os nodes downstream se atualizando automaticamente.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a maior vantagem do Spaces sobre chat linear. Refinar &gt; recomeçar — transforme horas de retrabalho em minutos de iteração.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Edição modular • Atualização downstream • Refinar &gt; recomeçar • Variáveis isoladas</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-2.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">3.3</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">⚙️ Controle Total com Nodes Avançados</h3>
+        <p class="text-neutral-400 text-sm">O arsenal profissional: List, Variations, Character Reference, Workflow Apps e colaboração em tempo real. Os nodes que separam quem brinca de quem produz.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔗</span>
+            <div><span class="font-medium">Conexões e Fluxo de Dados</span><span class="text-neutral-500 text-sm ml-2">- Portas, fios e tipos de dados</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A gramática dos nodes: portas de entrada (esquerda) recebem dados, portas de saída (direita) emitem dados, fios conectam os dois respeitando tipos.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem entender essa gramática, você não consegue construir nem debugar pipelines avançados. É a base de tudo que vem depois.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Input/output ports • Wires • Tipos de dados (string, image, video) • Múltiplas conexões a partir de uma saída</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📦</span>
+            <div><span class="font-medium">List Node</span><span class="text-neutral-500 text-sm ml-2">- Batch processing de múltiplas saídas em paralelo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node que armazena uma lista de inputs e dispara o mesmo pipeline para cada item — gerando todas as saídas em paralelo. Base de batch processing.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Permite gerar storyboards completos, A/B testing visual e múltiplas opções para cliente em uma única execução. Escalabilidade brutal.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Batch processing • Múltiplos prompts • Execução paralela • Storyboard automatizado</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔁</span>
+            <div><span class="font-medium">Variations Node</span><span class="text-neutral-500 text-sm ml-2">- Múltiplas versões do mesmo conceito</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node que mantém o prompt fixo e gera múltiplas interpretações automáticas — diferente do List, que muda o prompt explicitamente.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando você ainda não sabe qual é a melhor versão, deixe o modelo explorar variações para você. Combinação List + Variations é o nirvana.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Mesmo input, outputs diferentes • Exploração criativa • Diferença vs List • Combinação List+Variations</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🎭</span>
+            <div><span class="font-medium">Character Reference Node</span><span class="text-neutral-500 text-sm ml-2">- Travar identidade visual em múltiplas cenas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Node que armazena 1-5 imagens de um personagem como "memória de identidade" e pode ser conectado a qualquer Image Generator para travar rosto e roupa.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o node mais importante para narrativa. Sem ele, todo personagem muda sutilmente entre cenas e o filme perde credibilidade dramática.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Identity lock • Memória de personagem • Conexão a múltiplos generators • Combinado com golden asset</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">💾</span>
+            <div><span class="font-medium">Workflow Apps</span><span class="text-neutral-500 text-sm ml-2">- Salvar pipeline como ferramenta reutilizável</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Recurso que empacota um pipeline inteiro como "app" com inputs simplificados, escondendo a complexidade dos nodes para outros usuários.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Transforma o Spaces de ferramenta em plataforma. Você cria uma vez e usa (ou compartilha) infinitas vezes — clientes não precisam entender de nodes.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Encapsulamento • Inputs públicos • Marketplace de pipelines • Mentalidade de produto</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">👥</span>
+            <div><span class="font-medium">Share e Colaboração</span><span class="text-neutral-500 text-sm ml-2">- Link, live cursors e time work</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Recursos nativos de colaboração: link compartilhável, live cursors mostrando onde cada pessoa edita, comentários inline e múltiplos editores simultâneos.</p></div>
+              <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Produção audiovisual raramente é solo. Saber colaborar dentro do Spaces permite integrar diretor, art director, editor e cliente no mesmo canvas.</p></div>
+              <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Share link • Live cursors • Permissões viewer/editor • Comentários inline • Fluxo de equipe</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-3.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <!-- MODAIS -->
+  <div id="modal-3-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.1</span><span class="font-semibold">Spaces: Do Caos ao Controle</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.2</span><span class="font-semibold">Construindo Conteúdo com IA</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-3-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.3</span><span class="font-semibold">Controle Total com Nodes Avançados</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

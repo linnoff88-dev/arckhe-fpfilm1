@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 4 — Controle Cinematográfico de Câmera | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+    html:not(.dark) .hover\:bg-amber-500\/30:hover { background-color: rgba(217, 119, 6, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">TRILHA 4</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎥 Controle Cinematográfico de Câmera</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Pare de gerar e comece a dirigir. Esta trilha transforma o jeito como você pensa câmera no Freepik — cada movimento, cada lente, cada plano vira uma decisão narrativa intencional.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">4</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">24</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">~2.5h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Inter.</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- GALERIA VISUAL TOPO -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-2 text-neutral-300">A linguagem da câmera no Freepik</h2>
+      <p class="text-sm text-neutral-500 mb-6">Diferentes ângulos, movimentos e resultados gerados com controle cinematográfico real</p>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Cena handheld" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Handheld camera — instabilidade controlada como recurso narrativo</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795511_y.jpg" alt="Assistant Node prompt" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Assistant Node escrevendo prompt cinematográfico Art Deco</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795512_w.jpg" alt="Resultado cinematográfico" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Resultado: composição cinematográfica refinada</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795513_y.jpg" alt="Cena gerada" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Cena gerada com instruções precisas de câmera</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795516_y.jpg" alt="Cena dramática" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Plano dramático construído com lente, ângulo e movimento</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795517_w.jpg" alt="Resultado final" class="w-full object-cover h-44">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Resultado final cinematográfico com câmera dirigida</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACESSO RÁPIDO -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-6 text-neutral-300">Acesso Rápido</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="modulo-4-1.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-amber-500/30 hover:bg-amber-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-amber-400 font-bold text-sm">4.1</span>
+            <span class="text-xs text-neutral-500">~30 min</span>
+          </div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-amber-400 transition-colors">🎬 Pensamento de Câmera</h3>
+          <p class="text-xs text-neutral-500 mt-1">Câmera como narrativa, foco do espectador</p>
+        </a>
+        <a href="modulo-4-2.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-amber-500/30 hover:bg-amber-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-amber-400 font-bold text-sm">4.2</span>
+            <span class="text-xs text-neutral-500">~40 min</span>
+          </div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-amber-400 transition-colors">🎞️ Biblioteca de Movimentos</h3>
+          <p class="text-xs text-neutral-500 mt-1">15 movimentos com prompt e quando usar</p>
+        </a>
+        <a href="modulo-4-3.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-amber-500/30 hover:bg-amber-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-amber-400 font-bold text-sm">4.3</span>
+            <span class="text-xs text-neutral-500">~30 min</span>
+          </div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-amber-400 transition-colors">📐 Prompts Cinematográficos</h3>
+          <p class="text-xs text-neutral-500 mt-1">Anatomia, lente, velocidade, estilo</p>
+        </a>
+        <a href="modulo-4-4.html" class="bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-amber-500/30 hover:bg-amber-500/10 transition-all group">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-amber-400 font-bold text-sm">4.4</span>
+            <span class="text-xs text-neutral-500">~30 min</span>
+          </div>
+          <h3 class="font-semibold text-neutral-100 group-hover:text-amber-400 transition-colors">🔗 Consistência Entre Planos</h3>
+          <p class="text-xs text-neutral-500 mt-1">Locking, combined video, transições</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVISOR -->
+    <div class="flex items-center space-x-4 mb-10">
+      <div class="flex-1 h-px bg-dark-600"></div>
+      <span class="text-neutral-500 text-sm font-medium px-4">Conteúdo Detalhado</span>
+      <div class="flex-1 h-px bg-dark-600"></div>
+    </div>
+
+    <!-- MÓDULO 4.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.1</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🎬 Pensamento de Câmera</h3>
+        <p class="text-neutral-400 text-sm">Antes de qualquer prompt: por que cada movimento de câmera carrega significado e como parar de "gerar" para começar a "dirigir".</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎬</span>
+            <div>
+              <span class="font-medium">Câmera é Narrativa, não Decoração</span>
+              <span class="text-neutral-500 text-sm ml-2">— Cada movimento tem propósito</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A câmera não é um aparelho neutro de registro — é um narrador silencioso. Cada movimento, cada ângulo, cada lente está dizendo algo ao espectador sobre o que importa naquela cena.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem essa consciência, você usa a câmera como decoração visual — um zoom porque "fica bonito", um pan porque "fica dinâmico". Com consciência, cada decisão serve à narrativa.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Câmera narradora • Intenção de movimento • Subtexto visual • Direção consciente</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎭</span>
+            <div>
+              <span class="font-medium">Emoção pela Câmera</span>
+              <span class="text-neutral-500 text-sm ml-2">— Pan, dolly e tilt mudam o que se sente</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O mesmo personagem em pé na mesma sala vira uma cena diferente dependendo do movimento da câmera: um dolly in cria intimidade, um tilt down cria submissão, um pan lento cria contemplação.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você passa a controlar a emoção do espectador sem mudar o conteúdo da cena. Apenas pelo movimento de câmera, você redireciona o significado.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Mapa emocional dos movimentos • Câmera como ponto de vista • Carga emocional do shot</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">Foco do Espectador</span>
+              <span class="text-neutral-500 text-sm ml-2">— A câmera dirige os olhos de quem assiste</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Onde você coloca a câmera, o que está em foco e como ela se move determina exatamente para onde o olho do espectador vai. Isso é direção de atenção.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cenas geradas por IA frequentemente têm informação visual demais. Aprender a usar a câmera para hierarquizar o que importa é o que distingue um quadro caótico de um quadro narrativo.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Direção de atenção • Foco seletivo • Profundidade de campo • Hierarquia visual</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📏</span>
+            <div>
+              <span class="font-medium">Escala e Tensão</span>
+              <span class="text-neutral-500 text-sm ml-2">— Altura, distância e aproximação criam drama</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um wide shot de uma pessoa solitária no deserto comunica isolamento. Um close extremo no mesmo personagem comunica claustrofobia interna. A escala da câmera define a escala da emoção.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber alternar entre escalas é o que dá ritmo dramático. Cenas inteiras montadas no mesmo plano cansam — variar a distância da câmera é variar a respiração do filme.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Wide vs close • Câmera baixa/alta • Distância emocional • Tensão por aproximação</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🎞️</span>
+            <div>
+              <span class="font-medium">Continuidade Visual</span>
+              <span class="text-neutral-500 text-sm ml-2">— Como movimentos se conectam entre planos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Movimentos que terminam e começam de forma compatível criam continuidade fluida. Um pan que termina à esquerda combina com um shot seguinte que começa à esquerda — a edição respira.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Movimentos descoordenados entre planos quebram a imersão. Pensar em câmera como sequência, não como shots isolados, é o que diferencia um filme de uma colagem de clipes.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Match cut • Direção de movimento • Continuidade de eyeline • Sequência de shots</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧠</span>
+            <div>
+              <span class="font-medium">Pensar como Diretor</span>
+              <span class="text-neutral-500 text-sm ml-2">— Parar de "gerar" e começar a "dirigir"</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A diferença entre quem usa o Freepik para gerar imagens aleatórias e quem usa para construir cinema é uma única coisa: a postura mental do diretor — perguntar "o que essa cena precisa contar?" antes de qualquer prompt.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a mudança que destrava todo o restante. Sem ela, mil prompts produzem mil clipes desconectados. Com ela, cada prompt é uma decisão de direção.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Mindset de diretor • Intenção antes da geração • Decupagem mental • Ferramenta vs visão</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-1.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 4.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.2</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🎞️ Biblioteca de Movimentos</h3>
+        <p class="text-neutral-400 text-sm">Os 15 movimentos de câmera que você precisa dominar — cada um com nome, prompt, significado narrativo e quando usar.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">↔️</span>
+            <div>
+              <span class="font-medium">Pan e Tilt</span>
+              <span class="text-neutral-500 text-sm ml-2">— Rotação horizontal e vertical</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Pan é a rotação da câmera no eixo horizontal (esquerda/direita). Tilt é a rotação no eixo vertical (cima/baixo). A câmera fica parada — só a cabeça gira. Comunica observação, descoberta, varredura.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">São os dois movimentos mais fundamentais — base de quase todo trabalho de câmera. Domínio de pan e tilt já cobre 50% das suas necessidades.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">pan left / pan right • tilt up / tilt down • Slow pan • Reveal por tilt</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔍</span>
+            <div>
+              <span class="font-medium">Zoom, Dolly e Push/Pull</span>
+              <span class="text-neutral-500 text-sm ml-2">— Movimentos de aproximação</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Zoom muda a focal sem mover a câmera. Dolly move a câmera fisicamente. Push in cria intimidade gradual; pull out cria isolamento. A diferença entre zoom e dolly é a sensação de espaço.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">São os movimentos mais usados em momentos emocionais. Saber escolher entre zoom e dolly muda completamente a sensação cinematográfica do shot.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">zoom in / zoom out • dolly in / dolly out • push in • pull back</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🏃</span>
+            <div>
+              <span class="font-medium">Tracking, Truck e Follow</span>
+              <span class="text-neutral-500 text-sm ml-2">— Acompanhamento e movimento lateral</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Tracking acompanha o sujeito pelo lado. Truck move a câmera lateralmente. Follow segue o personagem por trás ou pela frente. Cria a sensação de "estar com" o personagem.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o que dá energia cinética às cenas. Personagem andando + tracking shot = imersão. Sem isso, ele "anda no vácuo".</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">tracking shot • camera truck left/right • follow shot • side tracking</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⬆️</span>
+            <div>
+              <span class="font-medium">Pedestal, Crane e Drone</span>
+              <span class="text-neutral-500 text-sm ml-2">— Verticais e aéreos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Pedestal é movimento vertical puro. Crane é arco amplo, normalmente partindo do alto. Drone é voo aéreo amplo. Birds eye view é o ângulo divino, visto de cima.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Movimentos verticais e aéreos criam escala épica e contextualização instantânea. Aberturas de filmes frequentemente usam crane ou drone para estabelecer mundo.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">pedestal up • crane shot • drone shot • birds eye view • god view</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔄</span>
+            <div>
+              <span class="font-medium">Orbit, Handheld e Static</span>
+              <span class="text-neutral-500 text-sm ml-2">— Circular, instável e fixa</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Orbit gira a câmera em torno do sujeito. Handheld gera instabilidade controlada para realismo. Static é a câmera completamente travada — força o espectador a observar.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cada um destes tem uso narrativo muito específico. Orbit cria intensidade ou indecisão. Handheld cria documental. Static cria tensão silenciosa.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">360 orbit • handheld camera • locked camera • static shot</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">💫</span>
+            <div>
+              <span class="font-medium">Whip Pan e Dolly Zoom</span>
+              <span class="text-neutral-500 text-sm ml-2">— Movimentos especiais</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Whip pan é um pan extremamente rápido que vira transição. Dolly zoom (vertigo effect) combina dolly e zoom em direções opostas, gerando distorção psicológica.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">São efeitos de assinatura. Usados com moderação, marcam momentos-chave. Usados demais, viram cliché. Saber quando aplicar é metade do trabalho.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">whip pan • vertigo effect • dolly zoom • Hitchcock zoom</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-2.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 4.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.3</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📐 Prompts Cinematográficos</h3>
+        <p class="text-neutral-400 text-sm">A fórmula para escrever prompts de câmera que realmente funcionam — combinando plano, movimento, velocidade, estilo e lente.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📐</span>
+            <div>
+              <span class="font-medium">Anatomia de um Prompt Cinematográfico</span>
+              <span class="text-neutral-500 text-sm ml-2">— Plano + movimento + velocidade + estilo + lente</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um prompt cinematográfico tem 5 elementos: tipo de plano, movimento de câmera, velocidade do movimento, estilo visual e lente. Cada um cobre uma decisão de direção.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem essa estrutura, prompts viram listas aleatórias. Com ela, você consegue construir e replicar shots de qualidade consistente.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Estrutura de prompt • Modular thinking • Templating • Decupagem em palavras</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎥</span>
+            <div>
+              <span class="font-medium">Escolha de Lente</span>
+              <span class="text-neutral-500 text-sm ml-2">— 24mm, 35mm, 85mm</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">24mm é grande angular, com perspectiva exagerada e profundidade. 35mm é versátil, usado em narrativa clássica. 85mm é retrato, com compressão e fundo desfocado.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A lente é metade do "look" cinematográfico. Mencionar a lente certa no prompt muda completamente o resultado, mesmo com a mesma cena.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Wide angle • Standard lens • Telephoto • Compressão • Anamorphic</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚡</span>
+            <div>
+              <span class="font-medium">Velocidade do Movimento</span>
+              <span class="text-neutral-500 text-sm ml-2">— Slow, smooth, fast, dynamic</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Velocidade do movimento define a emoção: slow para contemplação, smooth para elegância, fast para urgência, dynamic para energia. A mesma direção de câmera muda de sentido com a velocidade.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem especificar velocidade, o gerador escolhe — e geralmente erra. Especificar velocidade é o pulo do gato para resultados consistentes.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">slow motion • smooth motion • fast push • dynamic camera</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🎨</span>
+            <div>
+              <span class="font-medium">Estilo Visual</span>
+              <span class="text-neutral-500 text-sm ml-2">— Cinematic, handheld, anamorphic, film grain</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">"Cinematic" é o estilo padrão de cinema. "Handheld" gera instabilidade documental. "Anamorphic" cria flares horizontais e widescreen. "Film grain" adiciona textura analógica.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Esses modificadores de estilo são o que separa um vídeo "de IA" de um vídeo "que parece filme". É onde mora o caráter do seu look.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">cinematic • handheld • stabilized • anamorphic lens • film grain</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🤖</span>
+            <div>
+              <span class="font-medium">Assistant Node para Câmera</span>
+              <span class="text-neutral-500 text-sm ml-2">— Prompt base para gerar prompts de câmera</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O Assistant Node do Freepik permite gerar prompts cinematográficos a partir de uma instrução curta. Você dá o conceito; ele entrega o prompt completo com plano, movimento, lente e estilo.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Acelera drasticamente o seu fluxo. Em vez de escrever cada prompt do zero, você itera sobre uma base bem-feita e ajusta apenas o que precisa.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Assistant Node • Prompt base • Iteração rápida • Template cinematográfico</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📖</span>
+            <div>
+              <span class="font-medium">Exemplo Completo</span>
+              <span class="text-neutral-500 text-sm ml-2">— Tracking shot, slow dolly in, 35mm</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">"tracking shot, slow dolly in, cinematic camera, smooth motion, 35mm lens" — um prompt completo com os 5 elementos: plano, movimento, estilo, velocidade e lente.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Modelo replicável. Você troca as palavras conforme a necessidade da cena, mas a estrutura permanece. É o seu template de produção.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Template completo • Substituição modular • Exemplo replicável</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-3.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 4.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">4.4</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔗 Consistência Entre Planos</h3>
+        <p class="text-neutral-400 text-sm">Como manter personagem, estilo e atmosfera coerentes entre múltiplos shots — usando locking, combined video e transições controladas.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎭</span>
+            <div>
+              <span class="font-medium">Mesmo Personagem, Múltiplos Planos</span>
+              <span class="text-neutral-500 text-sm ml-2">— Continuidade de identidade visual</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Garantir que o mesmo personagem apareça consistente em ângulos, cortes e cenas diferentes — mesmo rosto, mesma roupa, mesmo estilo. É o maior desafio técnico da geração com IA.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem continuidade de personagem, o filme parece uma colagem de protagonistas diferentes. É o que faz seu trabalho ir de "demo" para "produção".</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Reference image • Character lock • Wardrobe consistency • Identity preservation</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔒</span>
+            <div>
+              <span class="font-medium">Locking da Imagem Inicial</span>
+              <span class="text-neutral-500 text-sm ml-2">— Por que travar o start image</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">No Video Generator do Freepik, travar a imagem inicial significa fixar o frame de entrada do clipe — o movimento da câmera começa daquele exato ponto, garantindo coerência com o shot anterior.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o truque mais simples e mais subutilizado. Mudar de "gerar do zero" para "gerar a partir de" é o que cria a continuidade entre planos.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Start image • Frame lock • Continuidade técnica • Image-to-video</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎬</span>
+            <div>
+              <span class="font-medium">Combined Video Node</span>
+              <span class="text-neutral-500 text-sm ml-2">— Juntar múltiplos clipes em uma cena</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O Combined Video Node permite agrupar múltiplos clipes gerados em uma única cena final, mantendo controle sobre transições, ordem e timing. É o "editor" interno do Freepik.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o fluxo nativo de produção. Em vez de exportar e editar fora, você organiza a sequência inteira dentro do Freepik — mais rápido e mais coerente.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Combined Video Node • Multi-clip • Sequence assembly • Interno do Freepik</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🌈</span>
+            <div>
+              <span class="font-medium">Consistência de Estilo</span>
+              <span class="text-neutral-500 text-sm ml-2">— Mesma paleta e mood entre planos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Manter paleta, tipo de luz, lente e estilo idênticos entre planos consecutivos. Mesmo que personagem e ambiente mudem, o "look" permanece coeso.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o que faz o filme parecer "o mesmo filme". Sem isso, cada cena vira um trailer de um filme diferente.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Style reference • Color palette lock • Mood consistency • Look sheet</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔗</span>
+            <div>
+              <span class="font-medium">Transições Suaves</span>
+              <span class="text-neutral-500 text-sm ml-2">— Como planejar transições entre movimentos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Transições suaves nascem do planejamento: o último frame de um clipe deve "casar" com o primeiro do próximo. Pode ser por movimento, por luz, por cor ou por composição.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cortes feios são o sinal mais óbvio de "filme de IA". Transições planejadas escondem o fato de que cada clipe foi gerado isoladamente.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Match cut • Cross dissolve • Whip transition • Planejamento de borda</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">Edição Controlada</span>
+              <span class="text-neutral-500 text-sm ml-2">— Ajustar câmera sem regenerar a cena</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Aprender a iterar apenas no movimento de câmera — mantendo a imagem inicial e mudando só o prompt de movimento — permite refinar shots sem perder o que já estava bom na cena.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a diferença entre desperdiçar 50 gerações e refinar com 3. Edição controlada economiza créditos, tempo e mantém consistência visual.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Iteração focada • Lock + tweak • Refinamento sem regenerar • Workflow eficiente</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-4.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+      <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha 3: Spaces</a>
+      <a href="../trilha5/index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Trilha 5: Produção →</a>
+    </div>
+
+  </main>
+
+  <!-- MODAIS com IFRAME -->
+  <div id="modal-4-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">4.1</span>
+          <span class="font-semibold">Pensamento de Câmera</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">4.2</span>
+          <span class="font-semibold">Biblioteca de Movimentos</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">4.3</span>
+          <span class="font-semibold">Prompts Cinematográficos</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">4.4</span>
+          <span class="font-semibold">Consistência Entre Planos</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

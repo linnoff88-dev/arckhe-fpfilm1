@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movimentos de Câmera — Demonstração Animada | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    /* Light mode */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .text-amber-300 { color: #b45309; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* =========================================
+       VIEWPORT & ANIMATIONS
+       ========================================= */
+
+    .viewport {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+      border-radius: 0.5rem 0.5rem 0 0;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Imagem BEM maior que o viewport para movimentação ampla */
+    .viewport .img-wrapper {
+      position: absolute;
+      inset: -50%;
+      width: 200%;
+      height: 200%;
+      will-change: transform;
+    }
+    .viewport img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Badge de nome no canto */
+    .viewport .label {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 4;
+      background: rgba(217, 119, 6, 0.9);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    /* Borda de frame */
+    .viewport .frame-border {
+      position: absolute;
+      inset: 0;
+      border: 2px solid rgba(217, 119, 6, 0.3);
+      border-radius: 0.5rem 0.5rem 0 0;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Badge de controle: ▶ / ⏸ */
+    .viewport .play-badge {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .viewport .play-badge span {
+      background: rgba(0, 0, 0, 0.7);
+      color: #fbbf24;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      letter-spacing: 0.05em;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .viewport .play-badge .play-icon {
+      font-size: 1rem;
+    }
+
+    /* Quando ativo: borda mais visível */
+    .movement-card.active .frame-border {
+      border-color: rgba(217, 119, 6, 0.8);
+      box-shadow: inset 0 0 20px rgba(217, 119, 6, 0.15);
+    }
+    .movement-card.active .viewport {
+      cursor: pointer;
+    }
+
+    /* Todas as animações PAUSADAS por padrão */
+    .viewport .img-wrapper {
+      animation-play-state: paused;
+    }
+    /* Ativam quando o card tem classe .active */
+    .movement-card.active .viewport .img-wrapper {
+      animation-play-state: running;
+    }
+
+    /* =========================================
+       16 ANIMAÇÕES — movimentação ampla
+       ========================================= */
+
+    /* 1. PAN — rotação horizontal */
+    .anim-pan .img-wrapper {
+      animation: panMove 5s ease-in-out infinite alternate;
+    }
+    @keyframes panMove {
+      from { transform: translateX(20%); }
+      to { transform: translateX(-20%); }
+    }
+
+    /* 2. TILT — rotação vertical */
+    .anim-tilt .img-wrapper {
+      animation: tiltMove 5s ease-in-out infinite alternate;
+    }
+    @keyframes tiltMove {
+      from { transform: translateY(18%); }
+      to { transform: translateY(-18%); }
+    }
+
+    /* 3. ZOOM IN */
+    .anim-zoom-in .img-wrapper {
+      animation: zoomIn 5s ease-in-out infinite alternate;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.7); }
+      to { transform: scale(1.15); }
+    }
+
+    /* 4. ZOOM OUT */
+    .anim-zoom-out .img-wrapper {
+      animation: zoomOut 5s ease-in-out infinite alternate;
+    }
+    @keyframes zoomOut {
+      from { transform: scale(1.15); }
+      to { transform: scale(0.7); }
+    }
+
+    /* 5. DOLLY IN — físico com perspectiva */
+    .anim-dolly-in .viewport { perspective: 800px; }
+    .anim-dolly-in .img-wrapper {
+      transform-style: preserve-3d;
+      animation: dollyIn 6s ease-in-out infinite alternate;
+    }
+    @keyframes dollyIn {
+      from { transform: scale(0.75) translateZ(0); }
+      to { transform: scale(1.1) translateZ(80px); }
+    }
+
+    /* 6. TRACKING — acompanhamento contínuo */
+    .anim-tracking .img-wrapper {
+      animation: tracking 6s linear infinite;
+    }
+    @keyframes tracking {
+      0%   { transform: translateX(22%); }
+      50%  { transform: translateX(-22%); }
+      100% { transform: translateX(22%); }
+    }
+
+    /* 7. TRUCK — lateral físico, parallax feel */
+    .anim-truck .img-wrapper {
+      animation: truck 5s ease-in-out infinite alternate;
+    }
+    @keyframes truck {
+      from { transform: translateX(22%) skewY(1deg); }
+      to { transform: translateX(-22%) skewY(-1deg); }
+    }
+
+    /* 8. PEDESTAL — elevação vertical */
+    .anim-pedestal .img-wrapper {
+      animation: pedestal 5s ease-in-out infinite alternate;
+    }
+    @keyframes pedestal {
+      from { transform: translateY(18%); }
+      to { transform: translateY(-18%); }
+    }
+
+    /* 9. CRANE / JIB — diagonal ascendente com escala */
+    .anim-crane .img-wrapper {
+      animation: crane 6s ease-in-out infinite alternate;
+    }
+    @keyframes crane {
+      from { transform: translateY(20%) translateX(-8%) scale(1.1); }
+      to { transform: translateY(-20%) translateX(8%) scale(0.85); }
+    }
+
+    /* 10. DRONE / AERIAL — de cima, recuando */
+    .anim-aerial .img-wrapper {
+      animation: aerial 7s ease-in-out infinite alternate;
+    }
+    @keyframes aerial {
+      from { transform: scale(1.15) translateY(8%) translateX(5%); }
+      to { transform: scale(0.75) translateY(-8%) translateX(-5%); }
+    }
+
+    /* 11. ORBIT — giro 3D ao redor do sujeito */
+    .anim-orbit .viewport { perspective: 600px; }
+    .anim-orbit .img-wrapper {
+      transform-style: preserve-3d;
+      animation: orbit 6s ease-in-out infinite alternate;
+    }
+    @keyframes orbit {
+      from { transform: rotateY(-30deg) scale(1.05); }
+      to { transform: rotateY(30deg) scale(1.05); }
+    }
+
+    /* 12. HANDHELD — tremor orgânico forte */
+    .anim-handheld .img-wrapper {
+      animation: handheld 0.8s ease-in-out infinite;
+    }
+    @keyframes handheld {
+      0%   { transform: translate(0, 0) rotate(0); }
+      10%  { transform: translate(-1.5%, 0.8%) rotate(-0.6deg); }
+      20%  { transform: translate(1.2%, -1%) rotate(0.5deg); }
+      30%  { transform: translate(-0.8%, 1.2%) rotate(-0.3deg); }
+      40%  { transform: translate(1%, -0.5%) rotate(0.7deg); }
+      50%  { transform: translate(-1.3%, 0.6%) rotate(-0.5deg); }
+      60%  { transform: translate(0.7%, 0.9%) rotate(0.3deg); }
+      70%  { transform: translate(-0.5%, -1.2%) rotate(-0.7deg); }
+      80%  { transform: translate(1.3%, 0.5%) rotate(0.4deg); }
+      90%  { transform: translate(-1%, -0.4%) rotate(-0.2deg); }
+      100% { transform: translate(0, 0) rotate(0); }
+    }
+
+    /* 13. STATIC — sem movimento, borda pulsante indica "locked" */
+    .anim-static .img-wrapper {
+      animation: none;
+    }
+    .movement-card.active .anim-static .frame-border {
+      animation: staticPulse 2s ease-in-out infinite alternate;
+    }
+    @keyframes staticPulse {
+      from { border-color: rgba(217, 119, 6, 0.3); box-shadow: inset 0 0 0 0 rgba(217, 119, 6, 0); }
+      to { border-color: rgba(217, 119, 6, 1); box-shadow: inset 0 0 30px rgba(217, 119, 6, 0.2); }
+    }
+
+    /* 14. PUSH / PULL — sutil mas mais visível */
+    .anim-push-pull .img-wrapper {
+      animation: pushPull 4s ease-in-out infinite alternate;
+    }
+    @keyframes pushPull {
+      from { transform: scale(0.8); }
+      to { transform: scale(1.05); }
+    }
+
+    /* 15. WHIP PAN — rápido com motion blur */
+    .anim-whip .img-wrapper {
+      animation: whipPan 2.5s ease-in-out infinite;
+    }
+    @keyframes whipPan {
+      0%, 25%   { transform: translateX(-20%); filter: blur(0); }
+      35%       { transform: translateX(-10%); filter: blur(8px); }
+      45%       { transform: translateX(0);    filter: blur(16px); }
+      55%       { transform: translateX(10%);  filter: blur(8px); }
+      65%, 100% { transform: translateX(20%);  filter: blur(0); }
+    }
+
+    /* 16. DOLLY ZOOM — efeito vertigo (Hitchcock) */
+    .anim-dolly-zoom .viewport { perspective: 800px; }
+    .anim-dolly-zoom .img-wrapper {
+      transform-style: preserve-3d;
+      animation: dollyZoom 4s ease-in-out infinite alternate;
+    }
+    @keyframes dollyZoom {
+      from { transform: scale(0.75) translateZ(0) rotateX(0); }
+      to { transform: scale(1.15) translateZ(120px) rotateX(2deg); }
+    }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Trilha 4</a>
+      <span>/</span>
+      <a href="modulo-4-2.html" class="hover:text-amber-400">Módulo 4.2</a>
+      <span>/</span>
+      <span class="text-amber-400">Demonstração Visual</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">
+        DEMONSTRAÇÃO INTERATIVA · MÓDULO 4.2
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-bold mb-4">🎥 Movimentos de Câmera</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl mb-6">
+        <strong class="text-amber-400">16 movimentos de câmera</strong> demonstrados na mesma cena. Clique em qualquer card para ver o movimento ao vivo. Compare como a mesma imagem muda completamente com cada técnica.
+      </p>
+      <div class="bg-dark-800/50 rounded-lg p-4 border border-amber-500/30 max-w-3xl">
+        <p class="text-sm text-neutral-300">
+          <strong class="text-amber-400">💡 Como usar:</strong> Clique no viewport para <strong>ativar</strong> o movimento. Clique novamente para <strong>pausar</strong>. Apenas um movimento roda por vez — clicar em outro pausa o anterior automaticamente.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 1. PAN -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-pan">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Pan"></div>
+          <div class="frame-border"></div>
+          <div class="label">01 · PAN</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">↔️ Pan (Horizontal)</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Rotação horizontal da câmera no eixo fixo. Câmera não se move — só gira.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Revelar ambiente, seguir personagem, conectar dois pontos da cena.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">camera pan left, slow pan right, smooth pan</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. TILT -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-tilt">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Tilt"></div>
+          <div class="frame-border"></div>
+          <div class="label">02 · TILT</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">↕️ Tilt (Vertical)</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Rotação vertical da câmera — olha para cima ou para baixo sem sair do lugar.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Mostrar escala (prédios, montanhas), revelar personagem da cabeça aos pés.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">camera tilt up, slow tilt down, tilt up reveal</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. ZOOM IN -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-zoom-in">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Zoom In"></div>
+          <div class="frame-border"></div>
+          <div class="label">03 · ZOOM IN</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🔍 Zoom In</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Movimento ótico da lente. A câmera fica parada, a lente aproxima. Comprime a perspectiva.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Destacar emoção no rosto, revelar detalhe crucial, criar tensão gradual.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">zoom in, slow zoom in, cinematic zoom to face</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ZOOM OUT -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-zoom-out">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Zoom Out"></div>
+          <div class="frame-border"></div>
+          <div class="label">04 · ZOOM OUT</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🔎 Zoom Out</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Lente abre gradualmente revelando o contexto. Sujeito fica menor no quadro.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Revelar ambiente, contextualizar personagem no mundo, finalizar cena com impacto.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">zoom out, slow zoom out, cinematic pull back</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. DOLLY IN -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-dolly-in">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Dolly In"></div>
+          <div class="frame-border"></div>
+          <div class="label">05 · DOLLY IN</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🚶 Dolly In</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Câmera se move fisicamente para frente (em trilhos). Parece zoom mas a perspectiva muda — o fundo se expande.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Imersão, aproximação cinematográfica, conectar espectador com o personagem.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">slow dolly in, cinematic dolly forward, smooth approach</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. TRACKING -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-tracking">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Tracking"></div>
+          <div class="frame-border"></div>
+          <div class="label">06 · TRACKING</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🏃 Tracking Shot</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Câmera acompanha o sujeito em movimento, mantendo distância constante. Segue junto.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Cenas de ação, corrida, perseguição, personagem caminhando com propósito.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">tracking shot, follow shot, side tracking shot</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. TRUCK -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-truck">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Truck"></div>
+          <div class="frame-border"></div>
+          <div class="label">07 · TRUCK</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">👥 Truck (Lateral)</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Câmera desliza lateralmente no espaço físico, criando efeito de parallax (objetos próximos se movem mais rápido que distantes).</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Criar profundidade visual, percorrer cenário, mostrar dimensões do ambiente.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">camera truck left, camera truck right, lateral tracking</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. PEDESTAL -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-pedestal">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Pedestal"></div>
+          <div class="frame-border"></div>
+          <div class="label">08 · PEDESTAL</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🛗 Pedestal</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Câmera inteira sobe ou desce verticalmente (como um elevador). Não gira — se desloca.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Ajustar enquadramento, seguir personagem que levanta ou senta, revelar objetos em níveis diferentes.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">camera pedestal up, camera pedestal down</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. CRANE -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-crane">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Crane"></div>
+          <div class="frame-border"></div>
+          <div class="label">09 · CRANE</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🏗️ Crane / Jib</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Câmera em grua — combina movimento vertical e horizontal em arcos grandes e cinematográficos. Visão imponente.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Revelações épicas, cenas de abertura/encerramento, dar escala monumental à cena.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">crane up, crane down, jib shot, sweeping crane</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. AERIAL -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-aerial">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Aerial"></div>
+          <div class="frame-border"></div>
+          <div class="label">10 · AERIAL</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🚁 Drone / Aéreo</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Vista aérea com câmera se afastando. De cima para baixo (bird's eye) ou ângulo descendente suave.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Estabelecer localização, mostrar isolamento, escala do mundo, transições épicas.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">drone shot, aerial shot, birds eye view, top down</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. ORBIT -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-orbit">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Orbit"></div>
+          <div class="frame-border"></div>
+          <div class="label">11 · ORBIT</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🔄 Orbit / Arc</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Câmera gira ao redor do sujeito em arco circular. O personagem é o centro — o mundo gira ao redor dele.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Momento heróico, revelação dramática, destacar personagem central.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">360 orbit, arc shot, circular camera movement</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. HANDHELD -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-handheld">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Handheld"></div>
+          <div class="frame-border"></div>
+          <div class="label">12 · HANDHELD</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">🤳 Handheld</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Câmera na mão — movimento instável, orgânico, com micro-vibrações constantes. Imperfeição proposital.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Realismo, tensão, estilo documental, urgência, proximidade emocional crua.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">handheld camera, shaky cam, documentary style</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. STATIC -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-static">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Static"></div>
+          <div class="frame-border"></div>
+          <div class="label">13 · STATIC</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">📷 Static (Fixa)</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Câmera completamente fixa no tripé. Zero movimento. A borda pulsante indica "locked" — tudo é intencional.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Controle total, contemplação, cenas formais, deixar o ator ser o foco absoluto.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">static shot, locked camera, tripod shot, no movement</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. PUSH/PULL -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-push-pull">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Push Pull"></div>
+          <div class="frame-border"></div>
+          <div class="label">14 · PUSH/PULL</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">◀️ Push / Pull</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Aproximação ou afastamento sutil. Mais discreto que um dolly — acumula tensão sem o espectador perceber.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Ênfase em diálogo, construir tensão lenta, reforço emocional silencioso.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">slow push in, subtle pull back, gentle approach</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15. WHIP PAN -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-whip">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Whip Pan"></div>
+          <div class="frame-border"></div>
+          <div class="label">15 · WHIP PAN</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">⚡ Whip Pan</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Pan extremamente rápido que borra a imagem (motion blur). Usado como transição energética entre cenas.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Transição dinâmica, estilo energético, mudança brusca de foco ou cena.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">whip pan left, fast whip pan, motion blur transition</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16. DOLLY ZOOM -->
+      <div class="movement-card bg-dark-800 rounded-xl border border-dark-600 overflow-hidden" onclick="toggleMovement(this)">
+        <div class="viewport anim-dolly-zoom">
+          <div class="img-wrapper"><img src="../img/l2/photo_5089376971652795507_w.jpg" alt="Dolly Zoom"></div>
+          <div class="frame-border"></div>
+          <div class="label">16 · DOLLY ZOOM</div>
+          <div class="play-badge"><span><span class="play-icon">▶</span> CLIQUE PARA VER</span></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold mb-3">😵‍💫 Dolly Zoom (Vertigo)</h3>
+          <div class="space-y-2 text-sm">
+            <div><span class="text-amber-400 font-semibold">O que é:</span> <span class="text-neutral-300">Dolly para frente + zoom out ao mesmo tempo. O sujeito fica igual mas o fundo "respira" e distorce. Efeito Hitchcock.</span></div>
+            <div><span class="text-amber-400 font-semibold">Quando usar:</span> <span class="text-neutral-300">Momentos psicológicos: medo, revelação, vertigem, distorção da realidade.</span></div>
+            <div><span class="text-amber-400 font-semibold">Prompt:</span><code class="block bg-dark-900 rounded px-2 py-1 text-xs text-amber-300 font-mono mt-1">dolly zoom, vertigo effect, hitchcock zoom</code></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TABELA RESUMO -->
+    <div class="mt-12 bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+      <div class="p-6 border-b border-dark-600">
+        <h2 class="text-2xl font-bold flex items-center"><span class="mr-3">📋</span> Resumo: Quando Usar Cada Movimento</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-dark-600 text-left">
+              <th class="px-4 py-3 text-amber-400 font-semibold">Movimento</th>
+              <th class="px-4 py-3 text-amber-400 font-semibold">Comunica</th>
+              <th class="px-4 py-3 text-amber-400 font-semibold">Prompt-chave</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-700">
+            <tr><td class="px-4 py-2 font-medium">Pan</td><td class="px-4 py-2 text-neutral-400">Revelação, varredura</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">slow pan right</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Tilt</td><td class="px-4 py-2 text-neutral-400">Escala, altura</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">tilt up reveal</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Zoom In</td><td class="px-4 py-2 text-neutral-400">Emoção, detalhe</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">slow zoom in</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Zoom Out</td><td class="px-4 py-2 text-neutral-400">Contexto, revelação</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">cinematic zoom out</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Dolly In</td><td class="px-4 py-2 text-neutral-400">Imersão, conexão</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">slow dolly in</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Tracking</td><td class="px-4 py-2 text-neutral-400">Continuidade, ação</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">tracking shot</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Truck</td><td class="px-4 py-2 text-neutral-400">Profundidade, parallax</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">camera truck left</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Pedestal</td><td class="px-4 py-2 text-neutral-400">Ajuste vertical</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">camera pedestal up</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Crane</td><td class="px-4 py-2 text-neutral-400">Revelação épica</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">crane up</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Drone</td><td class="px-4 py-2 text-neutral-400">Escala, isolamento</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">aerial shot</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Orbit</td><td class="px-4 py-2 text-neutral-400">Momento heróico</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">360 orbit</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Handheld</td><td class="px-4 py-2 text-neutral-400">Realismo, tensão</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">handheld camera</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Static</td><td class="px-4 py-2 text-neutral-400">Controle, quietude</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">static shot</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Push/Pull</td><td class="px-4 py-2 text-neutral-400">Ênfase sutil</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">slow push in</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Whip Pan</td><td class="px-4 py-2 text-neutral-400">Transição, energia</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">whip pan left</td></tr>
+            <tr><td class="px-4 py-2 font-medium">Dolly Zoom</td><td class="px-4 py-2 text-neutral-400">Psicológico, vertigem</td><td class="px-4 py-2 text-amber-300 font-mono text-xs">dolly zoom</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+      <a href="modulo-4-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+        ← Voltar ao Módulo 4.2
+      </a>
+      <a href="modulo-4-3.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">
+        Próximo: Prompts Cinematográficos →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // ===========================
+    // Toggle de movimento: só um ativo por vez
+    // ===========================
+    function toggleMovement(card) {
+      const wasActive = card.classList.contains('active');
+
+      // Desativa todos
+      document.querySelectorAll('.movement-card.active').forEach(c => {
+        c.classList.remove('active');
+        const badge = c.querySelector('.play-badge span');
+        if (badge) badge.innerHTML = '<span class="play-icon">▶</span> CLIQUE PARA VER';
+        const badgeWrap = c.querySelector('.play-badge');
+        if (badgeWrap) badgeWrap.style.opacity = '1';
+      });
+
+      // Se não estava ativo, ativa este
+      if (!wasActive) {
+        card.classList.add('active');
+        const badge = card.querySelector('.play-badge span');
+        if (badge) badge.innerHTML = '<span class="play-icon">⏸</span> CLIQUE PARA PAUSAR';
+        const badgeWrap = card.querySelector('.play-badge');
+        if (badgeWrap) {
+          badgeWrap.style.opacity = '1';
+          setTimeout(() => { badgeWrap.style.opacity = '0'; }, 1500);
+        }
+      }
+    }
+
+    // ===========================
+    // Theme Toggle
+    // ===========================
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

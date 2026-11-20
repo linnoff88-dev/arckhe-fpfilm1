@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.2 — Construindo Conteúdo com IA | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3 — Freepik Spaces</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 3.2</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.2</span>
+      <h1 class="text-2xl font-bold mb-4">🛠️ Construindo Conteúdo com IA</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A fórmula completa do pipeline profissional no Spaces. Da ideia crua até música e efeitos sonoros, passando por cada node — com um exemplo prático real: um pintinho amarelo de jaqueta de couro andando de snowboard.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">40</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Inter</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Prática</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🎯 A Fórmula do Pipeline</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Dentro do Spaces não existe um botão mágico — existe uma <strong class="text-purple-400">estrutura clara de workflow</strong>. Toda produção profissional de conteúdo com IA segue essa mesma sequência. Decore essa fórmula: ela é o alicerce de tudo que vamos construir.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🧠 A Fórmula Universal</h3>
+        <p class="text-neutral-300 font-mono text-sm bg-dark-700 rounded-lg p-4 mb-4">[Texto] → [Assistente] → [Imagem] → [Upscale] → [Vídeo] → [Música] → [SFX]</p>
+        <p class="text-neutral-300 mb-3">Cada seta representa uma conexão de dados entre nodes. A saída de um node é a entrada do próximo. Essa fórmula transforma um conceito de uma frase em um pipeline completo de produção audiovisual — texto vira prompt, prompt vira imagem, imagem vira vídeo, vídeo ganha trilha e efeitos.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Texto:</strong> a ideia bruta — uma frase, um conceito</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Assistente:</strong> transforma a frase em prompt profissional</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Imagem:</strong> o frame fundador da cena</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Upscale:</strong> qualidade máxima antes de virar vídeo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Vídeo:</strong> animação cinematográfica a partir da imagem</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Música + SFX:</strong> trilha e efeitos que dão vida à cena</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795496_y.jpg" alt="Pipeline completo no Spaces" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Pipeline completo no canvas: nodes encadeados implementando a fórmula universal</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📝 Text Node</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Tudo começa aqui. O <strong class="text-purple-400">Text Node</strong> é o lugar onde você escreve a ideia crua, sem se preocupar em fazer o "prompt perfeito". Pode ser uma frase, um conceito, até uma palavra-chave. É o ponto de partida cognitivo — o resto do pipeline existe para refinar isso.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📝 O que é o Text Node</h3>
+        <p class="text-neutral-300 mb-3">Um node simples que armazena texto livre. Ele pode ser usado como prompt, anotação, instrução ou variável que será passada para outros nodes. No canvas, você pode redimensioná-lo, usar negrito e formatar para destacar variáveis importantes.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Função:</strong> armazenar e propagar texto pelo pipeline</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Uso típico:</strong> ideia inicial da cena ou prompt customizado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Saída:</strong> string conectada a Assistant ou Generator</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-purple-500/30 mb-6">
+        <img src="../img/l1/photo_5089376971652795490_y.jpg" alt="Text Node real com prompt do pintinho" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800"><strong class="text-purple-400">Text Node real:</strong> a ideia "Um pequeno pintinho amarelo usando uma jaqueta de couro preta andando de snowboard em uma montanha nevada" — ainda bruta, ainda sem a estrutura cinematográfica. É exatamente assim que todo pipeline começa.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Não Tente Ser Profissional Aqui
+        </h3>
+        <p class="text-neutral-300">A pior coisa que você pode fazer é tentar escrever um prompt cinematográfico perfeito no Text Node. Esse não é o trabalho dele. Escreva como se fosse contar a ideia para um amigo. O Assistant Node faz o trabalho pesado depois.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🤖 Assistant Node</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-purple-400">Assistant Node</strong> é seu engenheiro de prompt residente. Ele pega aquela ideia crua do Text Node e a transforma em um prompt profissional, técnico, cinematograficamente competente — tudo otimizado para o modelo de geração específico que você vai usar (Nano Banana Pro, Flux, Mystic, Kling, etc).
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🤖 Como funciona</h3>
+        <p class="text-neutral-300 mb-3">O Assistant Node é um LLM rodando dentro do Spaces. Você dá a ele duas coisas: (1) uma instrução de meta-prompt explicando o que ele deve fazer e (2) o texto da ideia. Ele devolve um prompt estruturado pronto para ser conectado ao Image Generator.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Entrada 1:</strong> a ideia crua (do Text Node)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Entrada 2:</strong> instrução de transformação</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Saída:</strong> prompt cinematográfico pronto para gerar</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-bold text-purple-400 mb-3">📋 Meta-prompt da Aula (copie e cole)</h4>
+        <p class="text-neutral-300 font-mono text-sm bg-dark-700 rounded-lg p-3 mb-3">"Escreva um prompt cinematográfico detalhado para imagem com base nesta ideia: um pequeno pintinho amarelo usando uma jaqueta de couro preta andando de snowboard. Foque em iluminação, atmosfera e composição cinematográfica."</p>
+        <p class="text-neutral-400 text-sm">Variação para vídeo (Kling): <em>"Crie um prompt cinematográfico para Kling. Foque no movimento dinâmico do snowboard, vento atravessando o ambiente e movimento suave de câmera."</em></p>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795493_y.jpg" alt="Node do assistente conectado" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Assistant Node conectado ao Text Node — recebe a ideia e devolve um prompt profissional pronto para o Image Generator</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🖼️ Image Generator Node</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Aqui é onde a mágica acontece visualmente. O <strong class="text-purple-400">Image Generator Node</strong> recebe o prompt do Assistant e gera a imagem — mas com muito mais controle do que o gerador standalone. Aqui você escolhe o modelo, conecta references, define aspect ratio e refina cada parâmetro técnico.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🖼️ Painel de Configuração</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Model:</strong> Nano Banana Pro (consistência), Flux 2 Max (qualidade), Mystic (retratos)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>References:</strong> imagens de input que travam estilo, personagem ou composição</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Aspect ratio:</strong> 16:9 cinema, 9:16 vertical, 1:1 quadrado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Style:</strong> photography, cinematic, illustration</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Camera:</strong> ângulo, lente, tipo de plano</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-purple-500/30 mb-6">
+        <img src="../img/l1/photo_5089376971652795492_w.jpg" alt="Image Generator Node configurado com Nano Banana" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800"><strong class="text-purple-400">Image Generator Node real:</strong> painel completo com modelo Nano Banana Pro selecionado, references à esquerda e parâmetros à direita — tudo configurado para gerar a primeira versão do pintinho snowboarder</p>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795494_y.jpg" alt="Imagem gerada do pintinho" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Resultado: a imagem cinematográfica do pintinho gerada a partir do prompt refinado pelo Assistant</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎥 Image-to-Video</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Por que não pular direto para o vídeo? Porque <strong class="text-purple-400">gerar uma boa imagem primeiro cria vídeos infinitamente melhores</strong>. Quando você usa a imagem gerada como frame inicial do vídeo, o modelo de vídeo herda todas as decisões já feitas: identidade do personagem, paleta, iluminação, composição. Isso elimina a maior fonte de inconsistência.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🎥 Por que image-first vence text-to-video?</h3>
+        <p class="text-neutral-300 mb-3">Modelos de vídeo são treinados para preservar o frame inicial e animá-lo. Quando você dá a ele uma imagem já validada, todas as variáveis visuais ficam <em>congeladas</em> — o modelo só precisa decidir <em>movimento</em>, não <em>aparência</em>.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Consistência do personagem:</strong> rosto e roupa não mudam</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Consistência do ambiente:</strong> cenário e luz permanecem</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Consistência de estilo:</strong> paleta e mood não derretem</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Foco no movimento:</strong> o prompt do vídeo só descreve a ação</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795495_y.jpg" alt="Video Generator Node" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Video Generator Node — recebe a imagem como frame inicial e o prompt de movimento separadamente. Modelo Kling escolhido para qualidade cinematográfica.</p>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-bold text-purple-400 mb-3">📋 Conexões do Video Generator</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• <strong>Start image (CRUCIAL):</strong> a imagem gerada e validada — fixa toda a aparência</li>
+          <li>• <strong>Prompt de movimento:</strong> vem de um segundo Assistant, focado em ação</li>
+          <li>• <strong>Modelo:</strong> Kling 2.1 (alta qualidade cinematográfica)</li>
+          <li>• <strong>Duração:</strong> 5-10 segundos por geração</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🎵 Music + SFX Nodes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Vídeo sem som é meio filme. O Spaces inclui dois nodes dedicados a áudio: <strong class="text-purple-400">Music Generator</strong> para trilhas e <strong class="text-purple-400">Sound Effects</strong> para efeitos pontuais. Ambos funcionam com prompts de texto descritivos, igual aos geradores de imagem — só que para o ouvido.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">🎵 Music Generator Node</h4>
+          <p class="text-neutral-300 text-sm mb-3">Cria trilha sonora cinematográfica a partir de descrição textual de mood, gênero e instrumentação.</p>
+          <p class="text-neutral-400 text-xs italic bg-dark-700 rounded p-2">Ex: "Trilha sonora eletrônica cinematográfica e energética para snowboard, atmosfera aventureira, bateria marcante e sintetizadores modernos."</p>
+        </div>
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">🔊 Sound Effects Node</h4>
+          <p class="text-neutral-300 text-sm mb-3">Gera efeitos sonoros pontuais — vento, passos, impactos, ambiência. Camadas que enriquecem a cena.</p>
+          <p class="text-neutral-400 text-xs italic bg-dark-700 rounded p-2">Ex: "Vento frio soprando por uma encosta alpina nevada."</p>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795502_y.jpg" alt="Music e SFX nodes no canvas" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Music Generator e Sound Effects Nodes adicionados ao final do pipeline — cada um com seu prompt independente</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">🔄 Iteração Criativa</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A <strong class="text-purple-400">maior vantagem do Spaces</strong> sobre qualquer ferramenta de chat: você pode modificar uma única etapa sem refazer tudo. Cliente pediu para mudar o ambiente? Edite só o Text Node. O resto do pipeline atualiza automaticamente — Assistant gera novo prompt, Image Generator gera nova imagem, Video Generator gera novo vídeo, e a música pode ser mantida ou regenerada.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🔄 O que você pode iterar</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Ambiente:</strong> "andando de snowboard" → "andando de surf na praia"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Iluminação:</strong> "manhã ensolarada" → "golden hour" → "tempestade"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Movimento:</strong> "câmera estática" → "dolly in lento" → "tracking lateral"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Câmera:</strong> close-up, wide shot, contra-plongée</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Modelo:</strong> trocar Nano Banana por Flux 2 Max sem mexer no resto</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795498_w.jpg" alt="Workflow avançado finalizado" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Workflow finalizado — pronto para iteração rápida: cada node é um ponto de edição independente sem quebrar o fluxo</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Refinar &gt; Recomeçar
+        </h3>
+        <p class="text-neutral-300">A regra mais importante de produção com IA: se algo não ficou perfeito, <strong>nunca apague tudo</strong>. Identifique exatamente qual node está produzindo o problema e ajuste só ele. Isso transforma horas de retrabalho em minutos de iteração.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO DO MÓDULO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 3.2
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Fórmula universal</strong><span class="text-neutral-400"> — Texto → Assistant → Image → Upscale → Video → Music → SFX</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Text Node</strong><span class="text-neutral-400"> — A ideia crua sem se preocupar em ser técnico</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Assistant Node</strong><span class="text-neutral-400"> — Engenheiro de prompt residente que profissionaliza a ideia</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Image Generator</strong><span class="text-neutral-400"> — Modelo, references e parâmetros sob controle total</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Image-to-video</strong><span class="text-neutral-400"> — Imagem como start frame trava aparência e libera movimento</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Music + SFX</strong><span class="text-neutral-400"> — Trilha e efeitos completam a cena dentro do mesmo canvas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Iteração modular</strong><span class="text-neutral-400"> — Refinar uma etapa sem refazer o pipeline inteiro</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.3 — Controle Total com Nodes Avançados: List, Variations, Character Reference, Workflow Apps e colaboração em tempo real</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Anterior: Do Caos ao Controle</a>
+          <a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo: Nodes Avançados →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

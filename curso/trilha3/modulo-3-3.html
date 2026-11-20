@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.3 — Controle Total com Nodes Avançados | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3 — Freepik Spaces</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 3.3</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.3</span>
+      <h1 class="text-2xl font-bold mb-4">⚙️ Controle Total com Nodes Avançados</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Os nodes que separam quem usa o Spaces como brinquedo de quem usa como estúdio. List, Variations, Character Reference, Workflow Apps e colaboração em tempo real — o arsenal profissional completo.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">35</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Avanç</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Técnico</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔗 Conexões e Fluxo de Dados</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Para dominar nodes avançados, primeiro você precisa entender como os nodes <strong class="text-purple-400">se comunicam</strong>. Cada node tem portas de entrada (à esquerda) e portas de saída (à direita). Cada porta tem um tipo de dado específico — texto, imagem, vídeo, áudio. Conectar portas de tipos incompatíveis simplesmente não funciona.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🔗 Anatomia de uma Conexão</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Porta de saída (output):</strong> à direita do node, gera um dado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Porta de entrada (input):</strong> à esquerda do node, recebe um dado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Fio (wire):</strong> linha que conecta saída a entrada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Tipo de dado:</strong> string, image, video, audio — só conecta se compatível</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Múltiplas conexões:</strong> uma saída pode alimentar vários nodes simultaneamente</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795521_y.jpg" alt="Conexões entre nodes no Spaces" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Conexões claras entre nodes — cada fio carrega um tipo específico de dado da saída de um node para a entrada do próximo</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">🔍</span> Boas Práticas de Conexão
+        </h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• Mantenha as conexões fluindo da esquerda para a direita — evite cruzamentos</li>
+          <li>• Use uma única saída para múltiplos nodes em vez de duplicar geradores</li>
+          <li>• Antes de conectar, confirme o tipo de dado nas portas</li>
+          <li>• Conexões longas demais sinalizam que dois nodes deveriam estar mais próximos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📦 List Node</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-purple-400">List Node</strong> é o segredo para escalar produção. Em vez de gerar uma imagem por vez, ele permite passar uma <em>lista</em> de prompts para o gerador, que produz todas as variações em paralelo. É a base de batch processing — pense em gerar 20 cenas de um storyboard em uma única execução.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📦 Para que serve</h3>
+        <p class="text-neutral-300 mb-3">Quando você precisa gerar múltiplas saídas a partir de variações de input — por exemplo, o mesmo personagem em 10 ambientes diferentes, ou o mesmo produto em 5 ângulos. O List Node armazena todas as variações e o pipeline executa cada uma em paralelo.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Storyboard inteiro:</strong> uma lista de prompts → uma imagem por cena</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Variações de produto:</strong> mesmo objeto em diferentes contextos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>A/B testing visual:</strong> múltiplas versões para comparação</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Batch para clientes:</strong> entregar 20 opções de uma vez</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795498_w.jpg" alt="Workflow avançado com batch processing" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Workflow avançado com múltiplas saídas paralelas — cada ramo gera uma variação independente do mesmo conceito</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔁 Variations Node</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Diferente do List, o <strong class="text-purple-400">Variations Node</strong> não muda o prompt — ele mantém o mesmo prompt e gera múltiplas <em>interpretações</em> dele. É a forma profissional de explorar opções dentro de um mesmo conceito sem ter que reescrever nada manualmente.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🔁 List vs Variations — qual a diferença?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-purple-400 mb-2">📦 List</h4>
+            <p class="text-neutral-300 text-sm">Inputs <strong>diferentes</strong>, outputs diferentes. Você define manualmente o que muda em cada item da lista.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-purple-400 mb-2">🔁 Variations</h4>
+            <p class="text-neutral-300 text-sm">Mesmo input, outputs <strong>diferentes</strong>. O modelo sorteia interpretações do mesmo prompt automaticamente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795522_y.jpg" alt="Múltiplas variações geradas" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Múltiplas variações do mesmo conceito — cada uma é uma interpretação distinta do mesmo prompt, gerada em paralelo</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Quando usar cada um
+        </h3>
+        <p class="text-neutral-300">Use <strong>List</strong> para storyboards (cenas planejadas). Use <strong>Variations</strong> para exploração criativa (quando você ainda não sabe qual é a melhor versão). Combinar os dois é o nirvana: 10 cenas × 4 variações = 40 opções em uma execução.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🎭 Character Reference Node</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Esse é <strong class="text-purple-400">o node mais importante para narrativa</strong>. O Character Reference Node permite "travar" a identidade visual de um personagem — rosto, corpo, roupa — e usá-lo de forma consistente em qualquer cena, qualquer ângulo, qualquer iluminação. Sem ele, todo personagem muda sutilmente entre frames e o filme perde credibilidade.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🎭 Como funciona</h3>
+        <p class="text-neutral-300 mb-3">Você alimenta o Character Reference Node com 1 a 5 imagens do personagem (preferencialmente do golden asset criado no fitting room — vide Módulo 3.1). Esse node então funciona como uma "memória de identidade" que pode ser conectada a qualquer Image Generator no canvas.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">1.</span><span>Crie o golden asset no fitting room (fundo neutro, identidade limpa)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">2.</span><span>Conecte ao Character Reference Node</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">3.</span><span>Conecte o Character Ref a múltiplos Image Generators (um por cena)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">4.</span><span>Cada cena tem prompt diferente, mas mesma identidade visual</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-purple-500/30 mb-6">
+        <img src="../img/l0/photo_5089376971652795519_y.jpg" alt="Pipeline com Character Reference travando identidade" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800"><strong class="text-purple-400">Pipeline real:</strong> bloco Model alimenta Character Reference, que então alimenta múltiplos contextos (carro, escada, cidade) — mesma pessoa em todas as cenas, identidade visual travada</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">💾 Workflow Apps</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Aqui o Spaces deixa de ser uma ferramenta e vira uma <strong class="text-purple-400">plataforma</strong>. Workflow Apps permitem salvar um pipeline inteiro como uma "ferramenta reutilizável" com inputs simplificados — você pode usá-lo de novo (ou compartilhar com clientes) sem que ninguém precise tocar nos nodes.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">💾 Como funciona</h3>
+        <p class="text-neutral-300 mb-3">Você marca alguns nodes como "input público" (por exemplo, o Text Node inicial e a referência de personagem) e o resto do pipeline fica "encapsulado". Quando alguém abre o app, vê só os campos públicos — preenche, clica gerar, recebe o output final. Toda a complexidade fica escondida.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Salve uma vez:</strong> use mil vezes em projetos diferentes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Cliente-friendly:</strong> não precisa entender nodes para usar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Versionamento:</strong> mantenha histórico de melhorias do pipeline</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Marketplace:</strong> compartilhe pipelines com a comunidade Freepik</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795504_y.jpg" alt="Workflow finalizado pronto para virar app" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Workflow completo — pronto para ser empacotado como Workflow App reutilizável e compartilhável</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Mentalidade de Produto
+        </h3>
+        <p class="text-neutral-300">Quando você cria um Workflow App, pense como um designer de produto: "qual é o input mínimo que o usuário precisa fornecer?" Quanto menor, melhor a experiência. Esconda tudo o que você puder.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">👥 Share e Colaboração</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Produção audiovisual raramente é solo. O Spaces traz colaboração nativa: <strong class="text-purple-400">link compartilhável</strong>, live cursors mostrando onde cada membro da equipe está editando, e capacidade de trabalhar simultaneamente no mesmo canvas. É o "Google Docs" da produção com IA.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">👥 Recursos de Colaboração</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Share link:</strong> qualquer pessoa com o link pode visualizar ou editar (você define)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Live cursors:</strong> veja em tempo real onde cada colaborador está</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Comentários inline:</strong> deixe feedback diretamente em nodes específicos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Permissões:</strong> viewer (só vê), editor (edita), owner (gerencia)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Time work:</strong> múltiplas pessoas editando o mesmo Space ao mesmo tempo</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795496_y.jpg" alt="Pipeline compartilhado para equipe" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Pipeline pronto para colaboração — toda a equipe pode acessar pelo link compartilhado e contribuir simultaneamente</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">🤝</span> Fluxo de Equipe Recomendado
+        </h3>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong>Diretor:</strong> monta a estrutura inicial do pipeline e define o golden asset</li>
+          <li><strong>Art director:</strong> ajusta references, styles e paletas de cor</li>
+          <li><strong>Editor:</strong> trabalha nos nodes de vídeo, music e SFX</li>
+          <li><strong>Cliente:</strong> entra como viewer, deixa comentários inline para ajustes</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- RESUMO DO MÓDULO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 3.3
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Conexões e dados</strong><span class="text-neutral-400"> — Portas, fios e tipos de dados são a gramática do canvas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">List Node</strong><span class="text-neutral-400"> — Batch processing para escalar produção em paralelo</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Variations Node</strong><span class="text-neutral-400"> — Múltiplas interpretações do mesmo conceito sem retrabalho</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Character Reference</strong><span class="text-neutral-400"> — Travar identidade visual em todas as cenas do filme</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Workflow Apps</strong><span class="text-neutral-400"> — Salvar o pipeline como ferramenta reutilizável e compartilhável</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Colaboração nativa</strong><span class="text-neutral-400"> — Share, live cursors e comentários para trabalho em equipe</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próxima Trilha:</h3>
+          <p class="text-neutral-300">Trilha 4 — Câmera: planos, lentes, movimentos e a linguagem cinematográfica que vai turbinar todos os seus prompts no Spaces</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Anterior: Construindo Conteúdo</a>
+          <a href="../trilha4/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo: Trilha 4 — Câmera →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

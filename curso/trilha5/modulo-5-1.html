@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 5.1 — Geração da Imagem Base | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .bg-teal-500\/20 { background-color: rgba(13, 148, 136, 0.12); }
+    html:not(.dark) .bg-teal-500\/10 { background-color: rgba(13, 148, 136, 0.08); }
+    html:not(.dark) .border-teal-500\/30 { border-color: rgba(13, 148, 136, 0.25); }
+    html:not(.dark) .hover\:bg-teal-500\/30:hover { background-color: rgba(13, 148, 136, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-teal-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-teal-400">Trilha 5 — Produção</a>
+      <span>/</span>
+      <span class="text-teal-400">Módulo 5.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MÓDULO 5.1</span>
+      <h1 class="text-2xl font-bold mb-4">🖼️ Geração da Imagem Base</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A primeira imagem define todo o filme. Aprenda a escolher o modelo certo, refinar o prompt e selecionar o golden frame que vai virar referência para todas as cenas seguintes.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">Inter.</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-teal-400">Prática</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🎯 Por que a Imagem Base é Tudo</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A maioria dos vídeos de IA parece inconsistente por um motivo: <strong class="text-teal-400">não existe uma imagem âncora</strong>. Cada cena é gerada do zero, com pequenas variações que destroem a continuidade. O fluxo profissional começa com uma única imagem — a base visual de todo o filme.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center">
+          <span class="mr-2">🎯</span> O Conceito de Frame Âncora
+        </h3>
+        <p class="text-neutral-300 mb-4">A imagem base é o DNA visual do seu filme. Ela carrega o personagem, o ambiente, a paleta, a iluminação e o mood. Tudo o que vier depois — storyboard, animação, transições — vai herdar dessa primeira escolha. Errar aqui é refazer tudo. Acertar aqui é ganhar consistência grátis.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Define o personagem:</strong> rosto, roupas, pose, atitude</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Define o ambiente:</strong> local, hora do dia, clima, atmosfera</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-teal-400 mt-1">•</span>
+            <span><strong>Define o mood:</strong> paleta de cores, contraste, tom emocional</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795466_w.jpg" alt="Cena gerada com carro 4x4 na trilha" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Frame âncora: carro 4x4 numa trilha de montanha — define personagem, ambiente e mood</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795468_w.jpg" alt="Resultado cinematográfico" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Resultado cinematográfico que herdou DNA visual do frame base</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🎨 Escolhendo o Modelo</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Freepik oferece três modelos principais para gerar a imagem base — cada um com força em um cenário diferente. Escolher o modelo errado é começar o filme com o pé esquerdo.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🍌</div>
+          <h4 class="font-bold text-white mb-2">Nano Banana Pro</h4>
+          <p class="text-sm text-neutral-400 mb-3">Coerência alta, edição local poderosa</p>
+          <p class="text-sm text-neutral-300">Ideal quando você precisa iterar rápido sobre o mesmo personagem em cenas diferentes. Mantém identidade facial e elementos-chave.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">✨</div>
+          <h4 class="font-bold text-white mb-2">Mystic</h4>
+          <p class="text-sm text-neutral-400 mb-3">Realismo fotográfico, peso cinematográfico</p>
+          <p class="text-sm text-neutral-300">A escolha para frames com look cinematográfico — luz natural, profundidade de campo, texturas reais. Premium para cenas hero.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🌊</div>
+          <h4 class="font-bold text-white mb-2">Flux</h4>
+          <p class="text-sm text-neutral-400 mb-3">Velocidade e versatilidade ampla</p>
+          <p class="text-sm text-neutral-300">Bom para exploração rápida de variações estilísticas. Use quando ainda está fechando o conceito visual.</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Regra prática
+        </h3>
+        <p class="text-neutral-300">Comece pelo <strong>Flux</strong> para descobrir o conceito. Quando achar a direção, refaça o frame final no <strong>Mystic</strong> para ganhar peso cinematográfico. Use <strong>Nano Banana Pro</strong> só quando precisar editar pontualmente o mesmo frame.</p>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l3/photo_5089376971652795470_w.jpg" alt="Cena final gerada" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Cena final com qualidade Mystic — peso cinematográfico no detalhe da textura e luz</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">✍️ Editor de Prompts Integrado</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Freepik tem um <strong class="text-teal-400">Editor de Prompts</strong> embutido no Image Generator — uma camada de assistência que pega seu texto cru e expande para um prompt cinematográfico completo, com câmera, lente, luz e mood.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4">🪄 De texto cru a prompt cinematográfico</h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-xs text-neutral-500 uppercase font-semibold mb-1">Antes (texto cru)</p>
+            <p class="text-neutral-300 font-mono text-sm bg-dark-700 rounded-lg p-3">"um carro 4x4 numa trilha"</p>
+          </div>
+          <div>
+            <p class="text-xs text-neutral-500 uppercase font-semibold mb-1">Depois (Editor de Prompts)</p>
+            <p class="text-neutral-300 font-mono text-sm bg-dark-700 rounded-lg p-3">"Cinematic wide shot of a rugged 4x4 SUV climbing a muddy mountain trail at golden hour, anamorphic lens, shallow depth of field, volumetric sunlight piercing through pine trees, dust particles in the air, low angle hero shot, photorealistic"</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-6">
+          <h4 class="font-bold text-teal-400 mb-4">✓ Use o Editor quando</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Você sabe a cena mas não a linguagem técnica de câmera</span></li>
+            <li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Está testando direções estilísticas diferentes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Quer enriquecer um prompt vago em segundos</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Pule o Editor quando</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Já tem um prompt validado em outras cenas — não reinvente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Precisa de controle exato palavra-por-palavra</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Está iterando micro-ajustes em uma imagem já boa</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🔄 Gerando Variations</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Nunca aceite a primeira geração. O fluxo correto é gerar <strong class="text-teal-400">múltiplas variações</strong> do mesmo prompt e comparar lado a lado. A IA tem variância natural — uma das versões será visivelmente melhor que as outras.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <span class="text-teal-400 font-bold text-sm">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Gere 4 versões em paralelo</h4>
+            <p class="text-sm text-neutral-300">O Image Generator do Freepik permite criar batches de 4 imagens com o mesmo prompt — isso já dá variedade suficiente para escolher.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <span class="text-teal-400 font-bold text-sm">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Use Variations no melhor candidato</h4>
+            <p class="text-sm text-neutral-300">Quando uma das 4 estiver perto do ideal, clique em <em>Variations</em> para gerar 4 versões próximas dela — refinando sem perder a base.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center">
+            <span class="text-teal-400 font-bold text-sm">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Itere até o "wow"</h4>
+            <p class="text-sm text-neutral-300">Pare quando uma versão te fizer sentir algo. Esse é o sinal — confie nele.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l3/photo_5089376971652795471_w.jpg" alt="Carro em movimento" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Após várias variations, o frame que captura movimento e dinâmica do carro</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🏆 Selecionando o Golden Frame</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Entre todas as variações, uma será o <strong class="text-teal-400">golden frame</strong> — a imagem que vai virar referência de tudo. Ela precisa passar em três critérios objetivos antes de você se apaixonar por ela.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4">🏆 Os 3 critérios do Golden Frame</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-teal-500/30 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-teal-400">Composição</strong> — o sujeito está bem posicionado, o frame respira, o olhar tem para onde ir.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-teal-500/30 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-teal-400">Iluminação</strong> — a luz conta a história. Tem direção, contraste e mood — não é luz "neutra de IA".</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-teal-500/30 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-teal-400">Look cinematográfico</strong> — parece um still de filme, não uma foto qualquer. Tem peso, atmosfera, intenção.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795467_y.jpg" alt="Outro frame do filme" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Golden frame: composição, luz e look cinematográfico todos presentes</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795472_w.jpg" alt="Workflow de produção" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Versão alternativa — boa, mas menos peso cinematográfico que a escolhida</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">📌 Definindo a Referência</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Com o golden frame em mãos, você precisa <strong class="text-teal-400">marcá-lo como referência</strong> oficial do projeto. Esse passo simples evita que você se perca no meio do storyboard e gere cenas com personagens diferentes.
+      </p>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">📌</span> Checklist da Referência
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-primary">→</span><span>Salve o golden frame em uma pasta dedicada do projeto</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">→</span><span>Anote o prompt completo que gerou ele (você vai reusar)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">→</span><span>Anote o modelo, seed e parâmetros usados</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">→</span><span>Use ele como input em todas as próximas etapas (storyboard, animação)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">🎬</span> Esse frame é o seu contrato visual
+        </h3>
+        <p class="text-neutral-300">Daqui pra frente, qualquer cena que não combine com o golden frame está errada. Ele é a régua. É a fonte da verdade. Quando estiver em dúvida no meio do projeto, volte para ele — ele decide.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO DO MÓDULO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 5.1
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Imagem base é o DNA</strong><span class="text-neutral-400"> — define personagem, ambiente e mood do filme inteiro</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Modelo certo</strong><span class="text-neutral-400"> — Flux para explorar, Mystic para finalizar, Nano Banana para editar</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Editor de Prompts</strong><span class="text-neutral-400"> — transforma texto cru em prompt cinematográfico</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Variations</strong><span class="text-neutral-400"> — gere múltiplas versões antes de escolher</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Golden frame</strong><span class="text-neutral-400"> — composição + iluminação + look cinematográfico</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-teal-400 mt-1">✓</span>
+            <div><strong class="text-white">Marque como referência</strong><span class="text-neutral-400"> — salve prompt, parâmetros e use em tudo que vier depois</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-teal-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">5.2 — Construção do Storyboard: como transformar a imagem base em uma sequência narrativa de 6 a 9 frames coerentes</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 5</a>
+          <a href="modulo-5-2.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Próximo: Storyboard →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

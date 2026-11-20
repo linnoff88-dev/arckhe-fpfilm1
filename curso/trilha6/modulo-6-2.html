@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6.2 — Criação do Personagem Principal | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225, 29, 72, 0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225, 29, 72, 0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225, 29, 72, 0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(225, 29, 72, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🎬</span><span class="font-bold text-lg hidden sm:inline">Freepik Film</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6 — Filme Final</a>
+      <span>/</span>
+      <span class="text-rose-400">Módulo 6.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">👤 Criação do Personagem Principal</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A consistência facial é o calcanhar de Aquiles dos filmes feitos com IA. Este módulo ensina o pipeline real para travar um personagem e usá-lo em todas as cenas — do golden asset ao provador virtual.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Avan.</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">👤 Golden Asset</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-rose-400">golden asset</strong> é a imagem definitiva do seu personagem em fundo neutro, em pose neutra, com luz suave e olhar para a câmera. É o "RG" do seu protagonista — gerada uma única vez, e referenciada em todas as cenas seguintes.
+      </p>
+
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que faz um bom golden asset</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Fundo neutro</strong> — cinza, branco ou desfoque studio. Evita interferência do ambiente nas referências futuras.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Luz frontal suave</strong> — sem sombras dramáticas que escondam metade do rosto.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Plano americano</strong> — da cintura para cima, com mãos visíveis. Dá info de corpo e proporção.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Roupa simples e neutra</strong> — não use o figurino do filme. Use camiseta lisa.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>Expressão calma</strong> — sem sorriso exagerado, sem tensão. O modelo aprende a feição base.</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795519_y.jpg" alt="Pipeline real do provador virtual" class="w-full object-cover h-96">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Pipeline real no Spaces: golden asset (Model input) + outfit reference + context input combinados para produzir personagem consistente vestido para a cena</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📸 Upload de Referências</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Para treinar um <strong class="text-rose-400">Custom Character</strong> consistente, o Freepik precisa entre 12 e 24 imagens de referência. Não é só quantidade — é variedade controlada. Imagens demais redundantes ensinam menos do que poucas imagens diversas.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Ângulos diferentes (8 imagens)</h4>
+            <p class="text-sm text-neutral-300">Frontal, perfil esquerdo, perfil direito, 3/4 esquerdo, 3/4 direito, leve cima, leve baixo, costas. O modelo precisa entender o volume 3D da cabeça.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Expressões diferentes (6 imagens)</h4>
+            <p class="text-sm text-neutral-300">Neutra, sorriso leve, riso, surpresa, pensativa, séria. Sem caretas extremas — o modelo precisa do range natural, não dos extremos.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Iluminações diferentes (6 imagens)</h4>
+            <p class="text-sm text-neutral-300">Luz natural, golden hour, sombra, luz frontal forte, contraluz suave, indoor difuso. Evita que o personagem fique "preso" a uma única luz.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">O que NÃO incluir</h4>
+            <p class="text-sm text-neutral-300">Filtros do Instagram, óculos escuros, máscaras, chapéus. Tudo que cobre rosto enfraquece o aprendizado. Mantenha o rosto sempre visível.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l0/photo_5089376971652795520_x.jpg" alt="Referências de personagem" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Set de referências variadas — diferentes ângulos da mesma pessoa</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l0/photo_5089376971652795521_y.jpg" alt="Referências adicionais" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Variação de iluminação e expressão no mesmo personagem</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">⏳ Treinando Custom Character (LoRA)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O treino do <strong class="text-rose-400">Custom Character</strong> dura entre 10 e 30 minutos. Durante esse tempo, o Freepik está fazendo um <em>LoRA</em> (Low-Rank Adaptation) do modelo base com as suas imagens — ensinando o modelo a "lembrar" do seu personagem específico.
+      </p>
+
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">⚙️ O que esperar do treino</h3>
+        <div class="space-y-3 text-sm">
+          <div><span class="text-rose-400 font-semibold">Tempo:</span><span class="text-neutral-300"> 10-30 min dependendo da fila e da quantidade de imagens.</span></div>
+          <div><span class="text-rose-400 font-semibold">Reuso:</span><span class="text-neutral-300"> Após treinado, o LoRA fica disponível para sempre na sua biblioteca. Não treine de novo a menos que mude o look.</span></div>
+          <div><span class="text-rose-400 font-semibold">Token:</span><span class="text-neutral-300"> O Freepik gera um token único para invocar o personagem nos prompts (ex: "sks_woman").</span></div>
+          <div><span class="text-rose-400 font-semibold">Limitações:</span><span class="text-neutral-300"> O LoRA mantém o rosto, mas não controla 100% as roupas — daí a importância do provador virtual.</span></div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795522_w.jpg" alt="Custom Character training" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Tela de treino do Custom Character no Freepik — após 10-30 minutos, o personagem fica disponível como referência reutilizável</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">⚡ Alternativa Rápida — Nano Banana Pro</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Não tem tempo para esperar 30 minutos? Não quer treinar LoRA? O <strong class="text-rose-400">Nano Banana Pro</strong> com image reference funciona em segundos — e dá consistência boa o suficiente para projetos rápidos. A diferença: ele referencia, não decora.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-rose-900/20 rounded-xl border border-rose-500/30 p-6">
+          <h4 class="font-bold text-rose-400 mb-4">✓ Custom Character (LoRA)</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Consistência facial 90%+</li>
+            <li>• Funciona sem imagem de referência presente</li>
+            <li>• Treino de 10-30 min</li>
+            <li>• Ideal para projetos longos / múltiplas cenas</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-rose-400 mb-4">⚡ Nano Banana Pro + ref</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Consistência facial 70-80%</li>
+            <li>• Precisa da imagem como input em cada geração</li>
+            <li>• Zero treino, instantâneo</li>
+            <li>• Ideal para protótipos e testes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795492_w.jpg" alt="Image Generator Node" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Image Generator Node configurado com Nano Banana Pro + image reference — alternativa ao Custom Character para iteração rápida</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">👕 Pipeline do Provador Virtual</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Aqui está o <strong class="text-rose-400">truque mais poderoso</strong> da pré-produção: o pipeline de 3 inputs combinados — Model + Outfit + Context. Você pega seu personagem, "veste" ele com uma roupa de referência, e coloca ele no contexto da cena. Tudo em um fluxo de nodes.
+      </p>
+
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">🔗 Os 3 inputs</h3>
+        <div class="space-y-4">
+          <div class="bg-dark-800/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-rose-400 font-bold mb-1">1. MODEL INPUT</div>
+            <p class="text-neutral-300 text-sm">A foto do personagem (golden asset ou frame de Custom Character). Define o rosto, corpo e proporção.</p>
+          </div>
+          <div class="bg-dark-800/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-rose-400 font-bold mb-1">2. OUTFIT INPUT</div>
+            <p class="text-neutral-300 text-sm">Imagem de uma roupa (pode ser foto de e-commerce, referência de filme, ou outra geração). O modelo "veste" o personagem com essa roupa.</p>
+          </div>
+          <div class="bg-dark-800/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-rose-400 font-bold mb-1">3. CONTEXT INPUT</div>
+            <p class="text-neutral-300 text-sm">Imagem do ambiente / cenário da cena. Define luz, paleta e contexto onde o personagem vestido vai aparecer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795519_y.jpg" alt="Pipeline completo do provador virtual" class="w-full object-cover h-96">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Pipeline completo no Spaces: três imagens de entrada (model, outfit, context) combinam-se em um Image Generator Node para produzir o frame final</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l0/photo_5089376971652795523_y.jpg" alt="Resultado do provador" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Resultado: personagem consistente vestido para a cena</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l0/photo_5089376971652795521_y.jpg" alt="Variação do personagem" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Mesma pessoa em outro contexto — o pipeline mantém o rosto</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 Testando Consistência</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de gerar as 6 cenas reais do filme, faça um <strong class="text-rose-400">teste de estresse</strong>: gere o mesmo personagem em 3 contextos completamente diferentes. Se o rosto se mantém, você está pronto. Se não, ajuste antes — não depois.
+      </p>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Os 3 contextos do teste</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• <strong>Indoor noturno</strong> com luz dramática — testa robustez em sombra dura</li>
+          <li>• <strong>Outdoor diurno</strong> com luz lateral forte — testa adaptação a contraste</li>
+          <li>• <strong>Plano fechado</strong> em close-up de rosto — testa fidelidade dos traços</li>
+        </ul>
+        <p class="text-neutral-300 mt-3">Compare lado a lado. Se passar nos três, está aprovado para produção. Se não, retorne ao tópico 2 e refaça as referências.</p>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Sinais de personagem mal treinado</h3>
+        <ul class="space-y-1 text-neutral-300 text-sm">
+          <li>• Rosto muda entre cenas mesmo com a mesma referência</li>
+          <li>• Olhos mudam de cor</li>
+          <li>• Idade aparente flutua entre planos</li>
+          <li>• Tom de pele inconsistente em iluminações iguais</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 6.2</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Golden asset</strong><span class="text-neutral-400"> — Imagem-RG do personagem em fundo neutro, antes de qualquer cena.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">12-24 referências variadas</strong><span class="text-neutral-400"> — Ângulos, expressões e luzes, sempre com rosto visível.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Custom Character vs Nano Banana Pro</strong><span class="text-neutral-400"> — LoRA para projetos longos, image reference para protótipos.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Provador virtual de 3 inputs</strong><span class="text-neutral-400"> — Model + Outfit + Context combinados em um pipeline.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Teste de estresse</strong><span class="text-neutral-400"> — 3 contextos extremos antes de aprovar para produção.</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-rose-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">6.3 — Storyboard com IA: do primeiro frame ao grid 3x3 narrativo</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-6-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Anterior: Roteiro</a>
+          <a href="modulo-6-3.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">Próximo: Storyboard com IA →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

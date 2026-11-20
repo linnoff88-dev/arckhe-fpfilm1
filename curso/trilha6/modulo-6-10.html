@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6.10 — Revisão e Entrega | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225, 29, 72, 0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225, 29, 72, 0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225, 29, 72, 0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(225, 29, 72, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6 — Seu Filme Completo</a>
+      <span>/</span>
+      <span class="text-rose-400">Módulo 6.10</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.10 — FINAL</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🏆 Revisão e Entrega</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">O último módulo do curso. Revisar com olhar profissional, preparar formatos para diferentes destinos e entregar seu filme ao mundo — este é o momento em que tudo que você aprendeu se torna obra finalizada.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">20</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Final</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Entrega</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">✅ Checklist de Qualidade</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de qualquer entrega, rode os <strong class="text-rose-400">10 itens críticos</strong> de qualidade. Cada um, isoladamente, é capaz de comprometer a obra inteira.
+      </p>
+
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">✅ Os 10 Críticos</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">1.</span><span>Personagem visualmente consistente ao longo de todas as cenas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">2.</span><span>Câmera com movimentos intencionais e narrativos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">3.</span><span>Áudio sincronizado com o vídeo, sem drifts</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">4.</span><span>Voz inteligível em toda a duração do filme</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">5.</span><span>Música nunca compete com a voz</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">6.</span><span>SFX presentes nos momentos certos, em volume adequado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">7.</span><span>3 atos narrativos claros e bem proporcionados</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">8.</span><span>Continuidade visual e color grading uniformes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">9.</span><span>Sem artefatos visíveis de IA (deformações, glitches)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">10.</span><span>Final com tempo suficiente para a emoção decantar</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795505_y.jpg" alt="Painel de revisão" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Revisão final no painel do Freepik antes do export e compartilhamento</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📐 Formatos de Saída</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada plataforma exige um <strong class="text-rose-400">aspect ratio diferente</strong>. Exporte o seu filme em múltiplos formatos para alcançar todos os destinos — cada versão pode exigir reenquadramento via Clip Editor.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">📺</div>
+          <h4 class="font-bold text-white mb-2">16:9</h4>
+          <p class="text-sm text-neutral-400 mb-2">YouTube, Vimeo, TVs</p>
+          <p class="text-sm text-neutral-300">Formato cinematográfico padrão. Entregue sempre uma versão master neste aspect ratio.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">📱</div>
+          <h4 class="font-bold text-white mb-2">9:16</h4>
+          <p class="text-sm text-neutral-400 mb-2">Stories, Reels, TikTok</p>
+          <p class="text-sm text-neutral-300">Vertical mobile-first. Recorte central com personagens centralizados.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🟦</div>
+          <h4 class="font-bold text-white mb-2">1:1</h4>
+          <p class="text-sm text-neutral-400 mb-2">Feed Instagram, LinkedIn</p>
+          <p class="text-sm text-neutral-300">Quadrado. Bom para teasers e pílulas curtas extraídas do filme principal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">💾 Salvando como Workflow App</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Spaces permite transformar seu pipeline em <strong class="text-rose-400">Workflow App</strong> — uma ferramenta reutilizável onde você (ou clientes) inserem inputs simples e recebem o filme final automaticamente. É a maior alavanca de produtividade do Freepik.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Identifique inputs reutilizáveis</h4>
+            <p class="text-sm text-neutral-300">Roteiro, prompt principal, voz escolhida — tudo que muda entre filmes vira input público do app.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Salve como Workflow App</h4>
+            <p class="text-sm text-neutral-300">No menu do Spaces, escolha "Save as App". Defina nome, descrição e ícone.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center"><span class="text-rose-400 font-bold text-sm">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Compartilhe ou reuse</h4>
+            <p class="text-sm text-neutral-300">Use o app no seu próximo filme em segundos, ou compartilhe com clientes para auto-atendimento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🔄 Versões para Clientes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Entrega profissional não é um arquivo solto — é um <strong class="text-rose-400">pacote organizado</strong> com versões claras: bruto, finalizado e variações por formato. O cliente sempre encontra o que precisa.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">📦</div>
+          <h4 class="font-bold text-white mb-2">Bruto</h4>
+          <p class="text-sm text-neutral-300">Master 16:9 sem watermark, full quality, para arquivo do cliente. ProRes ou H.264 alto bitrate.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🎬</div>
+          <h4 class="font-bold text-white mb-2">Finalizado</h4>
+          <p class="text-sm text-neutral-300">Versão pronta para web, 1080p H.264, 8-12 Mbps. O arquivo principal de entrega.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">📱</div>
+          <h4 class="font-bold text-white mb-2">Variações</h4>
+          <p class="text-sm text-neutral-300">9:16 e 1:1 reenquadrados, prontos para social. Inclua versões com e sem legendas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎯 Revisão Profissional</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Olhe seu filme como <strong class="text-rose-400">um diretor olharia</strong>. Não como autor orgulhoso. Pergunte-se as cinco perguntas que separam amadores de profissionais.
+      </p>
+
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">🎯 As 5 Perguntas do Diretor</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">1.</span><span><strong>"Um espectador sem contexto entende a história?"</strong> Se precisa explicar, falta clareza.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">2.</span><span><strong>"Qual é a emoção dominante de cada cena?"</strong> Se você não sabe responder, o espectador também não vai sentir.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">3.</span><span><strong>"Há algum corte que poderia ser eliminado sem perda?"</strong> Se há, corte. Sempre.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">4.</span><span><strong>"O som contribui ou só preenche?"</strong> Música decorativa enfraquece. Música funcional eleva.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">5.</span><span><strong>"O final me deixa sentindo algo?"</strong> Se você termina indiferente, o espectador termina pior.</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795504_y.jpg" alt="Revisão final" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Revisão final do filme — assistir com olhar crítico antes de declarar a obra como concluída</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🏆 Entrega Final</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A entrega organizada é o que separa um freelancer de um profissional. <strong class="text-rose-400">Pasta nomeada, créditos incluídos, link compartilhável</strong>. Detalhes simples que comunicam cuidado.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-white mb-3">📁 Estrutura de Entrega</h3>
+        <pre class="text-sm text-rose-400 overflow-x-auto">
+NomeDoProjeto_FinalDelivery/
+├── 01_Master/
+│   └── projeto_master_16x9_4K.mp4
+├── 02_Web/
+│   └── projeto_1080p_h264.mp4
+├── 03_Social/
+│   ├── projeto_9x16_vertical.mp4
+│   └── projeto_1x1_square.mp4
+├── 04_Assets/
+│   ├── poster.jpg
+│   └── thumbnails/
+└── README.txt (créditos, ficha técnica, link)
+        </pre>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l3/photo_5089376971652795472_w.jpg" alt="Tela de compartilhamento" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Compartilhamento e exportação final — o último clique antes do filme estar pronto para o mundo</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Final</h3>
+        <p class="text-neutral-300">Sempre inclua um README com a ficha técnica: título, duração, formato, software usado (Freepik), créditos e link compartilhável. Isso transforma uma pasta de arquivos em um produto de entrega profissional.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL DO CURSO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🏆</span> Parabéns — Curso Concluído!</h2>
+
+        <p class="text-neutral-300 mb-6 leading-relaxed">
+          Você acabou de completar o <strong class="text-rose-400">Freepik Film</strong> — o curso completo de cinema com IA generativa. Da intenção narrativa aos pipelines avançados de produção, do controle de câmera ao Spaces, da consistência de personagem à entrega profissional, você dominou todo o ciclo criativo de um filme feito com IA.
+        </p>
+
+        <div class="bg-dark-800/50 rounded-lg p-6 mb-6">
+          <h3 class="font-semibold text-rose-400 mb-4">🎓 Sua Jornada Completa</h3>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Trilha 1 — Fundamentos:</strong> a linguagem do cinema, prompts intencionais</span></li>
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Trilha 2 — Recursos:</strong> as ferramentas do Freepik exploradas a fundo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Trilha 3 — Spaces:</strong> o canvas visual para construir pipelines</span></li>
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Trilha 4 — Câmera:</strong> o vocabulário completo de movimentos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Trilha 5 — Produção:</strong> consistência, character sheets, prompts avançados</span></li>
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Trilha 6 — Filme Completo:</strong> da pré-produção à entrega profissional</span></li>
+          </ul>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-6 mb-8">
+          <h3 class="font-semibold text-rose-400 mb-3">🎬 O Que Você Sabe Agora</h3>
+          <p class="text-neutral-300 mb-3">Você não é mais "alguém que mexe com IA". Você é um <strong class="text-white">diretor de cinema que usa IA como ferramenta</strong>. A diferença é abismal — e ela só fica clara quando você compara seu primeiro vídeo gerado com o filme que você acabou de entregar.</p>
+          <p class="text-neutral-300">A tecnologia vai mudar. Os modelos vão melhorar. Mas os princípios cinematográficos que você aprendeu aqui vão te servir por décadas, em qualquer ferramenta que vier no futuro. Cinema é cinema — a câmera é só o instrumento.</p>
+        </div>
+
+        <div class="bg-rose-900/20 rounded-xl border border-rose-500/30 p-6 mb-8">
+          <h3 class="font-semibold text-rose-400 mb-3">🚀 Próximos Passos</h3>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">→</span><span>Faça seu primeiro filme completo aplicando tudo que aprendeu</span></li>
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">→</span><span>Compartilhe com a comunidade INEMA.CLUB e receba feedback</span></li>
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">→</span><span>Construa seu Workflow App e use em projetos reais com clientes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">→</span><span>Continue revisitando módulos específicos sempre que precisar</span></li>
+          </ul>
+        </div>
+
+        <p class="text-center text-neutral-300 italic mb-8">
+          "A IA amplifica visão. E agora você tem a visão." — Freepik Film
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 6</a>
+          <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">🏆 Voltar para o Curso</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

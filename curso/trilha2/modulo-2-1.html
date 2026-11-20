@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.1 — O Ecossistema Freepik AI | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37, 99, 235, 0.18); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a>
+      <span>/</span>
+      <span class="text-blue-400">Módulo 2.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🏢 O Ecossistema Freepik AI</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Um estúdio completo em uma aba: imagem, vídeo, áudio, design e automação de workflows. Conheça todas as ferramentas disponíveis em Abril 2026 e como elas se integram.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Iniciante</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- IMAGENS DO ECOSSISTEMA -->
+    <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+      <img src="../img/l1/photo_5089376971652795488_w.jpg" alt="Interface do Freepik Spaces com todas as ferramentas disponíveis na sidebar" class="w-full object-cover">
+      <p class="text-xs text-neutral-500 p-3 bg-dark-800">Interface do Freepik AI Creative Suite — Sidebar com todas as ferramentas: Spaces, Image Generator, Video Generator, Voice Generator, Assistant</p>
+    </div>
+    <div class="grid grid-cols-2 gap-4 mb-10">
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l1/photo_5089376971652795487_w.jpg" alt="Freepik Spaces com templates prontos" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Templates prontos para começar rapidamente</p>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-dark-600">
+        <img src="../img/l0/photo_5089376971652795519_y.jpg" alt="Pipeline profissional no Freepik Spaces" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-2 bg-dark-800">Pipeline profissional com nodes conectados</p>
+      </div>
+    </div>
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🏢 O que é a AI Creative Suite</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O Freepik evoluiu de banco de imagens para um <strong class="text-blue-400">estúdio de produção audiovisual completo</strong>. Em Abril de 2026, a plataforma oferece geração de imagens, vídeos, áudio, design gráfico e automação de workflows — tudo integrado em uma única aba do navegador.</p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que inclui a Suite</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Image Generator</strong> — 8+ modelos de geração de imagens com IA, do Mystic ao Flux</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Video Generator</strong> — Kling, Veo, Runway, Sora e Seedance integrados</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Voice + Music + SFX</strong> — pipeline de áudio completo para filmes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Freepik Spaces</strong> — automação de workflows com canvas de nodes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Assistant</strong> — IA conversacional para roteiros, prompts e estratégia criativa</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Pikaso / Upscaler / Lip Sync</strong> — ferramentas especializadas de pós-produção</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica Prática</h3>
+        <p class="text-neutral-300">Para filmes curtos (1-5 min), o Freepik resolve <strong>95% da produção sem sair da plataforma</strong>. A única etapa que ainda exige ferramenta externa é a montagem final — que pode ser feita no CapCut, DaVinci Resolve ou Premiere.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">💳 Sistema de Créditos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Cada operação na plataforma consome <strong class="text-blue-400">créditos</strong> — a moeda interna do Freepik. Entender o custo de cada ferramenta é essencial para planejar a produção do filme sem travar no meio do processo.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🆓</div>
+          <h4 class="font-bold text-white mb-2">Free</h4>
+          <p class="text-sm text-neutral-400">Créditos limitados por mês. Suficiente para explorar a plataforma, não para produção de um filme.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-blue-500/30 p-5">
+          <div class="text-2xl mb-2">⭐</div>
+          <h4 class="font-bold text-blue-400 mb-2">Essential</h4>
+          <p class="text-sm text-neutral-400">Créditos mensais para produção regular. Recomendado para projetos de curta-metragem independente.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">💎</div>
+          <h4 class="font-bold text-white mb-2">Premium</h4>
+          <p class="text-sm text-neutral-400">Volume de créditos para produção intensiva, acesso a modelos exclusivos e queue prioritária.</p>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Custo Aproximado por Operação</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Geração de imagem (modelos básicos)</strong> — 1-3 créditos por geração</li>
+          <li><strong>Geração de imagem (modelos premium: Flux Max, Mystic)</strong> — 5-10 créditos</li>
+          <li><strong>Geração de vídeo (4-8 segundos)</strong> — 15-40 créditos dependendo do modelo</li>
+          <li><strong>Voice Generator (por minuto de áudio)</strong> — 5-10 créditos</li>
+          <li><strong>Upscale de imagem</strong> — 5-15 créditos por imagem</li>
+          <li><strong>Treinamento LoRA (Custom Character)</strong> — 50-100 créditos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🗺️ Navegação da Interface</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A interface do Freepik é organizada em uma <strong class="text-blue-400">sidebar esquerda fixa</strong> com acesso a todas as ferramentas. Conhecer a localização de cada ferramenta poupa tempo durante a produção.</p>
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795488_w.jpg" alt="Canvas vazio do Spaces com seletor de nodes" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Canvas do Freepik Spaces — seletor de nodes com Stock, Media, Image Generator, Video Generator, Assistant e mais</p>
+      </div>
+      <div class="space-y-3 mb-6">
+        <div class="flex items-start space-x-4 bg-dark-800 rounded-lg p-4 border border-dark-600">
+          <span class="text-2xl flex-shrink-0">🕸️</span>
+          <div><h4 class="font-semibold text-white">Spaces</h4><p class="text-sm text-neutral-400">Canvas de workflow visual. Ponto central da produção automatizada. Fica no topo da sidebar.</p></div>
+        </div>
+        <div class="flex items-start space-x-4 bg-dark-800 rounded-lg p-4 border border-dark-600">
+          <span class="text-2xl flex-shrink-0">🎨</span>
+          <div><h4 class="font-semibold text-white">Image Generator</h4><p class="text-sm text-neutral-400">Geração standalone de imagens sem precisar abrir um Space.</p></div>
+        </div>
+        <div class="flex items-start space-x-4 bg-dark-800 rounded-lg p-4 border border-dark-600">
+          <span class="text-2xl flex-shrink-0">🎥</span>
+          <div><h4 class="font-semibold text-white">Video Generator</h4><p class="text-sm text-neutral-400">Geração standalone de vídeos com todos os modelos disponíveis.</p></div>
+        </div>
+        <div class="flex items-start space-x-4 bg-dark-800 rounded-lg p-4 border border-dark-600">
+          <span class="text-2xl flex-shrink-0">🎙️</span>
+          <div><h4 class="font-semibold text-white">Voice Generator</h4><p class="text-sm text-neutral-400">Text-to-speech em 50+ idiomas com controle de tom e velocidade.</p></div>
+        </div>
+        <div class="flex items-start space-x-4 bg-dark-800 rounded-lg p-4 border border-dark-600">
+          <span class="text-2xl flex-shrink-0">🤖</span>
+          <div><h4 class="font-semibold text-white">Assistant</h4><p class="text-sm text-neutral-400">IA conversacional para roteiros, prompts, estratégia e perguntas sobre as ferramentas.</p></div>
+        </div>
+        <div class="flex items-start space-x-4 bg-dark-800 rounded-lg p-4 border border-dark-600">
+          <span class="text-2xl flex-shrink-0">🛠️</span>
+          <div><h4 class="font-semibold text-white">All Tools</h4><p class="text-sm text-neutral-400">Pikaso, Upscaler, Lip Sync, Music Generator, SFX e todas as ferramentas especializadas.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📁 Projetos e Organização</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O sistema de <strong class="text-blue-400">projetos</strong> do Freepik agrupa todas as gerações, Spaces e assets de um filme em uma pasta centralizada, com histórico completo de cada operação.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Boas Práticas</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Criar um projeto por filme desde o início</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Favoritar as melhores gerações para encontrar fácil</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Nomear cada Space com o nome da cena</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Exportar aprovados em uma pasta separada</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Erros Comuns</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Gerar tudo no projeto padrão sem organização</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não salvar as seeds das melhores gerações</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Misturar assets de filmes diferentes no mesmo projeto</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Depender da memória para lembrar o que foi aprovado</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🔄 Fluxo Geral de Produção</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-blue-400">fluxo completo</strong> de produção de um filme dentro do Freepik segue uma sequência lógica de etapas, onde cada ferramenta alimenta a próxima.</p>
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795522_y.jpg" alt="Resultado gerado no Spaces" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Exemplo de resultado final gerado em pipeline do Spaces — da ideia à imagem final em um fluxo automatizado</p>
+      </div>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Pré-produção — Assistant</h4>
+            <p class="text-sm text-neutral-400 mb-1">Roteiro, storyboard textual, prompt bank</p>
+            <p class="text-neutral-300 text-sm">Use o Assistant para desenvolver roteiro, descrever cada cena e criar um banco de prompts prontos para a geração.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Personagens — Custom Characters</h4>
+            <p class="text-sm text-neutral-400 mb-1">LoRA training, referências visuais</p>
+            <p class="text-neutral-300 text-sm">Treine os LoRAs dos personagens principais antes de qualquer cena. Esse passo define a consistência visual de todo o filme.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Imagens — Image Generator + Spaces</h4>
+            <p class="text-sm text-neutral-400 mb-1">Frames de referência para cada cena</p>
+            <p class="text-neutral-300 text-sm">Gere os frames de cada cena usando o pipeline do Spaces com os LoRAs treinados e referências de estilo aprovadas.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Vídeos — Video Generator (I2V)</h4>
+            <p class="text-sm text-neutral-400 mb-1">Animar cada frame aprovado</p>
+            <p class="text-neutral-300 text-sm">Use Image-to-Video para animar cada frame aprovado com o movimento de câmera e ação descritos no storyboard.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Áudio — Voice + Music + SFX</h4>
+            <p class="text-sm text-neutral-400 mb-1">Narração, trilha e efeitos sonoros</p>
+            <p class="text-neutral-300 text-sm">Produza toda a camada de áudio dentro do Freepik: narração no Voice Generator, trilha no Music Generator e SFX por cena.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">6</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Export e Montagem</h4>
+            <p class="text-sm text-neutral-400 mb-1">Edição final em ferramenta externa</p>
+            <p class="text-neutral-300 text-sm">Exporte todos os assets aprovados e monte o filme final no CapCut, DaVinci Resolve ou Premiere Pro.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🤝 Colaboração em Equipe</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O Freepik oferece recursos de <strong class="text-blue-400">colaboração em tempo real</strong> para equipes de produção — share de projetos, workspace compartilhado e comentários em assets.</p>
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l0/photo_5089376971652795523_y.jpg" alt="Contexto de workflow colaborativo" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Workflow colaborativo no Spaces — múltiplos usuários trabalhando no mesmo pipeline com live cursors</p>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🤝</span> Recursos de Colaboração</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Share Link</strong> — compartilhe qualquer Space ou projeto com link, com permissão de visualização ou edição</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Team Workspace</strong> — workspace compartilhado onde a equipe acessa todos os projetos e assets</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Live Cursors</strong> — veja em tempo real onde cada colaborador está no canvas do Spaces</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Comentários</strong> — adicione comentários diretamente em assets ou nodes para feedback estruturado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Histórico</strong> — versões salvas automaticamente permitem reverter mudanças indesejadas</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 2.1</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">AI Creative Suite</strong><span class="text-neutral-400"> — estúdio completo: imagem, vídeo, áudio, design e automação em uma aba</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Sistema de Créditos</strong><span class="text-neutral-400"> — planeje o consumo por operação para não travar no meio do projeto</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Navegação</strong><span class="text-neutral-400"> — Spaces, Image Generator, Video Generator, Voice Generator, Assistant, All Tools</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Organização</strong><span class="text-neutral-400"> — um projeto por filme, favoritar aprovados, nomear Spaces por cena</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Fluxo Geral</strong><span class="text-neutral-400"> — Roteiro → Personagens → Imagens → Vídeos → Áudio → Export</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Colaboração</strong><span class="text-neutral-400"> — share link, team workspace, live cursors e comentários</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.2 — Gerador de Imagens: todos os modelos, parâmetros e como usar referências de estilo e personagem</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 2</a>
+          <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo: Gerador de Imagens →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — Abril 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

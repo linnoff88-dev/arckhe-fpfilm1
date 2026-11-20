@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 5.2 — Construção do Storyboard | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .bg-teal-500\/20 { background-color: rgba(13, 148, 136, 0.12); }
+    html:not(.dark) .bg-teal-500\/10 { background-color: rgba(13, 148, 136, 0.08); }
+    html:not(.dark) .border-teal-500\/30 { border-color: rgba(13, 148, 136, 0.25); }
+    html:not(.dark) .hover\:bg-teal-500\/30:hover { background-color: rgba(13, 148, 136, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-teal-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-teal-400">Trilha 5 — Produção</a>
+      <span>/</span>
+      <span class="text-teal-400">Módulo 5.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MÓDULO 5.2</span>
+      <h1 class="text-2xl font-bold mb-4">🎞️ Construção do Storyboard</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A imagem base já existe — agora ela vira sequência. Use o modo Storyboard do Freepik para mapear 6 a 9 frames coerentes que contam uma história visual clara.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Inter.</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📖 Narrativa Visual</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Storyboard não é "várias imagens bonitas". É uma <strong class="text-teal-400">sequência intencional</strong> onde cada frame avança uma história. Sem narrativa, você gera ruído visual em escala. Com narrativa, gera cinema.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center">
+          <span class="mr-2">📖</span> O que define uma narrativa visual
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Continuidade:</strong> o personagem segue sendo o mesmo personagem</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Progressão:</strong> cada frame mostra algo novo, não repete o anterior</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Causalidade:</strong> uma cena leva à próxima de forma lógica ou emocional</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong>Resolução:</strong> a sequência tem um final, não termina aleatória</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l3/photo_5089376971652795466_w.jpg" alt="Cena com carro 4x4 na trilha" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Frame inicial da narrativa: o carro chega na trilha — o "começo" da história</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔲 Modo Storyboard do Freepik</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Freepik tem um modo dedicado para isso. Caminho: <strong class="text-teal-400">Image Generator → Tools → Variations → Storyboard</strong>. Esse modo entende que você quer múltiplos frames relacionados — não imagens isoladas.
+      </p>
+
+      <!-- IMAGEM CHAVE: galeria de storyboard real -->
+      <div class="rounded-xl overflow-hidden border border-teal-500/30 mb-6">
+        <img src="../img/l3/photo_5089376971652795469_w.jpg" alt="Video Generator com Kling - galeria de storyboard com múltiplos frames do carro" class="w-full object-cover">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Galeria real de storyboard no Freepik — múltiplos frames do carro em ângulos diferentes, todos derivados da mesma imagem base. Esse é o pipeline real.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-6">
+          <h4 class="font-bold text-teal-400 mb-4">✓ O que o modo Storyboard faz</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Mantém o sujeito coerente entre frames</span></li>
+            <li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Permite definir variação de ângulo e ação por frame</span></li>
+            <li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Organiza visualmente em grid editável</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-white mb-4">→ Como entrar</h4>
+          <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
+            <li>Abra o Image Generator</li>
+            <li>Clique em <em>Tools</em> no menu lateral</li>
+            <li>Selecione <em>Variations</em></li>
+            <li>Ative o sub-modo <em>Storyboard</em></li>
+            <li>Carregue o golden frame como referência</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">📐 Grid 3x3</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A estrutura recomendada é o <strong class="text-teal-400">grid 3x3</strong> — nove quadros narrativos que cobrem começo, meio e fim. Esse formato é antigo no cinema (vem dos storyboards clássicos da Disney) e funciona porque é cognitivamente fácil de ler.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4">📐 A estrutura 3x3</h3>
+        <div class="grid grid-cols-3 gap-3 mb-4">
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 1</div><div class="text-xs text-neutral-400">Setup</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 2</div><div class="text-xs text-neutral-400">Apresentação</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 3</div><div class="text-xs text-neutral-400">Gancho</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 4</div><div class="text-xs text-neutral-400">Ação A</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 5</div><div class="text-xs text-neutral-400">Pico</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 6</div><div class="text-xs text-neutral-400">Ação B</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 7</div><div class="text-xs text-neutral-400">Reação</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 8</div><div class="text-xs text-neutral-400">Resolução</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-xs text-teal-400 font-semibold mb-1">Frame 9</div><div class="text-xs text-neutral-400">Final</div></div>
+        </div>
+        <p class="text-neutral-400 text-sm">Linha 1: <strong>Setup</strong> — apresenta personagem e mundo. Linha 2: <strong>Conflito</strong> — algo acontece. Linha 3: <strong>Resolução</strong> — fechamento emocional ou visual.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🔗 Continuidade entre Frames</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O maior inimigo do storyboard com IA é a <strong class="text-teal-400">deriva visual</strong>: o personagem muda de cabelo, o ambiente muda de paleta, o carro vira outro carro. Existem três técnicas para evitar isso.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold text-sm">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Ancore no golden frame</h4>
+            <p class="text-sm text-neutral-300">Cada frame novo deve ter o golden frame como imagem de referência (image-to-image). Nunca gere "do zero" no meio do storyboard.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold text-sm">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Reuse o prompt-mãe</h4>
+            <p class="text-sm text-neutral-300">Mantenha 80% do prompt original e mude apenas o que muda na cena (ângulo, ação, distância). Não reescreva o prompt inteiro.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold text-sm">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Trave o seed quando possível</h4>
+            <p class="text-sm text-neutral-300">Modelos como Mystic permitem fixar a seed. Use o mesmo número entre frames para reduzir variância aleatória.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795467_y.jpg" alt="Frame coerente A" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Frame A — mesmo carro, mesmo ambiente, ângulo lateral</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l3/photo_5089376971652795468_w.jpg" alt="Frame coerente B" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Frame B — mesmo carro, mesmo ambiente, ângulo frontal. Continuidade preservada.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">⏱️ Ritmo e Pacing</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quantos frames para cada ato? A regra empírica para storyboards de IA é a <strong class="text-teal-400">distribuição 2-4-3</strong>: dois frames para o setup, quatro para o desenvolvimento, três para a resolução. Esse pacing dá tempo de respirar sem arrastar.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🎬</div>
+          <h4 class="font-bold text-white mb-2">Começo (2 frames)</h4>
+          <p class="text-sm text-neutral-400 mb-3">Setup rápido</p>
+          <p class="text-sm text-neutral-300">Apresenta o personagem e o mundo em duas imagens. Não demore aqui — o espectador entende rápido.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">⚡</div>
+          <h4 class="font-bold text-white mb-2">Meio (4 frames)</h4>
+          <p class="text-sm text-neutral-400 mb-3">Desenvolvimento</p>
+          <p class="text-sm text-neutral-300">É aqui que a história acontece. Quatro beats: ação, reação, complicação, virada. O coração do filme.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🏁</div>
+          <h4 class="font-bold text-white mb-2">Fim (3 frames)</h4>
+          <p class="text-sm text-neutral-400 mb-3">Resolução</p>
+          <p class="text-sm text-neutral-300">Pico, queda e imagem final. Sempre termine em um frame icônico — o último frame é o que fica na memória.</p>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l3/photo_5089376971652795470_w.jpg" alt="Cena final do storyboard" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Frame de resolução — composição mais limpa e simbólica para fechar a sequência</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">✅ Selecionando os Melhores</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Você vai gerar mais frames do que vai usar. A seleção final dos <strong class="text-teal-400">6 a 9 quadros</strong> que vão pro filme passa por três filtros objetivos.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4">✅ Os 3 filtros de seleção</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-teal-500/30 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-teal-400">Coerência visual</strong> — o personagem é claramente o mesmo, o ambiente bate, a paleta é consistente.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-teal-500/30 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-teal-400">Progressão narrativa</strong> — colocados em ordem, eles contam uma história sem precisar de legenda.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 rounded-full bg-teal-500/30 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3º</span>
+            <p class="text-neutral-300 text-sm"><strong class="text-teal-400">Variedade de ângulo</strong> — não são todos plano médio. Alterne wide, close, low angle, top.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Teste do "imprime e cola na parede"
+        </h3>
+        <p class="text-neutral-300">Imprima os 9 candidatos e cole na parede em ordem. Olhe de longe. Se a história está clara, está pronto. Se algum frame quebra a sequência, ele sai. Esse teste antigo de pré-produção continua sendo o mais eficaz.</p>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l3/photo_5089376971652795472_w.jpg" alt="Workflow de produção" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Frame final selecionado para o storyboard — passou nos três filtros</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 5.2</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Narrativa visual</strong><span class="text-neutral-400"> — continuidade, progressão, causalidade, resolução</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Modo Storyboard</strong><span class="text-neutral-400"> — Image Generator → Tools → Variations → Storyboard</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Grid 3x3</strong><span class="text-neutral-400"> — nove quadros narrativos cobrindo setup/conflito/resolução</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Continuidade</strong><span class="text-neutral-400"> — golden frame ancorado, prompt-mãe reutilizado, seed travada</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Pacing 2-4-3</strong><span class="text-neutral-400"> — começo, meio e fim na proporção certa</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Filtros de seleção</strong><span class="text-neutral-400"> — coerência, progressão e variedade de ângulo</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-teal-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">5.3 — Animação com Kling 3.0: como transformar cada frame do storyboard em movimento cinematográfico</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-5-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 5.1</a>
+          <a href="modulo-5-3.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Próximo: Animação Kling →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

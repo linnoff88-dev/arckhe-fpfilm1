@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6.1 — Pré-Produção: Conceito e Roteiro | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225, 29, 72, 0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225, 29, 72, 0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225, 29, 72, 0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(225, 29, 72, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6 — Filme Final</a>
+      <span>/</span>
+      <span class="text-rose-400">Módulo 6.1</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📝 Pré-Produção: Conceito e Roteiro</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Antes de qualquer prompt, antes de qualquer node — a cabeça. Este módulo ensina como sair de uma ideia vaga para um roteiro de 60 segundos pronto para virar storyboard, usando Text Node e Assistant Node do Spaces.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Avan.</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">❓ As 3 Perguntas</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de abrir o Freepik, antes de pensar em câmera ou node, você precisa responder <strong class="text-rose-400">três perguntas</strong>. Se você não consegue responder em uma frase cada uma, seu filme ainda não existe — só uma vontade vaga de fazer algo bonito.
+      </p>
+
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Defina seu filme em 30 segundos</h3>
+        <div class="space-y-4">
+          <div class="bg-dark-800/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-rose-400 font-bold mb-1">1. QUEM?</div>
+            <p class="text-neutral-300 text-sm">Quem é o personagem principal? Não precisa ser nome ou biografia — precisa ser um <em>tipo emocional</em>. Ex: "uma mulher cansada", "um menino curioso", "um andarilho silencioso". Uma frase basta.</p>
+          </div>
+          <div class="bg-dark-800/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-rose-400 font-bold mb-1">2. ONDE?</div>
+            <p class="text-neutral-300 text-sm">Qual é o universo? Ambientes opostos criam contraste e definem mood. Ex: "deserto ao amanhecer", "metrô vazio à noite", "floresta densa em neblina". O ambiente é metade do filme.</p>
+          </div>
+          <div class="bg-dark-800/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-rose-400 font-bold mb-1">3. O QUE ACONTECE?</div>
+            <p class="text-neutral-300 text-sm">Qual é a virada? Filme sem virada é cartão postal animado. Precisa ter um <em>antes</em> e um <em>depois</em>: ela encontra algo, ele perde algo, ele decide algo. Uma frase com verbo de ação.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l1/photo_5089376971652795490_y.jpg" alt="Text Node no Spaces" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Text Node — onde você escreve as 3 respostas e mantém visível durante toda a produção</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l1/photo_5089376971652795488_w.jpg" alt="Canvas vazio do Spaces" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Canvas em branco do Spaces — começar pelo conceito antes de adicionar qualquer node de geração</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Teste do elevador</h3>
+        <p class="text-neutral-300">Se você não consegue contar seu filme para alguém em <strong>15 segundos</strong> e a pessoa entender, ele ainda não está pronto para virar prompt. Volte às 3 perguntas. Cinema é compressão.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">✍️ Escrevendo no Text Node</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-rose-400">Text Node</strong> do Spaces é o seu caderno de roteiro. Diferente de uma aba do navegador ou um Google Doc, ele vive no mesmo canvas onde os Image e Video Generator vão rodar — ou seja, sempre visível, sempre referência viva.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center">
+            <span class="text-rose-400 font-bold text-sm">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Crie o Text Node primeiro</h4>
+            <p class="text-sm text-neutral-300">Antes de adicionar Image Generator, adicione um Text Node grande no canto superior esquerdo. Ele será o "cartaz" do projeto — o que você lê primeiro toda vez que abrir o Space.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center">
+            <span class="text-rose-400 font-bold text-sm">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Escreva em três blocos</h4>
+            <p class="text-sm text-neutral-300">Bloco 1: Logline (1 frase). Bloco 2: As 3 perguntas respondidas. Bloco 3: Lista numerada das cenas com 1 linha cada. Sem frescura — texto cru, é só para você.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center">
+            <span class="text-rose-400 font-bold text-sm">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Mantenha como referência viva</h4>
+            <p class="text-sm text-neutral-300">À medida que as cenas começam a ser geradas, volte ao Text Node e atualize. Se a cena 3 ficou diferente do plano, edite o roteiro — ele é vivo, não sagrado.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l1/photo_5089376971652795490_y.jpg" alt="Text Node em uso" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Text Node funciona como o roteiro vivo do projeto, sempre visível ao lado dos nodes de geração</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🤖 Expandindo com Assistant Node</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Você tem o esboço cru. Agora pluga um <strong class="text-rose-400">Assistant Node</strong> no Text Node e pede para ele transformar suas anotações em um roteiro estruturado em cenas, com beats narrativos e prompts iniciais para cada cena. Isso poupa horas de retrabalho.
+      </p>
+
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">⚙️ Prompt base para o Assistant</h3>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-sm text-neutral-300 leading-relaxed">
+          Você é um diretor de fotografia. Pegue o esboço abaixo e transforme em um roteiro de 60 segundos dividido em 6 cenas. Para cada cena escreva: (1) duração em segundos, (2) descrição visual de 2 linhas, (3) emoção dominante, (4) tipo de plano sugerido, (5) prompt inicial em inglês para Image Generator. Mantenha continuidade do personagem entre cenas.
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l2/photo_5089376971652795511_y.jpg" alt="Assistant Node com prompt" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Assistant Node conectado ao Text Node — recebe o esboço e devolve roteiro estruturado, pronto para virar storyboard</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Itere o Assistant</h3>
+        <p class="text-neutral-300">A primeira saída raramente é a final. Diga: "está bom mas a cena 4 está fraca, dê 3 alternativas mais visuais". O Assistant é um copiloto criativo, não um oráculo.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🗺️ Dividindo em Cenas</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quantas cenas cabem em 60 segundos? A <strong class="text-rose-400">regra de ouro</strong>: 6 cenas de 10 segundos, ou 5 cenas com pesos diferentes (10s, 8s, 12s, 15s, 15s). Mais que isso vira videoclipe; menos que isso fica monótono.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">⏱️</div>
+          <h4 class="font-bold text-white mb-2">3 cenas (curto)</h4>
+          <p class="text-sm text-neutral-400 mb-3">15-20s cada</p>
+          <p class="text-sm text-neutral-300">Setup → Conflito → Resolução. Estrutura simples, ótima para mensagens de marca ou narrativas líricas.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">🎬</div>
+          <h4 class="font-bold text-white mb-2">6 cenas (padrão)</h4>
+          <p class="text-sm text-neutral-400 mb-3">10s cada</p>
+          <p class="text-sm text-neutral-300">Estabelecimento, personagem, jornada, obstáculo, virada, conclusão. O sweet spot do filme de 60 segundos.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="text-2xl mb-2">⚡</div>
+          <h4 class="font-bold text-white mb-2">9+ cenas (rápido)</h4>
+          <p class="text-sm text-neutral-400 mb-3">5-7s cada</p>
+          <p class="text-sm text-neutral-300">Ritmo de trailer ou videoclipe. Exige edição forte e música — cada cena corta antes de respirar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">⏱️ Ritmo e Duração</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Tempo de cena é <strong class="text-rose-400">ferramenta narrativa</strong>. Um plano longo cria contemplação, peso e dúvida. Um plano curto cria urgência, energia e dispersão. Use os dois propositalmente — não por acaso.
+      </p>
+
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">📐 Tempo ideal por função</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <span class="w-20 text-rose-400 font-mono text-sm">2-4s</span>
+            <p class="text-neutral-300 text-sm"><strong>Cena de impacto</strong> — flash de detalhe, gesto curto, transição rápida. Não dá para sustentar mais que isso sem cansar.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-20 text-rose-400 font-mono text-sm">5-7s</span>
+            <p class="text-neutral-300 text-sm"><strong>Cena de ação</strong> — alguém faz algo. O olhar acompanha, registra e segue.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-20 text-rose-400 font-mono text-sm">8-12s</span>
+            <p class="text-neutral-300 text-sm"><strong>Cena de respiro</strong> — estabelecimento, paisagem, contemplação. O espectador absorve.</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="w-20 text-rose-400 font-mono text-sm">12s+</span>
+            <p class="text-neutral-300 text-sm"><strong>Cena de peso</strong> — momento dramático longo, climax ou contemplação final. Use com cautela.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l2/photo_5089376971652795512_w.jpg" alt="Workflow de cenas" class="w-full object-cover h-64">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Visualizar a duração de cada cena no canvas ajuda a sentir o ritmo antes mesmo de gerar os clipes</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">📋 Exemplo Prático — Roteiro 60s</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Vamos materializar tudo. Roteiro real de 60 segundos, 6 cenas, beat por beat. Use como template para o seu primeiro filme.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <div class="text-rose-400 text-xs font-semibold mb-2">LOGLINE</div>
+        <p class="text-neutral-100 italic mb-6">"Uma fotógrafa solitária descobre uma luz no fim de uma trilha esquecida e decide segui-la."</p>
+
+        <div class="space-y-4">
+          <div class="border-l-2 border-rose-500/50 pl-4">
+            <div class="flex items-center space-x-3 mb-1">
+              <span class="text-rose-400 font-bold">CENA 1</span>
+              <span class="text-xs text-neutral-500 font-mono">10s · estabelecimento</span>
+            </div>
+            <p class="text-sm text-neutral-300">Drone shot lento sobre uma floresta densa ao amanhecer. Neblina entre as árvores. Som ambiente apenas.</p>
+          </div>
+
+          <div class="border-l-2 border-rose-500/50 pl-4">
+            <div class="flex items-center space-x-3 mb-1">
+              <span class="text-rose-400 font-bold">CENA 2</span>
+              <span class="text-xs text-neutral-500 font-mono">8s · personagem</span>
+            </div>
+            <p class="text-sm text-neutral-300">Close médio: ela ajusta a câmera analógica, olhos atentos. Luz dourada lateral. Respiração visível no ar frio.</p>
+          </div>
+
+          <div class="border-l-2 border-rose-500/50 pl-4">
+            <div class="flex items-center space-x-3 mb-1">
+              <span class="text-rose-400 font-bold">CENA 3</span>
+              <span class="text-xs text-neutral-500 font-mono">10s · jornada</span>
+            </div>
+            <p class="text-sm text-neutral-300">Tracking shot lateral acompanhando os passos dela na trilha. Folhas secas. Galhos cruzam o frame.</p>
+          </div>
+
+          <div class="border-l-2 border-rose-500/50 pl-4">
+            <div class="flex items-center space-x-3 mb-1">
+              <span class="text-rose-400 font-bold">CENA 4</span>
+              <span class="text-xs text-neutral-500 font-mono">7s · obstáculo</span>
+            </div>
+            <p class="text-sm text-neutral-300">Ela para. Plano americano. Algo à frente chama atenção. Câmera levemente handheld, instável.</p>
+          </div>
+
+          <div class="border-l-2 border-rose-500/50 pl-4">
+            <div class="flex items-center space-x-3 mb-1">
+              <span class="text-rose-400 font-bold">CENA 5</span>
+              <span class="text-xs text-neutral-500 font-mono">12s · virada</span>
+            </div>
+            <p class="text-sm text-neutral-300">POV dela: uma luz quente e suave pulsando entre as árvores ao fim da trilha. Câmera lenta. Foco profundo.</p>
+          </div>
+
+          <div class="border-l-2 border-rose-500/50 pl-4">
+            <div class="flex items-center space-x-3 mb-1">
+              <span class="text-rose-400 font-bold">CENA 6</span>
+              <span class="text-xs text-neutral-500 font-mono">13s · resolução</span>
+            </div>
+            <p class="text-sm text-neutral-300">Wide shot: silhueta dela caminhando em direção à luz. Static zoom out lento. Música cresce. Fade out.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-dark-600 mb-6">
+        <img src="../img/l3/photo_5089376971652795469_w.jpg" alt="Storyboard completo" class="w-full object-cover h-72">
+        <p class="text-xs text-neutral-500 p-3 bg-dark-800">Storyboard real montado a partir de um roteiro como este — cada quadro corresponde a uma das cenas planejadas no Text Node</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 6.1</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">3 perguntas</strong><span class="text-neutral-400"> — Quem, onde, o que acontece. Sem essas respostas, não há filme.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Text Node como roteiro vivo</strong><span class="text-neutral-400"> — Sempre visível no canvas, atualizado durante a produção.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Assistant Node expande</strong><span class="text-neutral-400"> — Esboço cru vira roteiro estruturado em cenas com prompts.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">6 cenas é o sweet spot</strong><span class="text-neutral-400"> — Para um filme de 60 segundos, 6×10s é o padrão de ouro.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Ritmo é narrativa</strong><span class="text-neutral-400"> — Tempo de cena é ferramenta, não consequência.</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-rose-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">6.2 — Criação do Personagem Principal: golden asset, Custom Character e o pipeline do provador virtual</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 6</a>
+          <a href="modulo-6-2.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">Próximo: Personagem Principal →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

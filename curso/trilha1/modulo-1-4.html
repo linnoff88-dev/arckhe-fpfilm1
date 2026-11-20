@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.4 — Cor, Luz e Atmosfera | Freepik Film</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5, 150, 105, 0.18); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎬</span>
+            <span class="font-bold text-lg hidden sm:inline">Freepik Film</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Recursos</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Spaces</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Câmera</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Produção</span>
+          </a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors">
+            <span class="sm:hidden">T6</span><span class="hidden sm:inline">Filme Final</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1 — Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.4</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.4</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎨 Cor, Luz e Atmosfera</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Antes de qualquer ação ou diálogo, cores e iluminação já comunicam emoção ao espectador — aprenda a usar isso como ferramenta narrativa nos seus prompts de IA.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Base</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Visual</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🎨 Paletas Emocionais</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cor é o primeiro sinal que o cérebro recebe de uma imagem. Antes de reconhecer um rosto, uma forma ou uma ação, o sistema visual processa temperatura e saturação. Isso significa que a paleta de cores de um filme <strong class="text-emerald-400">comunica emoção antes de qualquer outro elemento</strong>.
+      </p>
+
+      <!-- GALERIA DE IMAGENS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795514_y.jpg" alt="Cena com paleta cinematográfica específica" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Paleta definida — a temperatura de cor dominante comunica o estado emocional da cena antes de qualquer ação</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795515_y.jpg" alt="Outra cena com paleta contrastante" class="w-full object-cover h-52">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">A mesma cena com paleta diferente produziria emoção completamente diferente — a cor define o tom</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🎨 O Mapa das Cores e Emoções</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-3">
+            <div class="flex items-center space-x-3 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20">
+              <div class="w-4 h-4 rounded-full bg-amber-400 flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-semibold text-amber-400">Âmbar / Laranja</p>
+                <p class="text-xs text-neutral-400">Intimidade, nostalgia, perigo, calor humano</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
+              <div class="w-4 h-4 rounded-full bg-blue-400 flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-semibold text-blue-400">Azul / Teal</p>
+                <p class="text-xs text-neutral-400">Frieza, distância, solidão, suspense, profissional</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 p-3 bg-green-500/10 rounded-lg border border-green-500/20">
+              <div class="w-4 h-4 rounded-full bg-green-400 flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-semibold text-green-400">Verde</p>
+                <p class="text-xs text-neutral-400">Natureza, esperança, doenças (tons doentios), fuga</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center space-x-3 p-3 bg-red-500/10 rounded-lg border border-red-500/20">
+              <div class="w-4 h-4 rounded-full bg-red-400 flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-semibold text-red-400">Vermelho</p>
+                <p class="text-xs text-neutral-400">Paixão, perigo, sangue, urgência, amor/ódio</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 p-3 bg-purple-500/10 rounded-lg border border-purple-500/20">
+              <div class="w-4 h-4 rounded-full bg-purple-400 flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-semibold text-purple-400">Roxo</p>
+                <p class="text-xs text-neutral-400">Mistério, royalty, sobrenatural, ambiguidade</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 p-3 bg-neutral-500/10 rounded-lg border border-neutral-500/20">
+              <div class="w-4 h-4 rounded-full bg-neutral-400 flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-semibold text-neutral-400">Cinza / Dessaturado</p>
+                <p class="text-xs text-neutral-400">Morte, vazio, depressão, pós-apocalipse, passado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Definindo Paleta no Prompt</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• <code class="text-emerald-400">"warm amber and orange palette, intimate and nostalgic mood"</code></li>
+          <li>• <code class="text-emerald-400">"cold desaturated blue tones, isolation and melancholy"</code></li>
+          <li>• <code class="text-emerald-400">"high contrast, black and red palette, danger and urgency"</code></li>
+          <li>• <code class="text-emerald-400">"monochromatic gray palette, desaturated, post-apocalyptic atmosphere"</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">☀️ Tipos de Iluminação</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A iluminação de um filme não é apenas sobre "ver" os personagens — é sobre <strong class="text-emerald-400">decidir o que o espectador sente</strong> ao vê-los. Cada tipo de iluminação carrega um gênero, uma época e uma emoção que o espectador reconhece intuitivamente de toda uma vida assistindo cinema.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-start space-x-4">
+            <span class="text-2xl flex-shrink-0">☀️</span>
+            <div>
+              <h4 class="font-semibold text-white mb-1">Luz Natural / Realista</h4>
+              <p class="text-neutral-300 text-sm mb-2">Luz do sol em diferentes horários — manhã suave, meio-dia duro, final do dia dourado. Cria autenticidade e imersão. Associada ao drama íntimo, cinema independente, documentários.</p>
+              <p class="text-neutral-400 text-xs">Prompts: <code class="text-emerald-400">"soft natural morning light, realistic, documentary-style"</code></p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-start space-x-4">
+            <span class="text-2xl flex-shrink-0">🎭</span>
+            <div>
+              <h4 class="font-semibold text-white mb-1">Luz Dramática / Chiaroscuro</h4>
+              <p class="text-neutral-300 text-sm mb-2">Contraste extremo entre luz e sombra. Uma única fonte de luz forte enquanto o resto está no escuro. Cria tensão, mistério e peso. Associado a thrillers, noirs, dramas intensos.</p>
+              <p class="text-neutral-400 text-xs">Prompts: <code class="text-emerald-400">"chiaroscuro lighting, single harsh light source, deep shadows, dramatic contrast"</code></p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-start space-x-4">
+            <span class="text-2xl flex-shrink-0">💡</span>
+            <div>
+              <h4 class="font-semibold text-white mb-1">Luz Artificial / Neon</h4>
+              <p class="text-neutral-300 text-sm mb-2">Luzes de néon, lâmpadas de sódio, telas e monitores. Define época e gênero imediatamente — cyberpunk, noir moderno, thriller urbano noturno. Cores saturadas em ambiente escuro.</p>
+              <p class="text-neutral-400 text-xs">Prompts: <code class="text-emerald-400">"neon lights reflecting on wet pavement, urban noir, magenta and cyan glow"</code></p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <div class="flex items-start space-x-4">
+            <span class="text-2xl flex-shrink-0">🌑</span>
+            <div>
+              <h4 class="font-semibold text-white mb-1">Silhueta</h4>
+              <p class="text-neutral-300 text-sm mb-2">Personagem completamente escuro contra fundo iluminado. Elimina toda informação facial — cria mistério, anonimato, poder ou ameaça. Um dos recursos visuais mais impactantes e icônicos do cinema.</p>
+              <p class="text-neutral-400 text-xs">Prompts: <code class="text-emerald-400">"silhouette of figure against bright sunset, anonymous, powerful composition"</code></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🌫️ Atmosfera em Prompts</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Certas palavras-chave atmosféricas são verdadeiros <strong class="text-emerald-400">atalhos visuais</strong> — elas ativam pacotes completos de informação estética nos modelos de IA, porque foram treinados em milhões de imagens com essas descrições. Uma palavra carrega uma estética inteira.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🌫️ Dicionário de Atmosferas Cinematográficas</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="space-y-3">
+            <div class="bg-dark-700/50 rounded-lg p-3">
+              <p class="text-emerald-400 font-mono text-sm mb-1">"golden hour"</p>
+              <p class="text-xs text-neutral-400">Luz quente lateral, sombras longas, tons âmbar, romantismo e nostalgia</p>
+            </div>
+            <div class="bg-dark-700/50 rounded-lg p-3">
+              <p class="text-emerald-400 font-mono text-sm mb-1">"blue hour"</p>
+              <p class="text-xs text-neutral-400">Crepúsculo azulado antes do pôr do sol total, melancolia e transição</p>
+            </div>
+            <div class="bg-dark-700/50 rounded-lg p-3">
+              <p class="text-emerald-400 font-mono text-sm mb-1">"foggy morning"</p>
+              <p class="text-xs text-neutral-400">Névoa suave, luz difusa, mistério tranquilo, mundo em suspensão</p>
+            </div>
+            <div class="bg-dark-700/50 rounded-lg p-3">
+              <p class="text-emerald-400 font-mono text-sm mb-1">"neon noir"</p>
+              <p class="text-xs text-neutral-400">Noite chuvosa, luzes coloridas refletidas, cidade sombria e vibrante</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="bg-dark-700/50 rounded-lg p-3">
+              <p class="text-emerald-400 font-mono text-sm mb-1">"overcast flat light"</p>
+              <p class="text-xs text-neutral-400">Nuvens cobrindo o sol, luz uniforme sem sombras, realismo frio</p>
+            </div>
+            <div class="bg-dark-700/50 rounded-lg p-3">
+              <p class="text-emerald-400 font-mono text-sm mb-1">"dramatic storm"</p>
+              <p class="text-xs text-neutral-400">Nuvens escuras, luz contrastante, tensão climática, instabilidade</p>
+            </div>
+            <div class="bg-dark-700/50 rounded-lg p-3">
+              <p class="text-emerald-400 font-mono text-sm mb-1">"harsh midday sun"</p>
+              <p class="text-xs text-neutral-400">Luz dura vertical, sombras curtas, calor, faroeste, desolação</p>
+            </div>
+            <div class="bg-dark-700/50 rounded-lg p-3">
+              <p class="text-emerald-400 font-mono text-sm mb-1">"candlelight"</p>
+              <p class="text-xs text-neutral-400">Luz quente e tremulante, intimidade extrema, época histórica, ritual</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Combinando Atmosferas</h3>
+        <p class="text-neutral-300 mb-3">As atmosferas funcionam melhor combinadas com o tipo de cena e a emoção-alvo:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• <code class="text-emerald-400">"foggy morning, blue hour, lone figure, melancholic"</code> — solidão contemplativa</li>
+          <li>• <code class="text-emerald-400">"golden hour, warm light, two people, intimate close-up"</code> — conexão emocional</li>
+          <li>• <code class="text-emerald-400">"neon noir, rain-slicked streets, dramatic storm, chasing scene"</code> — tensão urbana</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🎭 Color Grading</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Color grading é o processo de ajustar as cores de um filme na pós-produção para criar uma <strong class="text-emerald-400">estética visual coesa e intencional</strong>. É o que faz filmes da A24 parecerem A24, produções da Netflix parecerem Netflix. A mesma cena, com grades diferentes, conta histórias completamente diferentes.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🎭 Looks de Color Grading Famosos</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3 pb-3 border-b border-dark-600/50">
+            <span class="text-emerald-400 font-bold w-28 flex-shrink-0 text-sm">Teal & Orange</span>
+            <div>
+              <p class="text-neutral-300 text-sm">Pele laranja, sombras teal. O look mais popular de blockbusters dos anos 2010. Cria separação dramática entre personagem e ambiente.</p>
+              <p class="text-neutral-400 text-xs mt-1">Prompt: <code class="text-emerald-400">"cinematic teal and orange color grade, Hollywood blockbuster look"</code></p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3 pb-3 border-b border-dark-600/50">
+            <span class="text-emerald-400 font-bold w-28 flex-shrink-0 text-sm">A24 Grade</span>
+            <div>
+              <p class="text-neutral-300 text-sm">Dessaturado com um tom específico (muitas vezes verde-azulado ou âmbar frio), textura de grão de filme. Realismo elevado, introspectivo.</p>
+              <p class="text-neutral-400 text-xs mt-1">Prompt: <code class="text-emerald-400">"A24 film aesthetic, muted colors, film grain, intimate drama"</code></p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3 pb-3 border-b border-dark-600/50">
+            <span class="text-emerald-400 font-bold w-28 flex-shrink-0 text-sm">Film Noir</span>
+            <div>
+              <p class="text-neutral-300 text-sm">Preto e branco de alto contraste (ou cor muito dessaturada), sombras profundas. Suspense, crime, ambiguidade moral.</p>
+              <p class="text-neutral-400 text-xs mt-1">Prompt: <code class="text-emerald-400">"black and white film noir, high contrast, deep shadows, 1940s cinema"</code></p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold w-28 flex-shrink-0 text-sm">Wes Anderson</span>
+            <div>
+              <p class="text-neutral-300 text-sm">Paleta pastel muito específica e simétrica, tons rosados e amarelos. Estética única e reconhecível globalmente.</p>
+              <p class="text-neutral-400 text-xs mt-1">Prompt: <code class="text-emerald-400">"Wes Anderson style, pastel color palette, symmetrical composition, quirky"</code></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🌑 Contraste e Sombra</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        "A sombra é mais poderosa que a luz" — essa frase resume um dos princípios mais profundos da cinematografia. O que você <strong class="text-emerald-400">não ilumina</strong> frequentemente comunica mais do que o que você ilumina. Sombra é ausência, mistério, o desconhecido.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795517_w.jpg" alt="Cena com contraste dramático" class="w-full object-cover h-48">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Alto contraste — a sombra define o drama tanto quanto a luz, criando profundidade e tensão</p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-dark-600">
+          <img src="../img/l2/photo_5089376971652795516_y.jpg" alt="Composição com sombras profundas" class="w-full object-cover h-48">
+          <p class="text-xs text-neutral-500 p-2 bg-dark-800">Sombras profundas e luz direcional — o jogo entre revelação e ocultamento narrativo</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🌑 Ratio de Luz e Sombra</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-4">
+            <span class="text-neutral-400 text-sm w-24 flex-shrink-0">High Key</span>
+            <div class="flex-1 bg-gradient-to-r from-neutral-300 to-white rounded-full h-3"></div>
+            <span class="text-neutral-300 text-sm w-32 flex-shrink-0">Bright, positivo, comercial</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-neutral-400 text-sm w-24 flex-shrink-0">Balanced</span>
+            <div class="flex-1 bg-gradient-to-r from-neutral-600 to-neutral-300 rounded-full h-3"></div>
+            <span class="text-neutral-300 text-sm w-32 flex-shrink-0">Realista, drama natural</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-neutral-400 text-sm w-24 flex-shrink-0">Low Key</span>
+            <div class="flex-1 bg-gradient-to-r from-neutral-900 to-neutral-600 rounded-full h-3"></div>
+            <span class="text-neutral-300 text-sm w-32 flex-shrink-0">Tensão, mistério, thriller</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-neutral-400 text-sm w-24 flex-shrink-0">Extreme</span>
+            <div class="flex-1 bg-gradient-to-r from-black to-neutral-800 rounded-full h-3"></div>
+            <span class="text-neutral-300 text-sm w-32 flex-shrink-0">Horror, noir, opressão</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Prompts de Contraste e Sombra</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• <code class="text-emerald-400">"extreme low key lighting, deep shadows, single spotlight, high contrast"</code></li>
+          <li>• <code class="text-emerald-400">"half face in shadow, dramatic Rembrandt lighting, intense portrait"</code></li>
+          <li>• <code class="text-emerald-400">"long dramatic shadows, late afternoon sun, desert landscape"</code></li>
+          <li>• <code class="text-emerald-400">"silhouette against glowing window, mystery, backlit"</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">💡 Luz como Personagem</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O nível mais avançado do uso da luz no cinema: quando a <strong class="text-emerald-400">iluminação conta a história sozinha</strong>, sem precisar de atores ou diálogos. A luz que entra, que some, que muda de direção — cada uma dessas mudanças é um evento narrativo em si mesma.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">💡 Exemplos de Luz Narrativa</h3>
+        <div class="space-y-4">
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Luz que diminui gradualmente</h4>
+            <p class="text-neutral-300 text-sm">Uma janela que vai escurecendo enquanto o personagem está sentado imóvel. Narrativa: o tempo passa, a esperança diminui, um dia se encerra. Sem uma palavra ou movimento do personagem.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Luz que pisca</h4>
+            <p class="text-neutral-300 text-sm">Uma lâmpada que falha ritmicamente. Narrativa: instabilidade, presença perturbadora, sistema que colapsa, ameaça iminente. Usada em horror e thriller com efeito imediato.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">God rays (raios de luz)</h4>
+            <p class="text-neutral-300 text-sm">Raios de luz cortando a escuridão através de névoa ou fumaça. Narrativa: esperança, revelação, chegada do divino, momento de transformação. Poderoso em fechamentos de arco.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Luz que se apaga de uma vez</h4>
+            <p class="text-neutral-300 text-sm">Corte para negro súbito enquanto a luz desaparece. Narrativa: morte, decisão irreversível, ponto sem retorno, conclusão. Um dos finais mais impactantes que existem.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Prompts de Luz Narrativa</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• <code class="text-emerald-400">"god rays breaking through dark storm clouds, hope emerging"</code></li>
+          <li>• <code class="text-emerald-400">"flickering neon light casting uneasy shadows, ominous atmosphere"</code></li>
+          <li>• <code class="text-emerald-400">"single shaft of light cutting through complete darkness"</code></li>
+          <li>• <code class="text-emerald-400">"light slowly fading as sun sets, room going dark, solitude"</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.4
+        </h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Paletas emocionais</strong><span class="text-neutral-400"> — Cores frias = suspense/distância, quentes = intimidade/perigo</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Tipos de iluminação</strong><span class="text-neutral-400"> — Cada estilo de luz carrega um gênero e uma emoção pré-estabelecidos</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Palavras-gatilho de atmosfera</strong><span class="text-neutral-400"> — Golden hour, neon noir, foggy morning ativam estéticas completas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Color grading como identidade</strong><span class="text-neutral-400"> — Definir um look referenciado garante coesão visual entre cenas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Sombra como narrativa</strong><span class="text-neutral-400"> — O que não se ilumina comunica tanto quanto o que se ilumina</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Luz como personagem</strong><span class="text-neutral-400"> — God rays, luz piscante e escuridão contam histórias sem atores</span></div>
+          </div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.5 — Som como Personagem: por que o áudio vale metade do filme e como planejar trilha, SFX e silêncio junto com as imagens</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 1.3</a>
+          <a href="modulo-1-5.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próximo: Som como Personagem →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Freepik Film — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
